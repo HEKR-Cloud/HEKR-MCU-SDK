@@ -22,19 +22,19 @@ unsigned char Hekr_RecvData_Handle(unsigned char* data)
 	switch(data[2])
 	{
 	case Device_Upload_Type://MCU上传信息反馈 不需要处理 
-													return MCU_Upload_ACK;
-													break; 	 
+	                        return MCU_Upload_ACK;
+	                        break; 	 
 	case Module_Download_Type://WIFI下传信息
-													Hekr_Send_Frame(data);
-													Hekr_ValidData_Copy(data);
-													return Valid_Data_Update;
-													break;  
+	                        Hekr_Send_Frame(data);
+	                        Hekr_ValidData_Copy(data);
+	                        return Valid_Data_Update;
+	                        break;  
 	case Module_Operation_Type://Hekr模块状态
-													Hekr_Module_State_Copy(data);
-													return Hekr_Module_State_Update;
-													break; 
+	                        Hekr_Module_State_Copy(data);
+	                        return Hekr_Module_State_Update;
+	                        break; 
 	case Error_Frame_Type://上一帧发送错误	
-													return Last_Frame_Send_Err;
+	                        return Last_Frame_Send_Err;
 													break;			 
 	default:Err_Response(Error_No_CMD);break;
 	}
