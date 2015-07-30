@@ -12,30 +12,30 @@ static void Hekr_Send_Byte(unsigned char ch)
 
 unsigned char Hekr_RecvData_Handle(unsigned char* data)
 {
-	//¼ì²éºÍĞ£Ñé
+	//æ£€æŸ¥å’Œæ ¡éªŒ
 	if(Sum_Check_Is_Err(data))
 	{
 		Err_Response(Error_Sum_Check);
 		return RecvData_SumCheckErr;
 	}
-	//È·ÈÏÖ¡ÀàĞÍ
+	//ç¡®è®¤å¸§ç±»å‹
 	switch(data[2])
 	{
-	case Device_Upload_Type://MCUÉÏ´«ĞÅÏ¢·´À¡ ²»ĞèÒª´¦Àí 
+	case Device_Upload_Type://MCUä¸Šä¼ ä¿¡æ¯åé¦ˆ ä¸éœ€è¦å¤„ç† 
 	                        return MCU_Upload_ACK;
 	                        break; 	 
-	case Module_Download_Type://WIFIÏÂ´«ĞÅÏ¢
+	case Module_Download_Type://WIFIä¸‹ä¼ ä¿¡æ¯
 	                        Hekr_Send_Frame(data);
 	                        Hekr_ValidData_Copy(data);
 	                        return Valid_Data_Update;
 	                        break;  
-	case Module_Operation_Type://HekrÄ£¿é×´Ì¬
+	case Module_Operation_Type://Hekræ¨¡å—çŠ¶æ€
 	                        Hekr_Module_State_Copy(data);
 	                        return Hekr_Module_State_Update;
 	                        break; 
-	case Error_Frame_Type://ÉÏÒ»Ö¡·¢ËÍ´íÎó	
+	case Error_Frame_Type://ä¸Šä¸€å¸§å‘é€é”™è¯¯	
 	                        return Last_Frame_Send_Err;
-													break;			 
+	                        break;			 
 	default:Err_Response(Error_No_CMD);break;
 	}
 	return RecvData_Useless;
