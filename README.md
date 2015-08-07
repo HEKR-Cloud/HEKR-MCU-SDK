@@ -5,6 +5,8 @@
 *	Hekr_Protocol 目录结构
 *	氦氪HEKR模块透传协议示例
 *	协议移植说明
+*	移植样例
+*	更新历史
 *	相关链接及反馈
 
 ##1. SDK简介
@@ -97,7 +99,25 @@ Hekr MCU SDK中的协议可快速移植到其他单片机中
 ####4.3 使用
 参照 3.氦氪HEKR模块透传协议示例 加入协议处理部分即可正常使用
 
-##5.相关链接及反馈
+##5.移植样例
+example 文件夹下是移植完成的MCU-SDK
+
+####5.1 STM32的hekr协议SDK 
+具体参数如下
+
+*	开发平台 STM32F103C8T6
+*	开发环境 MDK5.13
+*	开发工具 Jlink , Jlink-OB , ST-LINK V2
+*	通信方式 UART3 参数 9600-8-N-1
+*	通信协议 氦氪HEKR模块透传协议
+
+
+##6.更新历史
+* 2015.7.30 STM8 SDK及Readme.md文档编写
+* 2015.8.07 增加STM32 SDK移植样例 Readme.md文档补充
+
+
+##7.相关链接及反馈
 
 SDK 获取 ：  https://github.com/HEKR-Cloud/HEKR-MCU-SDK.git
 

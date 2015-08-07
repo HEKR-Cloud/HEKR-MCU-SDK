@@ -6,7 +6,7 @@ unsigned char Module_Status[20];
 
 static void Hekr_Send_Byte(unsigned char ch)
 {
-	UART1_SendChar(ch);
+		UART3_SendChar(ch);
 }
 
 
