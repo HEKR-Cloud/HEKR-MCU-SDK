@@ -40,7 +40,7 @@ unsigned char Hekr_RecvData_Handle(unsigned char* data)
 void Hekr_ValidData_Upload(void)
 {
 	unsigned char i;
-	unsigned char len = Led_Control_Frame_Length-6;
+	unsigned char len = Led_Control_Frame_Length-5;
 	Hekr_Send_Buffer[0] = Hekr_Frame_Header;
 	Hekr_Send_Buffer[1] = Led_Control_Frame_Length;
 	Hekr_Send_Buffer[2] = Device_Upload_Type;
@@ -110,7 +110,7 @@ static void Err_Response(unsigned char data)
 static void Hekr_ValidData_Copy(unsigned char* data)
 {
 	unsigned char len,i;
-	len = data[1]- 6;
+	len = data[1]- 5;
 	for(i = 0 ;i < len ; i++)
 		Valid_Data[i] = data[i+4];
 }
@@ -118,7 +118,7 @@ static void Hekr_ValidData_Copy(unsigned char* data)
 static void Hekr_Module_State_Copy(unsigned char* data)
 {
 	unsigned char len,i;
-	len = data[1]- 6;
+	len = data[1]- 5;
 	for(i = 0 ;i < len ; i++)
 		Module_Status[i] = data[i+4];
 }
