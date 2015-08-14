@@ -4,6 +4,10 @@
 
 // Hekr USER API **************************************************************
 
+// 使用前要定义用户所需要的最大数组  
+// 如果有多条不等长命令  取最长长度
+// #define User_Max_Len 0x0F
+
 //传入串口接收的数据数组  
 //返回值见头文件 RecvData_Handle_Code
 //数据保存在对应数组中 Valid_Data 和 Module_Status
@@ -14,8 +18,8 @@
 //void Hekr_Module_Control(unsigned char data);
 
 //上传用户有效数据
-//数据存放在Valid_Data数组中
-//void Hekr_ValidData_Upload(void);
+//数据存放在Valid_Data数组中 len 为用户数据长度  非整帧长度
+//void Hekr_ValidData_Upload(unsigned char  len);
 
 //如果修改串口则需要修改此函数  及对应头文件
 //static void Hekr_Send_Byte(unsigned char ch);
@@ -28,8 +32,11 @@
 
 #include "stm8_uart.h"
 
-extern unsigned char Hekr_Send_Buffer[20];
-extern unsigned char Valid_Data[20];
+#define User_Max_Len 0x0F
+
+
+extern unsigned char Hekr_Send_Buffer[User_Max_Len+5];
+extern unsigned char Valid_Data[User_Max_Len];
 extern unsigned char Module_Status[20];
 
 #define Hekr_Frame_Header 0x48u
@@ -115,7 +122,6 @@ typedef	enum
 {
 	Module_Query_Frame_Length = 0x07,
 	Module_Response_Frame_Length = 0x0B,
-	Led_Control_Frame_Length = 0x0E,
 	Error_Frame_Length = 0x07
 }All_Frame_Length;
 
@@ -186,20 +192,6 @@ typedef	enum
 	Cloud_Time_Over = 0x03
 }Hekr_Module_Cloud_Code;
 
-/*智能照明控制命令码*/
-typedef	enum
-{
-	LED_Query = 0x00,						      //查询设备当前状态
-	LED_Preset = 0x01,			          //即所带参数全部有效，切换到预设状态
-	LED_PowerONOFF = 0x02,				    //开关灯具
-	LED_Bright_Control = 0x03,			  //调整亮度到相应值
-	LED_Bright_UP = 0x04,			        //调亮命令
-	LED_Bright_DOWN = 0x05,			      //调暗命令
-	LED_Color_Temperature = 0x06,			//调整色温到相应值
-	LED_Color_Chroma = 0x07,			    //调色彩度到相应值
-	LED_Recover_LastShutdown = 0x08	  //恢复上次关闭时的状态，例如亮度色彩色温
-}LED_Control_Code;
-
 //*************************************************************************
 //函数列表
 //*************************************************************************
@@ -207,7 +199,7 @@ typedef	enum
 // Hekr USER API 
 unsigned char Hekr_RecvData_Handle(unsigned char* data);
 void Hekr_Module_Control(unsigned char data);
-void Hekr_ValidData_Upload(void);
+void Hekr_ValidData_Upload(unsigned char len);
 
 //如果修改串口则需要修改此函数
 static void Hekr_Send_Byte(unsigned char ch);

@@ -47,10 +47,19 @@ STM8 系统时钟等相关配置与定义
 
 
 ##3. 氦氪HEKR模块透传协议示例
+
+####透传协议示例
+定义用户需要的最长长度
+	
+	// 使用前要定义用户所需要的最大数组  
+	// 如果有多条不等长命令  取最长长度
+	#define User_Max_Len 0x0F
+	
 协议数据发送示例
 
 	// 主动上传用户数据（数据保存在Valid_Data数组里）
-	Hekr_ValidData_Upload();
+	// User_Valid_Len 为用户数据长度  非整帧长度
+	Hekr_ValidData_Upload(User_Valid_Len);
 	// 查询 Hekr模块当前状态
 	Hekr_Module_Control(Module_Query);
 	// 配置Hekr模块进入Hekr_Config模式
@@ -75,6 +84,15 @@ STM8 系统时钟等相关配置与定义
 		}
 		Date_Handle_Flag = 0;			
 	}		
+
+####对于用户数据多种或不等长补充说明
+#####接收
+*	如果有多条不等长命令可以正常接收 
+*	接收的数据保存在 Valid_Data 数组里
+*	用户需要自行判断命令是哪一种
+#####上传
+*	把数据保存到Valid_Data中
+*	传入参数为对应命令长度 即可正常上传
 
 ##4.协议移植说明
 Hekr MCU SDK中的协议可快速移植到其他单片机中
@@ -113,9 +131,10 @@ example 文件夹下是移植完成的MCU-SDK
 
 
 ##6.更新历史
-* 2015.7.30 STM8 SDK及Readme.md文档编写
-* 2015.8.07 增加STM32 SDK移植样例 Readme.md文档补充
+* 2015.7.30 STM8-SDK及Readme.md文档编写
+* 2015.8.07 增加STM32-SDK移植样例 Readme.md文档补充
 * 2015.8.13 修复收到的有效数据缺位错误
+* 2015.8.14 增加用户不等长命令描述 Readme.md文档补充
 
 ##7.相关链接及反馈
 

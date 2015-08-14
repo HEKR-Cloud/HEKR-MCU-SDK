@@ -20,6 +20,10 @@ void System_init(void);
 
 // Hekr USER API **************************************************************
 
+// 使用前要定义用户所需要的最大数组  
+// 如果有多条不等长命令  取最长长度
+// #define User_Max_Len 0x0F
+
 //传入串口接收的数据数组  
 //返回值见头文件 RecvData_Handle_Code
 //数据保存在对应数组中 Valid_Data 和 Module_Status
@@ -30,8 +34,9 @@ void System_init(void);
 //void Hekr_Module_Control(unsigned char data);
 
 //上传用户有效数据
-//数据存放在Valid_Data数组中
-//void Hekr_ValidData_Upload(void);
+//数据存放在Valid_Data数组中 len 为用户数据长度  非整帧长度
+//void Hekr_ValidData_Upload(unsigned char len);
+
 
 //如果修改串口则需要修改此函数 及对应头文件
 //static void Hekr_Send_Byte(unsigned char ch);
@@ -44,10 +49,11 @@ void System_init(void);
 main()
 {
 	u8 temp;
+	u8 User_Valid_Len = 8;
 	System_init();
 	
 	// 上传有效数据
-	Hekr_ValidData_Upload();
+	Hekr_ValidData_Upload(User_Valid_Len);
 	// 配置及查询hekr模块状态
 	Hekr_Module_Control(Module_Query);
 	

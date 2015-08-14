@@ -11,8 +11,9 @@ void System_init(void);
 int main()
 {
 	u8 temp;
+	u8 User_Valid_Len = 8;
 	System_init();
-	Hekr_ValidData_Upload();
+	Hekr_ValidData_Upload(User_Valid_Len);
 
 	while (1)
 	{

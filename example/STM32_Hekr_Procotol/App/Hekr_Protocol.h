@@ -4,6 +4,10 @@
 
 // Hekr USER API **************************************************************
 
+// 使用前要定义用户所需要的最大数组  
+// 如果有多条不等长命令  取最长长度
+// #define User_Max_Len 0x0F
+
 //传入串口接收的数据数组  
 //返回值见头文件 RecvData_Handle_Code
 //数据保存在对应数组中 Valid_Data 和 Module_Status
@@ -13,9 +17,11 @@
 //状态值保存在Module_Status数组中
 //void Hekr_Module_Control(unsigned char data);
 
+
 //上传用户有效数据
-//数据存放在Valid_Data数组中
-//void Hekr_ValidData_Upload(void);
+//数据存放在Valid_Data数组中 len 为用户数据长度  非整帧长度
+//void Hekr_ValidData_Upload(unsigned char len);
+
 
 //如果修改串口则需要修改此函数  及对应头文件
 //static void Hekr_Send_Byte(unsigned char ch);
@@ -27,8 +33,11 @@
 
 #include "uart.h"
 
-extern unsigned char Hekr_Send_Buffer[20];
-extern unsigned char Valid_Data[20];
+#define User_Max_Len 0x0F
+
+
+extern unsigned char Hekr_Send_Buffer[User_Max_Len+5];
+extern unsigned char Valid_Data[User_Max_Len];
 extern unsigned char Module_Status[20];
 
 #define Hekr_Frame_Header 0x48u
@@ -206,7 +215,7 @@ typedef	enum
 // Hekr USER API 
 unsigned char Hekr_RecvData_Handle(unsigned char* data);
 void Hekr_Module_Control(unsigned char data);
-void Hekr_ValidData_Upload(void);
+void Hekr_ValidData_Upload(unsigned char len);
 
 //如果修改串口则需要修改此函数
 static void Hekr_Send_Byte(unsigned char ch);

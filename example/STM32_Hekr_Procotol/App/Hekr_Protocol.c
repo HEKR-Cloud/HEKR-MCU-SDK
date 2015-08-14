@@ -1,7 +1,7 @@
 #include "hekr_protocol.h"
 
-unsigned char Hekr_Send_Buffer[20];
-unsigned char Valid_Data[20];
+unsigned char Hekr_Send_Buffer[User_Max_Len+5];
+unsigned char Valid_Data[User_Max_Len];
 unsigned char Module_Status[20];
 
 static void Hekr_Send_Byte(unsigned char ch)
@@ -37,12 +37,11 @@ unsigned char Hekr_RecvData_Handle(unsigned char* data)
 	return RecvData_Useless;
 }
 
-void Hekr_ValidData_Upload(void)
+void Hekr_ValidData_Upload(unsigned char len)
 {
 	unsigned char i;
-	unsigned char len = Led_Control_Frame_Length-5;
 	Hekr_Send_Buffer[0] = Hekr_Frame_Header;
-	Hekr_Send_Buffer[1] = Led_Control_Frame_Length;
+	Hekr_Send_Buffer[1] = len + 5;;
 	Hekr_Send_Buffer[2] = Device_Upload_Type;
 	Hekr_Send_Buffer[3] = 0x01;
 	for(i = 0; i < len ; i++)

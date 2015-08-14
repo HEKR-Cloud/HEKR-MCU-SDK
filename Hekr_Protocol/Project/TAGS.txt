@@ -28,7 +28,7 @@ DNS_Fail	..\app\hekr_protocol.h	185;"	enumerator	enum:__anon13
 Date_Handle_Flag	main.c	15;"	variable
 Device_Upload_Type	..\app\hekr_protocol.h	125;"	enumerator	enum:__anon7
 EOF	d:\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	27;"	macro
-Err_Response	..\app\hekr_protocol.c	99;"	function	file:	signature:(unsigned char data)
+Err_Response	..\app\hekr_protocol.c	98;"	function	file:	signature:(unsigned char data)
 Err_Response	..\app\hekr_protocol.h	218;"	prototype	signature:(unsigned char data)
 Error_Code	..\app\hekr_protocol.h	84;"	member	struct:__anon4
 Error_Data_Range	..\app\hekr_protocol.h	136;"	enumerator	enum:__anon8
@@ -44,10 +44,10 @@ Hekr_Config	..\app\hekr_protocol.h	157;"	enumerator	enum:__anon10
 Hekr_Config_Mode	..\app\hekr_protocol.h	164;"	enumerator	enum:__anon11
 Hekr_Frame_Header	..\app\hekr_protocol.h	35;"	macro
 Hekr_Module_Cloud_Code	..\app\hekr_protocol.h	187;"	typedef	typeref:enum:__anon13
-Hekr_Module_Control	..\app\hekr_protocol.c	53;"	function	signature:(unsigned char data)
+Hekr_Module_Control	..\app\hekr_protocol.c	52;"	function	signature:(unsigned char data)
 Hekr_Module_Control	..\app\hekr_protocol.h	209;"	prototype	signature:(unsigned char data)
 Hekr_Module_Control_Code	..\app\hekr_protocol.h	158;"	typedef	typeref:enum:__anon10
-Hekr_Module_State_Copy	..\app\hekr_protocol.c	118;"	function	file:	signature:(unsigned char* data)
+Hekr_Module_State_Copy	..\app\hekr_protocol.c	117;"	function	file:	signature:(unsigned char* data)
 Hekr_Module_State_Copy	..\app\hekr_protocol.h	221;"	prototype	signature:(unsigned char* data)
 Hekr_Module_State_Update	..\app\hekr_protocol.h	148;"	enumerator	enum:__anon9
 Hekr_Module_WIFI_Code	..\app\hekr_protocol.h	179;"	typedef	typeref:enum:__anon12
@@ -57,12 +57,12 @@ Hekr_RecvData_Handle	..\app\hekr_protocol.h	208;"	prototype	signature:(unsigned 
 Hekr_Send_Buffer	..\app\hekr_protocol.c	3;"	variable
 Hekr_Send_Byte	..\app\hekr_protocol.c	7;"	function	file:	signature:(unsigned char ch)
 Hekr_Send_Byte	..\app\hekr_protocol.h	213;"	prototype	signature:(unsigned char ch)
-Hekr_Send_Frame	..\app\hekr_protocol.c	66;"	function	file:	signature:(unsigned char *data)
+Hekr_Send_Frame	..\app\hekr_protocol.c	65;"	function	file:	signature:(unsigned char *data)
 Hekr_Send_Frame	..\app\hekr_protocol.h	216;"	prototype	signature:(unsigned char *data)
-Hekr_ValidData_Copy	..\app\hekr_protocol.c	110;"	function	file:	signature:(unsigned char* data)
+Hekr_ValidData_Copy	..\app\hekr_protocol.c	109;"	function	file:	signature:(unsigned char* data)
 Hekr_ValidData_Copy	..\app\hekr_protocol.h	220;"	prototype	signature:(unsigned char* data)
-Hekr_ValidData_Upload	..\app\hekr_protocol.c	40;"	function	signature:(void)
-Hekr_ValidData_Upload	..\app\hekr_protocol.h	210;"	prototype	signature:(void)
+Hekr_ValidData_Upload	..\app\hekr_protocol.c	40;"	function	signature:(unsigned char len)
+Hekr_ValidData_Upload	..\app\hekr_protocol.h	210;"	prototype	signature:(unsigned char len)
 LED_Bright_Control	..\app\hekr_protocol.h	195;"	enumerator	enum:__anon14
 LED_Bright_DOWN	..\app\hekr_protocol.h	197;"	enumerator	enum:__anon14
 LED_Bright_UP	..\app\hekr_protocol.h	196;"	enumerator	enum:__anon14
@@ -264,17 +264,17 @@ SUM	..\app\hekr_protocol.h	59;"	member	struct:__anon2
 SUM	..\app\hekr_protocol.h	75;"	member	struct:__anon3
 SUM	..\app\hekr_protocol.h	87;"	member	struct:__anon4
 Signal_Strength	..\app\hekr_protocol.h	72;"	member	struct:__anon3
-Sum_Calculate	..\app\hekr_protocol.c	86;"	function	file:	signature:(unsigned char* data)
+Sum_Calculate	..\app\hekr_protocol.c	85;"	function	file:	signature:(unsigned char* data)
 Sum_Calculate	..\app\hekr_protocol.h	219;"	prototype	signature:(unsigned char* data)
-Sum_Check_Is_Err	..\app\hekr_protocol.c	77;"	function	file:	signature:(unsigned char* data)
+Sum_Check_Is_Err	..\app\hekr_protocol.c	76;"	function	file:	signature:(unsigned char* data)
 Sum_Check_Is_Err	..\app\hekr_protocol.h	217;"	prototype	signature:(unsigned char* data)
 System_Clock_init	..\system\sys\sys.c	3;"	function	signature:(void)
 System_Clock_init	..\system\sys\sys.h	18;"	prototype	signature:(void)
 System_init	main.c	18;"	prototype	file:	signature:(void)
-System_init	main.c	82;"	function	signature:(void)
+System_init	main.c	83;"	function	signature:(void)
 UART1_Init	..\chip\inc\stm8_uart.h	7;"	prototype	signature:(void)
 UART1_Init	..\chip\src\stm8_uart.c	18;"	function	signature:(void)
-UART1_Recv_IRQHandler	main.c	90;"	function	signature:(void)
+UART1_Recv_IRQHandler	main.c	91;"	function	signature:(void)
 UART1_Recv_IRQHandler	stm8_interrupt_vector.c	22;"	prototype	file:	signature:(void)
 UART1_SendChar	..\chip\inc\stm8_uart.h	8;"	prototype	signature:(unsigned char ch)
 UART1_SendChar	..\chip\src\stm8_uart.c	45;"	function	signature:(unsigned char ch)
@@ -312,7 +312,7 @@ interrupt_handler_t	stm8_interrupt_vector.c	5;"	typedef	file:
 interrupt_instruction	stm8_interrupt_vector.c	8;"	member	struct:interrupt_vector	file:
 interrupt_vector	stm8_interrupt_vector.c	7;"	struct	file:
 length	..\app\hekr_protocol.h	45;"	member	struct:__anon1
-main	main.c	44;"	function
+main	main.c	45;"	function
 number	..\app\hekr_protocol.h	47;"	member	struct:__anon1
 printf	d:\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	17;"	prototype	signature:(char *format, ...)
 putchar	..\chip\inc\stm8_uart.h	10;"	prototype	signature:(char ch)
