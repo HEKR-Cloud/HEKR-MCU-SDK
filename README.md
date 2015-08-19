@@ -1,4 +1,4 @@
-#HEKR-MCU-SDK 说明文档
+﻿#HEKR-MCU-SDK 说明文档
 ----
 ##0.主要内容
 *	SDK简介
@@ -129,12 +129,22 @@ example 文件夹下是移植完成的MCU-SDK
 *	通信方式 UART3 参数 9600-8-N-1
 *	通信协议 氦氪HEKR模块透传协议
 
+####5.2 STM32 + uCOSIII 的hekr协议SDK 
+
+*	开发平台 STM32F103C8T6
+*	开发环境 MDK5.13
+*	开发工具 Jlink , Jlink-OB , ST-LINK V2
+*	通信方式 UART3 参数 9600-8-N-1
+*	通信协议 氦氪HEKR模块透传协议
+*	uCOSIII  Version : V3.03.00
+*	采用延时中断发布模式
 
 ##6.更新历史
 * 2015.7.30 STM8-SDK及Readme.md文档编写
 * 2015.8.07 增加STM32-SDK移植样例 Readme.md文档补充
 * 2015.8.13 修复收到的有效数据缺位错误
 * 2015.8.14 增加用户不等长命令描述 Readme.md文档补充
+* 2015.8.19 增加STM32-uCOSIII SDK例程 Readme.md文档补充
 
 ##7.相关链接及反馈
 
