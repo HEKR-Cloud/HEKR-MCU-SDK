@@ -1,115 +1,0 @@
-Dependencies for Project 'Prj', Target 'Target 1': (DO NOT MODIFY !)
-F (.\main.c)(0x55CD5052)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\App -I..\Chip\inc-I C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE-I C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE\Device\STM32F103C8-I D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="513" -D_RTE_ -DSTM32F10X_MD-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include\stm32f10x.h)(0x53BA0D60)
-I (C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE\RTE_Components.h)(0x55C40F43)
-I (D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cm3.h)(0x53FC31DA)
-I (D:\Keil\ARM\ARMCC\include\stdint.h)(0x5475F300)
-I (D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cmInstr.h)(0x53FEF2AA)
-I (D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cmFunc.h)(0x53FEF2AA)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include\system_stm32f10x.h)(0x4F1E2E3C)
-I (C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE\Device\STM32F103C8\stm32f10x_conf.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\stm32f10x_usart.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\misc.h)(0x53B66212)
-I (..\Chip\inc\uart.h)(0x55C40E1E)
-I (..\App\hekr_protocol.h)(0x55CD55C7)
-F (.\RTE\RTE_Components.h)(0x55C40F43)()
-F (..\App\Hekr_Protocol.c)(0x55CD54F0)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\App -I..\Chip\inc-I C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE-I C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE\Device\STM32F103C8-I D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="513" -D_RTE_ -DSTM32F10X_MD-o ..\obj\hekr_protocol.o --omf_browse ..\obj\hekr_protocol.crf --depend ..\obj\hekr_protocol.d)
-I (..\App\hekr_protocol.h)(0x55CD55C7)
-I (..\Chip\inc\uart.h)(0x55C40E1E)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include\stm32f10x.h)(0x53BA0D60)
-I (C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE\RTE_Components.h)(0x55C40F43)
-I (D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cm3.h)(0x53FC31DA)
-I (D:\Keil\ARM\ARMCC\include\stdint.h)(0x5475F300)
-I (D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cmInstr.h)(0x53FEF2AA)
-I (D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cmFunc.h)(0x53FEF2AA)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include\system_stm32f10x.h)(0x4F1E2E3C)
-I (C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE\Device\STM32F103C8\stm32f10x_conf.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\stm32f10x_usart.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\misc.h)(0x53B66212)
-F (..\Chip\src\uart.c)(0x55C40E3D)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\App -I..\Chip\inc-I C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE-I C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE\Device\STM32F103C8-I D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="513" -D_RTE_ -DSTM32F10X_MD-o ..\obj\uart.o --omf_browse ..\obj\uart.crf --depend ..\obj\uart.d)
-I (..\Chip\inc\uart.h)(0x55C40E1E)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include\stm32f10x.h)(0x53BA0D60)
-I (C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE\RTE_Components.h)(0x55C40F43)
-I (D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cm3.h)(0x53FC31DA)
-I (D:\Keil\ARM\ARMCC\include\stdint.h)(0x5475F300)
-I (D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cmInstr.h)(0x53FEF2AA)
-I (D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cmFunc.h)(0x53FEF2AA)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include\system_stm32f10x.h)(0x4F1E2E3C)
-I (C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE\Device\STM32F103C8\stm32f10x_conf.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\stm32f10x_usart.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\misc.h)(0x53B66212)
-I (..\App\hekr_protocol.h)(0x55CD55C7)
-F (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\src\misc.c)(0x53B66212)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\App -I..\Chip\inc-I C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE-I C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE\Device\STM32F103C8-I D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="513" -D_RTE_ -DSTM32F10X_MD-o ..\obj\misc.o --omf_browse ..\obj\misc.crf --depend ..\obj\misc.d)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\misc.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include\stm32f10x.h)(0x53BA0D60)
-I (C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE\RTE_Components.h)(0x55C40F43)
-I (D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cm3.h)(0x53FC31DA)
-I (D:\Keil\ARM\ARMCC\include\stdint.h)(0x5475F300)
-I (D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cmInstr.h)(0x53FEF2AA)
-I (D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cmFunc.h)(0x53FEF2AA)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include\system_stm32f10x.h)(0x4F1E2E3C)
-I (C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE\Device\STM32F103C8\stm32f10x_conf.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\stm32f10x_usart.h)(0x53B66212)
-F (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\src\stm32f10x_gpio.c)(0x53B66212)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\App -I..\Chip\inc-I C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE-I C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE\Device\STM32F103C8-I D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="513" -D_RTE_ -DSTM32F10X_MD-o ..\obj\stm32f10x_gpio.o --omf_browse ..\obj\stm32f10x_gpio.crf --depend ..\obj\stm32f10x_gpio.d)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include\stm32f10x.h)(0x53BA0D60)
-I (C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE\RTE_Components.h)(0x55C40F43)
-I (D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cm3.h)(0x53FC31DA)
-I (D:\Keil\ARM\ARMCC\include\stdint.h)(0x5475F300)
-I (D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cmInstr.h)(0x53FEF2AA)
-I (D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cmFunc.h)(0x53FEF2AA)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include\system_stm32f10x.h)(0x4F1E2E3C)
-I (C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE\Device\STM32F103C8\stm32f10x_conf.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\stm32f10x_usart.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\misc.h)(0x53B66212)
-F (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\src\stm32f10x_rcc.c)(0x53B66212)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\App -I..\Chip\inc-I C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE-I C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE\Device\STM32F103C8-I D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="513" -D_RTE_ -DSTM32F10X_MD-o ..\obj\stm32f10x_rcc.o --omf_browse ..\obj\stm32f10x_rcc.crf --depend ..\obj\stm32f10x_rcc.d)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include\stm32f10x.h)(0x53BA0D60)
-I (C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE\RTE_Components.h)(0x55C40F43)
-I (D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cm3.h)(0x53FC31DA)
-I (D:\Keil\ARM\ARMCC\include\stdint.h)(0x5475F300)
-I (D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cmInstr.h)(0x53FEF2AA)
-I (D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cmFunc.h)(0x53FEF2AA)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include\system_stm32f10x.h)(0x4F1E2E3C)
-I (C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE\Device\STM32F103C8\stm32f10x_conf.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\stm32f10x_usart.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\misc.h)(0x53B66212)
-F (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\src\stm32f10x_usart.c)(0x53B66212)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\App -I..\Chip\inc-I C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE-I C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE\Device\STM32F103C8-I D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="513" -D_RTE_ -DSTM32F10X_MD-o ..\obj\stm32f10x_usart.o --omf_browse ..\obj\stm32f10x_usart.crf --depend ..\obj\stm32f10x_usart.d)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\stm32f10x_usart.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include\stm32f10x.h)(0x53BA0D60)
-I (C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE\RTE_Components.h)(0x55C40F43)
-I (D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cm3.h)(0x53FC31DA)
-I (D:\Keil\ARM\ARMCC\include\stdint.h)(0x5475F300)
-I (D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cmInstr.h)(0x53FEF2AA)
-I (D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cmFunc.h)(0x53FEF2AA)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include\system_stm32f10x.h)(0x4F1E2E3C)
-I (C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE\Device\STM32F103C8\stm32f10x_conf.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\misc.h)(0x53B66212)
-F (RTE\Device\STM32F103C8\RTE_Device.h)(0x52431878)()
-F (RTE\Device\STM32F103C8\startup_stm32f10x_md.s)(0x4F1E2E3C)(--cpu Cortex-M3 -g --apcs=interwork -I C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE-I C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE\Device\STM32F103C8-I D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc--pd "__UVISION_VERSION SETA 513" --pd "_RTE_ SETA 1" --pd "STM32F10X_MD SETA 1"--list .\listings\startup_stm32f10x_md.lst --xref -o ..\obj\startup_stm32f10x_md.o --depend ..\obj\startup_stm32f10x_md.d)
-F (RTE\Device\STM32F103C8\stm32f10x_conf.h)(0x53B66212)()
-F (RTE\Device\STM32F103C8\system_stm32f10x.c)(0x4F1E2E3C)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I..\App -I..\Chip\inc-I C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE-I C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE\Device\STM32F103C8-I D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc-D__UVISION_VERSION="513" -D_RTE_ -DSTM32F10X_MD-o ..\obj\system_stm32f10x.o --omf_browse ..\obj\system_stm32f10x.crf --depend ..\obj\system_stm32f10x.d)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include\stm32f10x.h)(0x53BA0D60)
-I (C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE\RTE_Components.h)(0x55C40F43)
-I (D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cm3.h)(0x53FC31DA)
-I (D:\Keil\ARM\ARMCC\include\stdint.h)(0x5475F300)
-I (D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cmInstr.h)(0x53FEF2AA)
-I (D:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include\core_cmFunc.h)(0x53FEF2AA)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include\system_stm32f10x.h)(0x4F1E2E3C)
-I (C:\Users\Bear\work\HEKR-MCU-SDK\example\STM32_Hekr_Procotol\Project\RTE\Device\STM32F103C8\stm32f10x_conf.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\stm32f10x_gpio.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\stm32f10x_rcc.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\stm32f10x_usart.h)(0x53B66212)
-I (D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc\misc.h)(0x53B66212)
