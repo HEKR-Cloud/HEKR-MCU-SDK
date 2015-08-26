@@ -462,13 +462,14 @@ ARM Macro Assembler    Page 8
   289 00000034         
   290 00000034                 END
 Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=..\obj\c
-pu_a.d -o..\obj\cpu_a.o -IC:\Users\Bear\Desktop\3.uCOSIII-SuspendTask\Project\R
-TE -IC:\Users\Bear\Desktop\3.uCOSIII-SuspendTask\Project\RTE\Device\STM32F103C8
- -ID:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include -ID:\Keil\ARM\PACK\Keil\STM32
-F1xx_DFP\1.1.0\Device\Include -ID:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Devic
-e\StdPeriph_Driver\inc --predefine="__MICROLIB SETA 1" --predefine="__UVISION_V
-ERSION SETA 513" --predefine="_RTE_ SETA 1" --predefine="STM32F10X_MD SETA 1" -
--list=.\listings\cpu_a.lst ..\UCOSIII\uC-CPU\ARM-Cortex-M3\RealView\cpu_a.asm
+pu_a.d -o..\obj\cpu_a.o -IC:\Users\Bear\work\HEKR-MCU-SDK\example\STM32-uCOSIII
+\Project\RTE -IC:\Users\Bear\work\HEKR-MCU-SDK\example\STM32-uCOSIII\Project\RT
+E\Device\STM32F103C8 -ID:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include -ID:\Keil
+\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include -ID:\Keil\ARM\PACK\Keil\STM32
+F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc --predefine="__MICROLIB SETA 1" --pr
+edefine="__UVISION_VERSION SETA 513" --predefine="_RTE_ SETA 1" --predefine="ST
+M32F10X_MD SETA 1" --list=.\listings\cpu_a.lst ..\UCOSIII\uC-CPU\ARM-Cortex-M3\
+RealView\cpu_a.asm
 
 
 
