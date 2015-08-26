@@ -26,8 +26,8 @@
 ####App
 氦氪HEKR模块透传协议
 
-*    Hekr_Protocol.h ： 数据结构定义及User API声明
-*    Hekr_Protocol.c ： 具体函数实现  
+*    hekr_protocol.h ： 数据结构定义及User API声明
+*    hekr_protocol.c ： 具体函数实现  
 
 ####Chip
 STM8S 芯片驱动
@@ -52,46 +52,46 @@ STM8 系统时钟等相关配置与定义
 定义用户需要的最长长度
 	
 	// 使用前要定义用户所需要的最大数组  
-	// 如果有多条不等长命令  取最长长度
-	#define User_Max_Len 0x0F
+	// 如果有多条不等长命令  取最长长度 为用户数据长度  非整帧长度
+	#define USER_MAX_LEN  0x0F
 	
 协议数据发送示例
 
-	// 主动上传用户数据（数据保存在Valid_Data数组里）
-	// User_Valid_Len 为用户数据长度  非整帧长度
-	Hekr_ValidData_Upload(User_Valid_Len);
+	// 主动上传用户数据（数据保存在valid_data数组里）
+	// UserValidLen  为用户数据长度  非整帧长度
+	HekrValidDataUpload(UserValidLen);
 	// 查询 Hekr模块当前状态
-	Hekr_Module_Control(Module_Query);
+	HekrModuleControl(ModuleQuery);
 	// 配置Hekr模块进入Hekr_Config模式
-	Hekr_Module_Control(Hekr_Config);
+	HekrModuleControl(HekrConfig);
 
 协议接收处理示例
 
-	if(Date_Handle_Flag)
+	if(DateHandleFlag)
 	{
-		temp = Hekr_RecvData_Handle(Recv_Buffer);
-		if(Valid_Data_Update == temp)
+		temp = HekrRecvDataHandle(RecvBuffer);
+		if(ValidDataUpdate == temp)
 		{
-			//用户数据更新
-			//接收的数据保存在 Valid_Data 数组里
+			//接收的数据保存在 valid_data 数组里
 			//User Code
+			UART1_SendChar(valid_data[0]);
 		}
-		if(Hekr_Module_State_Update == temp)
+		if(HekrModuleStateUpdate == temp)
 		{
-			//Hekr 模块状态改变及查询反馈
-			//接收的数据保存在 Module_Status 数组里
+			//接收的数据保存在 ModuleStatus 指针里
 			//User Code
+			UART1_SendChar(ModuleStatus->CMD);
 		}
-		Date_Handle_Flag = 0;			
+		DateHandleFlag = 0;			
 	}		
 
 ####对于用户数据多种或不等长补充说明
 #####接收
 *	如果有多条不等长命令可以正常接收 
-*	接收的数据保存在 Valid_Data 数组里
+*	接收的数据保存在 valid_data 数组里
 *	用户需要自行判断命令是哪一种
 #####上传
-*	把数据保存到Valid_Data中
+*	把数据保存到 valid_data 中
 *	传入参数为对应命令长度 即可正常上传
 
 ##4.协议移植说明
@@ -108,7 +108,7 @@ Hekr MCU SDK中的协议可快速移植到其他单片机中
 	
 修改 Hekr_Protocol.c 的函数
 
-	static void Hekr_Send_Byte(unsigned char ch)
+	static void HekrSendByte(unsigned char ch)
 	{
 		//将此函数替换成对应平台的串口调用函数即可
 		UART1_SendChar(ch);
@@ -129,22 +129,13 @@ example 文件夹下是移植完成的MCU-SDK
 *	通信方式 UART3 参数 9600-8-N-1
 *	通信协议 氦氪HEKR模块透传协议
 
-####5.2 STM32 + uCOSIII 的hekr协议SDK 
-
-*	开发平台 STM32F103C8T6
-*	开发环境 MDK5.13
-*	开发工具 Jlink , Jlink-OB , ST-LINK V2
-*	通信方式 UART3 参数 9600-8-N-1
-*	通信协议 氦氪HEKR模块透传协议
-*	uCOSIII  Version : V3.03.00
-*	采用延时中断发布模式
 
 ##6.更新历史
 * 2015.7.30 STM8-SDK及Readme.md文档编写
 * 2015.8.07 增加STM32-SDK移植样例 Readme.md文档补充
 * 2015.8.13 修复收到的有效数据缺位错误
 * 2015.8.14 增加用户不等长命令描述 Readme.md文档补充
-* 2015.8.19 增加STM32-uCOSIII SDK例程 Readme.md文档补充
+* 2015.8.26 完善帧序号,模块状态改为指针,优化代码结构
 
 ##7.相关链接及反馈
 
