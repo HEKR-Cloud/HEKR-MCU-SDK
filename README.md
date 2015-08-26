@@ -136,7 +136,8 @@ example 文件夹下是移植完成的MCU-SDK
 * 2015.8.13 修复收到的有效数据缺位错误
 * 2015.8.14 增加用户不等长命令描述 Readme.md文档补充
 * 2015.8.26 完善帧序号,模块状态改为指针,优化代码结构
-
+* 2015.8.26 更新STM32-SDK
+ 
 ##7.相关链接及反馈
 
 SDK 获取 ：  https://github.com/HEKR-Cloud/HEKR-MCU-SDK.git

@@ -56,7 +56,7 @@ void USART3_IRQHandler(void)
 	if(USART_GetITStatus(USART3, USART_IT_RXNE) != RESET) 
 	{
 		ch =USART_ReceiveData(USART3);
-		if(ch == Hekr_Frame_Header)
+		if(ch == HEKR_FRAME_HEADER)
 		{
 			temp_flag = 1;
 			Uart3_Recv_Count = 0;
@@ -67,11 +67,6 @@ void USART3_IRQHandler(void)
 			if(Uart3_Recv_Count > 4 && Uart3_Recv_Count >= Uart3_Recv_Buffer[1])
 			{
 				Uart3_Recv_STA = 1;
-				temp_flag = 0;
-				Uart3_Recv_Count = 0;
-			}
-			if(Uart3_Recv_Count > 15)
-			{
 				temp_flag = 0;
 				Uart3_Recv_Count = 0;
 			}
