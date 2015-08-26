@@ -424,9 +424,9 @@
           <GroupName>App</GroupName>
           <Files>
             <File>
-              <FileName>Hekr_Protocol.c</FileName>
+              <FileName>hekr_protocol.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\App\Hekr_Protocol.c</FilePath>
+              <FilePath>..\App\hekr_protocol.c</FilePath>
             </File>
           </Files>
         </Group>

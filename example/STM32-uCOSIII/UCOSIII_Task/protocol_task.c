@@ -24,12 +24,12 @@ void protocol_task(void *p_arg)
 		}
 		if(Date_Handle_Flag)
 		{
-			temp = Hekr_RecvData_Handle(Uart3_Recv_Buffer);
-			if(Valid_Data_Update == temp)
+			temp = HekrRecvDataHandle(Uart3_Recv_Buffer);
+			if(ValidDataUpdate == temp)
 			{
 				//接收的数据保存在 Valid_Data 数组里
 				//User Code
-				if(Valid_Data[0] == 0x01)
+				if(valid_data[0] == 0x01)
 				{
 					LED0 = 1;
 					OSTaskSuspend((OS_TCB*)&Led0TaskTCB,&err);
@@ -41,7 +41,7 @@ void protocol_task(void *p_arg)
 					OSTaskResume((OS_TCB*)&Led0TaskTCB,&err);
 					printf("恢复LED任务\n\r");	
 				}
-				if(Valid_Data[1] == 0x01)
+				if(valid_data[1] == 0x01)
 				{
 					OSTaskDel((OS_TCB*)&FloatTaskTCB,&err);
 					printf("删除float任务\n\r");	
@@ -64,10 +64,11 @@ void protocol_task(void *p_arg)
 													 (OS_ERR 	* )&err);		
 				}
 			}
-			if(Hekr_Module_State_Update == temp)
+			if(HekrModuleStateUpdate == temp)
 			{
 				//接收的数据保存在 Module_Status 数组里
 				//User Code
+				printf("ModuleStatus CMD %d \n\r",ModuleStatus->CMD);
 			}
 			Date_Handle_Flag = 0;		
 		}

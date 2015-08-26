@@ -4,33 +4,39 @@ Component: ARM Compiler 5.05 update 1 (build 106) Tool: armlink [4d0efa]
 
 Section Cross References
 
-    main.o(i.System_init) refers to misc.o(i.NVIC_PriorityGroupConfig) for NVIC_PriorityGroupConfig
-    main.o(i.System_init) refers to uart.o(i.Uart3_init) for Uart3_init
-    main.o(i.main) refers to main.o(i.System_init) for System_init
-    main.o(i.main) refers to hekr_protocol.o(i.Hekr_ValidData_Upload) for Hekr_ValidData_Upload
-    main.o(i.main) refers to hekr_protocol.o(i.Hekr_RecvData_Handle) for Hekr_RecvData_Handle
+    main.o(i.System_Init) refers to misc.o(i.NVIC_PriorityGroupConfig) for NVIC_PriorityGroupConfig
+    main.o(i.System_Init) refers to uart.o(i.Uart3_init) for Uart3_init
+    main.o(i.main) refers to main.o(i.System_Init) for System_Init
+    main.o(i.main) refers to hekr_protocol.o(i.HekrValidDataUpload) for HekrValidDataUpload
+    main.o(i.main) refers to hekr_protocol.o(i.HekrModuleControl) for HekrModuleControl
+    main.o(i.main) refers to hekr_protocol.o(i.HekrRecvDataHandle) for HekrRecvDataHandle
     main.o(i.main) refers to uart.o(i.UART3_SendChar) for UART3_SendChar
     main.o(i.main) refers to uart.o(.data) for Uart3_Recv_STA
-    main.o(i.main) refers to main.o(.data) for Date_Handle_Flag
+    main.o(i.main) refers to main.o(.data) for DateHandleFlag
     main.o(i.main) refers to uart.o(.bss) for Uart3_Recv_Buffer
-    main.o(i.main) refers to hekr_protocol.o(.bss) for Valid_Data
-    hekr_protocol.o(i.Err_Response) refers to hekr_protocol.o(i.Hekr_Send_Frame) for Hekr_Send_Frame
-    hekr_protocol.o(i.Err_Response) refers to hekr_protocol.o(.bss) for Hekr_Send_Buffer
-    hekr_protocol.o(i.Hekr_Module_Control) refers to hekr_protocol.o(i.Hekr_Send_Frame) for Hekr_Send_Frame
-    hekr_protocol.o(i.Hekr_Module_Control) refers to hekr_protocol.o(.bss) for Hekr_Send_Buffer
-    hekr_protocol.o(i.Hekr_Module_State_Copy) refers to hekr_protocol.o(.bss) for Module_Status
-    hekr_protocol.o(i.Hekr_RecvData_Handle) refers to hekr_protocol.o(i.Sum_Check_Is_Err) for Sum_Check_Is_Err
-    hekr_protocol.o(i.Hekr_RecvData_Handle) refers to hekr_protocol.o(i.Err_Response) for Err_Response
-    hekr_protocol.o(i.Hekr_RecvData_Handle) refers to hekr_protocol.o(i.Hekr_Send_Frame) for Hekr_Send_Frame
-    hekr_protocol.o(i.Hekr_RecvData_Handle) refers to hekr_protocol.o(i.Hekr_ValidData_Copy) for Hekr_ValidData_Copy
-    hekr_protocol.o(i.Hekr_RecvData_Handle) refers to hekr_protocol.o(i.Hekr_Module_State_Copy) for Hekr_Module_State_Copy
-    hekr_protocol.o(i.Hekr_Send_Byte) refers to uart.o(i.UART3_SendChar) for UART3_SendChar
-    hekr_protocol.o(i.Hekr_Send_Frame) refers to hekr_protocol.o(i.Sum_Calculate) for Sum_Calculate
-    hekr_protocol.o(i.Hekr_Send_Frame) refers to hekr_protocol.o(i.Hekr_Send_Byte) for Hekr_Send_Byte
-    hekr_protocol.o(i.Hekr_ValidData_Copy) refers to hekr_protocol.o(.bss) for Valid_Data
-    hekr_protocol.o(i.Hekr_ValidData_Upload) refers to hekr_protocol.o(i.Hekr_Send_Frame) for Hekr_Send_Frame
-    hekr_protocol.o(i.Hekr_ValidData_Upload) refers to hekr_protocol.o(.bss) for Hekr_Send_Buffer
-    hekr_protocol.o(i.Sum_Check_Is_Err) refers to hekr_protocol.o(i.Sum_Calculate) for Sum_Calculate
+    main.o(i.main) refers to hekr_protocol.o(.bss) for valid_data
+    main.o(i.main) refers to hekr_protocol.o(.data) for ModuleStatus
+    hekr_protocol.o(i.ErrResponse) refers to hekr_protocol.o(i.HekrSendFrame) for HekrSendFrame
+    hekr_protocol.o(i.ErrResponse) refers to hekr_protocol.o(.bss) for hekr_send_buffer
+    hekr_protocol.o(i.ErrResponse) refers to hekr_protocol.o(.data) for frame_no
+    hekr_protocol.o(i.HekrModuleControl) refers to hekr_protocol.o(i.HekrSendFrame) for HekrSendFrame
+    hekr_protocol.o(i.HekrModuleControl) refers to hekr_protocol.o(.bss) for hekr_send_buffer
+    hekr_protocol.o(i.HekrModuleControl) refers to hekr_protocol.o(.data) for frame_no
+    hekr_protocol.o(i.HekrModuleStateCopy) refers to hekr_protocol.o(.bss) for module_status
+    hekr_protocol.o(i.HekrRecvDataHandle) refers to hekr_protocol.o(i.SumCheckIsErr) for SumCheckIsErr
+    hekr_protocol.o(i.HekrRecvDataHandle) refers to hekr_protocol.o(i.ErrResponse) for ErrResponse
+    hekr_protocol.o(i.HekrRecvDataHandle) refers to hekr_protocol.o(i.HekrSendFrame) for HekrSendFrame
+    hekr_protocol.o(i.HekrRecvDataHandle) refers to hekr_protocol.o(i.HekrValidDataCopy) for HekrValidDataCopy
+    hekr_protocol.o(i.HekrRecvDataHandle) refers to hekr_protocol.o(i.HekrModuleStateCopy) for HekrModuleStateCopy
+    hekr_protocol.o(i.HekrSendByte) refers to uart.o(i.UART3_SendChar) for UART3_SendChar
+    hekr_protocol.o(i.HekrSendFrame) refers to hekr_protocol.o(i.SumCalculate) for SumCalculate
+    hekr_protocol.o(i.HekrSendFrame) refers to hekr_protocol.o(i.HekrSendByte) for HekrSendByte
+    hekr_protocol.o(i.HekrValidDataCopy) refers to hekr_protocol.o(.bss) for valid_data
+    hekr_protocol.o(i.HekrValidDataUpload) refers to hekr_protocol.o(i.HekrSendFrame) for HekrSendFrame
+    hekr_protocol.o(i.HekrValidDataUpload) refers to hekr_protocol.o(.bss) for hekr_send_buffer
+    hekr_protocol.o(i.HekrValidDataUpload) refers to hekr_protocol.o(.data) for frame_no
+    hekr_protocol.o(i.SumCheckIsErr) refers to hekr_protocol.o(i.SumCalculate) for SumCalculate
+    hekr_protocol.o(.data) refers to hekr_protocol.o(.bss) for module_status
     uart.o(i.USART3_IRQHandler) refers to stm32f10x_usart.o(i.USART_GetITStatus) for USART_GetITStatus
     uart.o(i.USART3_IRQHandler) refers to stm32f10x_usart.o(i.USART_ReceiveData) for USART_ReceiveData
     uart.o(i.USART3_IRQHandler) refers to uart.o(.data) for temp_flag
@@ -172,7 +178,6 @@ Removing Unused input sections from the image.
     Removing hekr_protocol.o(.rev16_text), (4 bytes).
     Removing hekr_protocol.o(.revsh_text), (4 bytes).
     Removing hekr_protocol.o(.rrx_text), (6 bytes).
-    Removing hekr_protocol.o(i.Hekr_Module_Control), (44 bytes).
     Removing uart.o(.rev16_text), (4 bytes).
     Removing uart.o(.revsh_text), (4 bytes).
     Removing uart.o(.rrx_text), (6 bytes).
@@ -267,7 +272,7 @@ Removing Unused input sections from the image.
     Removing system_stm32f10x.o(i.SystemCoreClockUpdate), (164 bytes).
     Removing system_stm32f10x.o(.data), (20 bytes).
 
-100 unused section(s) (total 2458 bytes) removed from the image.
+99 unused section(s) (total 2414 bytes) removed from the image.
 
 ==============================================================================
 
@@ -277,40 +282,37 @@ Image Symbol Table
 
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
-    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit1.o ABSOLUTE
-    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
-    ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_copy.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit1.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_zi.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry2.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
+    ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_copy.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry2.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
     ../clib/angel/scatter.s                  0x00000000   Number         0  __scatter.o ABSOLUTE
     ../clib/angel/startup.s                  0x00000000   Number         0  __main.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  indicate_semi.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  indicate_semi.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
-    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  hrguard.o ABSOLUTE
     ../clib/heapaux.c                        0x00000000   Number         0  heapauxi.o ABSOLUTE
-    ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
@@ -322,12 +324,15 @@ Image Symbol Table
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
     ../clib/signal.s                         0x00000000   Number         0  defsig.o ABSOLUTE
     ../clib/stdlib.c                         0x00000000   Number         0  exit.o ABSOLUTE
     ../fplib/fpinit.s                        0x00000000   Number         0  fpinit.o ABSOLUTE
-    ..\App\Hekr_Protocol.c                   0x00000000   Number         0  hekr_protocol.o ABSOLUTE
+    ..\App\hekr_protocol.c                   0x00000000   Number         0  hekr_protocol.o ABSOLUTE
     ..\Chip\src\uart.c                       0x00000000   Number         0  uart.o ABSOLUTE
-    ..\\App\\Hekr_Protocol.c                 0x00000000   Number         0  hekr_protocol.o ABSOLUTE
+    ..\\App\\hekr_protocol.c                 0x00000000   Number         0  hekr_protocol.o ABSOLUTE
     ..\\Chip\\src\\uart.c                    0x00000000   Number         0  uart.o ABSOLUTE
     D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\src\misc.c 0x00000000   Number         0  misc.o ABSOLUTE
     D:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\src\stm32f10x_gpio.c 0x00000000   Number         0  stm32f10x_gpio.o ABSOLUTE
@@ -396,57 +401,62 @@ Image Symbol Table
     .text                                    0x0800022c   Section        0  sys_exit.o(.text)
     .text                                    0x08000238   Section        2  use_no_semi.o(.text)
     .text                                    0x0800023a   Section        0  indicate_semi.o(.text)
-    i.Err_Response                           0x0800023c   Section        0  hekr_protocol.o(i.Err_Response)
-    Err_Response                             0x0800023d   Thumb Code    38  hekr_protocol.o(i.Err_Response)
-    i.GPIO_Init                              0x08000268   Section        0  stm32f10x_gpio.o(i.GPIO_Init)
-    i.Hekr_Module_State_Copy                 0x08000380   Section        0  hekr_protocol.o(i.Hekr_Module_State_Copy)
-    Hekr_Module_State_Copy                   0x08000381   Thumb Code    32  hekr_protocol.o(i.Hekr_Module_State_Copy)
-    i.Hekr_RecvData_Handle                   0x080003a4   Section        0  hekr_protocol.o(i.Hekr_RecvData_Handle)
-    i.Hekr_Send_Byte                         0x080003fe   Section        0  hekr_protocol.o(i.Hekr_Send_Byte)
-    Hekr_Send_Byte                           0x080003ff   Thumb Code    12  hekr_protocol.o(i.Hekr_Send_Byte)
-    i.Hekr_Send_Frame                        0x0800040a   Section        0  hekr_protocol.o(i.Hekr_Send_Frame)
-    Hekr_Send_Frame                          0x0800040b   Thumb Code    38  hekr_protocol.o(i.Hekr_Send_Frame)
-    i.Hekr_ValidData_Copy                    0x08000430   Section        0  hekr_protocol.o(i.Hekr_ValidData_Copy)
-    Hekr_ValidData_Copy                      0x08000431   Thumb Code    32  hekr_protocol.o(i.Hekr_ValidData_Copy)
-    i.Hekr_ValidData_Upload                  0x08000454   Section        0  hekr_protocol.o(i.Hekr_ValidData_Upload)
-    i.NVIC_Init                              0x08000490   Section        0  misc.o(i.NVIC_Init)
-    i.NVIC_PriorityGroupConfig               0x08000500   Section        0  misc.o(i.NVIC_PriorityGroupConfig)
-    i.RCC_APB1PeriphClockCmd                 0x08000514   Section        0  stm32f10x_rcc.o(i.RCC_APB1PeriphClockCmd)
-    i.RCC_APB2PeriphClockCmd                 0x08000534   Section        0  stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd)
-    i.RCC_GetClocksFreq                      0x08000554   Section        0  stm32f10x_rcc.o(i.RCC_GetClocksFreq)
-    i.SetSysClock                            0x08000628   Section        0  system_stm32f10x.o(i.SetSysClock)
-    SetSysClock                              0x08000629   Thumb Code     8  system_stm32f10x.o(i.SetSysClock)
-    i.SetSysClockTo72                        0x08000630   Section        0  system_stm32f10x.o(i.SetSysClockTo72)
-    SetSysClockTo72                          0x08000631   Thumb Code   214  system_stm32f10x.o(i.SetSysClockTo72)
-    i.Sum_Calculate                          0x08000710   Section        0  hekr_protocol.o(i.Sum_Calculate)
-    Sum_Calculate                            0x08000711   Thumb Code    32  hekr_protocol.o(i.Sum_Calculate)
-    i.Sum_Check_Is_Err                       0x08000730   Section        0  hekr_protocol.o(i.Sum_Check_Is_Err)
-    Sum_Check_Is_Err                         0x08000731   Thumb Code    32  hekr_protocol.o(i.Sum_Check_Is_Err)
-    i.SystemInit                             0x08000750   Section        0  system_stm32f10x.o(i.SystemInit)
-    i.System_init                            0x080007b0   Section        0  main.o(i.System_init)
-    i.UART3_SendChar                         0x080007c0   Section        0  uart.o(i.UART3_SendChar)
-    i.USART3_IRQHandler                      0x080007dc   Section        0  uart.o(i.USART3_IRQHandler)
-    i.USART_Cmd                              0x08000868   Section        0  stm32f10x_usart.o(i.USART_Cmd)
-    i.USART_GetITStatus                      0x08000880   Section        0  stm32f10x_usart.o(i.USART_GetITStatus)
-    i.USART_ITConfig                         0x080008d4   Section        0  stm32f10x_usart.o(i.USART_ITConfig)
-    i.USART_Init                             0x08000920   Section        0  stm32f10x_usart.o(i.USART_Init)
-    i.USART_ReceiveData                      0x080009f8   Section        0  stm32f10x_usart.o(i.USART_ReceiveData)
-    i.Uart3_init                             0x08000a04   Section        0  uart.o(i.Uart3_init)
-    i.main                                   0x08000aac   Section        0  main.o(i.main)
+    i.ErrResponse                            0x0800023c   Section        0  hekr_protocol.o(i.ErrResponse)
+    ErrResponse                              0x0800023d   Thumb Code    52  hekr_protocol.o(i.ErrResponse)
+    i.GPIO_Init                              0x08000278   Section        0  stm32f10x_gpio.o(i.GPIO_Init)
+    i.HekrModuleControl                      0x08000390   Section        0  hekr_protocol.o(i.HekrModuleControl)
+    i.HekrModuleStateCopy                    0x080003cc   Section        0  hekr_protocol.o(i.HekrModuleStateCopy)
+    HekrModuleStateCopy                      0x080003cd   Thumb Code    32  hekr_protocol.o(i.HekrModuleStateCopy)
+    i.HekrRecvDataHandle                     0x080003f0   Section        0  hekr_protocol.o(i.HekrRecvDataHandle)
+    i.HekrSendByte                           0x08000454   Section        0  hekr_protocol.o(i.HekrSendByte)
+    HekrSendByte                             0x08000455   Thumb Code    12  hekr_protocol.o(i.HekrSendByte)
+    i.HekrSendFrame                          0x08000460   Section        0  hekr_protocol.o(i.HekrSendFrame)
+    HekrSendFrame                            0x08000461   Thumb Code    38  hekr_protocol.o(i.HekrSendFrame)
+    i.HekrValidDataCopy                      0x08000488   Section        0  hekr_protocol.o(i.HekrValidDataCopy)
+    HekrValidDataCopy                        0x08000489   Thumb Code    32  hekr_protocol.o(i.HekrValidDataCopy)
+    i.HekrValidDataUpload                    0x080004ac   Section        0  hekr_protocol.o(i.HekrValidDataUpload)
+    i.NVIC_Init                              0x080004f8   Section        0  misc.o(i.NVIC_Init)
+    i.NVIC_PriorityGroupConfig               0x08000568   Section        0  misc.o(i.NVIC_PriorityGroupConfig)
+    i.RCC_APB1PeriphClockCmd                 0x0800057c   Section        0  stm32f10x_rcc.o(i.RCC_APB1PeriphClockCmd)
+    i.RCC_APB2PeriphClockCmd                 0x0800059c   Section        0  stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd)
+    i.RCC_GetClocksFreq                      0x080005bc   Section        0  stm32f10x_rcc.o(i.RCC_GetClocksFreq)
+    i.SetSysClock                            0x08000690   Section        0  system_stm32f10x.o(i.SetSysClock)
+    SetSysClock                              0x08000691   Thumb Code     8  system_stm32f10x.o(i.SetSysClock)
+    i.SetSysClockTo72                        0x08000698   Section        0  system_stm32f10x.o(i.SetSysClockTo72)
+    SetSysClockTo72                          0x08000699   Thumb Code   214  system_stm32f10x.o(i.SetSysClockTo72)
+    i.SumCalculate                           0x08000778   Section        0  hekr_protocol.o(i.SumCalculate)
+    SumCalculate                             0x08000779   Thumb Code    32  hekr_protocol.o(i.SumCalculate)
+    i.SumCheckIsErr                          0x08000798   Section        0  hekr_protocol.o(i.SumCheckIsErr)
+    SumCheckIsErr                            0x08000799   Thumb Code    32  hekr_protocol.o(i.SumCheckIsErr)
+    i.SystemInit                             0x080007b8   Section        0  system_stm32f10x.o(i.SystemInit)
+    i.System_Init                            0x08000818   Section        0  main.o(i.System_Init)
+    i.UART3_SendChar                         0x08000828   Section        0  uart.o(i.UART3_SendChar)
+    i.USART3_IRQHandler                      0x08000844   Section        0  uart.o(i.USART3_IRQHandler)
+    i.USART_Cmd                              0x080008bc   Section        0  stm32f10x_usart.o(i.USART_Cmd)
+    i.USART_GetITStatus                      0x080008d4   Section        0  stm32f10x_usart.o(i.USART_GetITStatus)
+    i.USART_ITConfig                         0x08000928   Section        0  stm32f10x_usart.o(i.USART_ITConfig)
+    i.USART_Init                             0x08000974   Section        0  stm32f10x_usart.o(i.USART_Init)
+    i.USART_ReceiveData                      0x08000a4c   Section        0  stm32f10x_usart.o(i.USART_ReceiveData)
+    i.Uart3_init                             0x08000a58   Section        0  uart.o(i.Uart3_init)
+    i.main                                   0x08000b00   Section        0  main.o(i.main)
     .data                                    0x20000000   Section        1  main.o(.data)
-    .data                                    0x20000001   Section        3  uart.o(.data)
-    temp_flag                                0x20000003   Data           1  uart.o(.data)
-    .data                                    0x20000004   Section       20  stm32f10x_rcc.o(.data)
-    APBAHBPrescTable                         0x20000004   Data          16  stm32f10x_rcc.o(.data)
-    ADCPrescTable                            0x20000014   Data           4  stm32f10x_rcc.o(.data)
-    .bss                                     0x20000018   Section       55  hekr_protocol.o(.bss)
-    .bss                                     0x2000004f   Section       20  uart.o(.bss)
-    .bss                                     0x20000064   Section       96  libspace.o(.bss)
-    HEAP                                     0x200000c8   Section      512  startup_stm32f10x_md.o(HEAP)
-    Heap_Mem                                 0x200000c8   Data         512  startup_stm32f10x_md.o(HEAP)
-    STACK                                    0x200002c8   Section     1024  startup_stm32f10x_md.o(STACK)
-    Stack_Mem                                0x200002c8   Data        1024  startup_stm32f10x_md.o(STACK)
-    __initial_sp                             0x200006c8   Data           0  startup_stm32f10x_md.o(STACK)
+    .data                                    0x20000004   Section        5  hekr_protocol.o(.data)
+    frame_no                                 0x20000008   Data           1  hekr_protocol.o(.data)
+    .data                                    0x20000009   Section        3  uart.o(.data)
+    temp_flag                                0x2000000b   Data           1  uart.o(.data)
+    .data                                    0x2000000c   Section       20  stm32f10x_rcc.o(.data)
+    APBAHBPrescTable                         0x2000000c   Data          16  stm32f10x_rcc.o(.data)
+    ADCPrescTable                            0x2000001c   Data           4  stm32f10x_rcc.o(.data)
+    .bss                                     0x20000020   Section       33  hekr_protocol.o(.bss)
+    hekr_send_buffer                         0x20000020   Data          14  hekr_protocol.o(.bss)
+    module_status                            0x20000037   Data          10  hekr_protocol.o(.bss)
+    .bss                                     0x20000041   Section       20  uart.o(.bss)
+    .bss                                     0x20000058   Section       96  libspace.o(.bss)
+    HEAP                                     0x200000b8   Section      512  startup_stm32f10x_md.o(HEAP)
+    Heap_Mem                                 0x200000b8   Data         512  startup_stm32f10x_md.o(HEAP)
+    STACK                                    0x200002b8   Section     1024  startup_stm32f10x_md.o(STACK)
+    Stack_Mem                                0x200002b8   Data        1024  startup_stm32f10x_md.o(STACK)
+    __initial_sp                             0x200006b8   Data           0  startup_stm32f10x_md.o(STACK)
 
     Global Symbols
 
@@ -597,36 +607,36 @@ Image Symbol Table
     __I$use$semihosting                      0x08000239   Thumb Code     0  use_no_semi.o(.text)
     __use_no_semihosting_swi                 0x08000239   Thumb Code     2  use_no_semi.o(.text)
     __semihosting_library_function           0x0800023b   Thumb Code     0  indicate_semi.o(.text)
-    GPIO_Init                                0x08000269   Thumb Code   278  stm32f10x_gpio.o(i.GPIO_Init)
-    Hekr_RecvData_Handle                     0x080003a5   Thumb Code    90  hekr_protocol.o(i.Hekr_RecvData_Handle)
-    Hekr_ValidData_Upload                    0x08000455   Thumb Code    50  hekr_protocol.o(i.Hekr_ValidData_Upload)
-    NVIC_Init                                0x08000491   Thumb Code   100  misc.o(i.NVIC_Init)
-    NVIC_PriorityGroupConfig                 0x08000501   Thumb Code    10  misc.o(i.NVIC_PriorityGroupConfig)
-    RCC_APB1PeriphClockCmd                   0x08000515   Thumb Code    26  stm32f10x_rcc.o(i.RCC_APB1PeriphClockCmd)
-    RCC_APB2PeriphClockCmd                   0x08000535   Thumb Code    26  stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd)
-    RCC_GetClocksFreq                        0x08000555   Thumb Code   192  stm32f10x_rcc.o(i.RCC_GetClocksFreq)
-    SystemInit                               0x08000751   Thumb Code    78  system_stm32f10x.o(i.SystemInit)
-    System_init                              0x080007b1   Thumb Code    16  main.o(i.System_init)
-    UART3_SendChar                           0x080007c1   Thumb Code    22  uart.o(i.UART3_SendChar)
-    USART3_IRQHandler                        0x080007dd   Thumb Code   118  uart.o(i.USART3_IRQHandler)
-    USART_Cmd                                0x08000869   Thumb Code    24  stm32f10x_usart.o(i.USART_Cmd)
-    USART_GetITStatus                        0x08000881   Thumb Code    84  stm32f10x_usart.o(i.USART_GetITStatus)
-    USART_ITConfig                           0x080008d5   Thumb Code    74  stm32f10x_usart.o(i.USART_ITConfig)
-    USART_Init                               0x08000921   Thumb Code   210  stm32f10x_usart.o(i.USART_Init)
-    USART_ReceiveData                        0x080009f9   Thumb Code    10  stm32f10x_usart.o(i.USART_ReceiveData)
-    Uart3_init                               0x08000a05   Thumb Code   160  uart.o(i.Uart3_init)
-    main                                     0x08000aad   Thumb Code    84  main.o(i.main)
-    Region$$Table$$Base                      0x08000b14   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08000b34   Number         0  anon$$obj.o(Region$$Table)
-    Date_Handle_Flag                         0x20000000   Data           1  main.o(.data)
-    Uart3_Recv_Count                         0x20000001   Data           1  uart.o(.data)
-    Uart3_Recv_STA                           0x20000002   Data           1  uart.o(.data)
-    Hekr_Send_Buffer                         0x20000018   Data          20  hekr_protocol.o(.bss)
-    Valid_Data                               0x2000002c   Data          15  hekr_protocol.o(.bss)
-    Module_Status                            0x2000003b   Data          20  hekr_protocol.o(.bss)
-    Uart3_Recv_Buffer                        0x2000004f   Data          20  uart.o(.bss)
-    __libspace_start                         0x20000064   Data          96  libspace.o(.bss)
-    __temporary_stack_top$libspace           0x200000c4   Data           0  libspace.o(.bss)
+    GPIO_Init                                0x08000279   Thumb Code   278  stm32f10x_gpio.o(i.GPIO_Init)
+    HekrModuleControl                        0x08000391   Thumb Code    52  hekr_protocol.o(i.HekrModuleControl)
+    HekrRecvDataHandle                       0x080003f1   Thumb Code   100  hekr_protocol.o(i.HekrRecvDataHandle)
+    HekrValidDataUpload                      0x080004ad   Thumb Code    64  hekr_protocol.o(i.HekrValidDataUpload)
+    NVIC_Init                                0x080004f9   Thumb Code   100  misc.o(i.NVIC_Init)
+    NVIC_PriorityGroupConfig                 0x08000569   Thumb Code    10  misc.o(i.NVIC_PriorityGroupConfig)
+    RCC_APB1PeriphClockCmd                   0x0800057d   Thumb Code    26  stm32f10x_rcc.o(i.RCC_APB1PeriphClockCmd)
+    RCC_APB2PeriphClockCmd                   0x0800059d   Thumb Code    26  stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd)
+    RCC_GetClocksFreq                        0x080005bd   Thumb Code   192  stm32f10x_rcc.o(i.RCC_GetClocksFreq)
+    SystemInit                               0x080007b9   Thumb Code    78  system_stm32f10x.o(i.SystemInit)
+    System_Init                              0x08000819   Thumb Code    16  main.o(i.System_Init)
+    UART3_SendChar                           0x08000829   Thumb Code    22  uart.o(i.UART3_SendChar)
+    USART3_IRQHandler                        0x08000845   Thumb Code    98  uart.o(i.USART3_IRQHandler)
+    USART_Cmd                                0x080008bd   Thumb Code    24  stm32f10x_usart.o(i.USART_Cmd)
+    USART_GetITStatus                        0x080008d5   Thumb Code    84  stm32f10x_usart.o(i.USART_GetITStatus)
+    USART_ITConfig                           0x08000929   Thumb Code    74  stm32f10x_usart.o(i.USART_ITConfig)
+    USART_Init                               0x08000975   Thumb Code   210  stm32f10x_usart.o(i.USART_Init)
+    USART_ReceiveData                        0x08000a4d   Thumb Code    10  stm32f10x_usart.o(i.USART_ReceiveData)
+    Uart3_init                               0x08000a59   Thumb Code   160  uart.o(i.Uart3_init)
+    main                                     0x08000b01   Thumb Code    92  main.o(i.main)
+    Region$$Table$$Base                      0x08000b70   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08000b90   Number         0  anon$$obj.o(Region$$Table)
+    DateHandleFlag                           0x20000000   Data           1  main.o(.data)
+    ModuleStatus                             0x20000004   Data           4  hekr_protocol.o(.data)
+    Uart3_Recv_Count                         0x20000009   Data           1  uart.o(.data)
+    Uart3_Recv_STA                           0x2000000a   Data           1  uart.o(.data)
+    valid_data                               0x2000002e   Data           9  hekr_protocol.o(.bss)
+    Uart3_Recv_Buffer                        0x20000041   Data          20  uart.o(.bss)
+    __libspace_start                         0x20000058   Data          96  libspace.o(.bss)
+    __temporary_stack_top$libspace           0x200000b8   Data           0  libspace.o(.bss)
 
 
 
@@ -636,116 +646,119 @@ Memory Map of the image
 
   Image Entry point : 0x080000ed
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00000b4c, Max: 0x00010000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00000bb0, Max: 0x00010000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x00000b34, Max: 0x00010000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x00000b90, Max: 0x00010000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x08000000   0x000000ec   Data   RO          783    RESET               startup_stm32f10x_md.o
-    0x080000ec   0x00000008   Code   RO          838  * !!!main             c_w.l(__main.o)
-    0x080000f4   0x00000034   Code   RO          994    !!!scatter          c_w.l(__scatter.o)
-    0x08000128   0x0000001a   Code   RO          996    !!handler_copy      c_w.l(__scatter_copy.o)
+    0x08000000   0x000000ec   Data   RO          784    RESET               startup_stm32f10x_md.o
+    0x080000ec   0x00000008   Code   RO          839  * !!!main             c_w.l(__main.o)
+    0x080000f4   0x00000034   Code   RO          995    !!!scatter          c_w.l(__scatter.o)
+    0x08000128   0x0000001a   Code   RO          997    !!handler_copy      c_w.l(__scatter_copy.o)
     0x08000142   0x00000002   PAD
-    0x08000144   0x0000001c   Code   RO          998    !!handler_zi        c_w.l(__scatter_zi.o)
-    0x08000160   0x00000002   Code   RO          865    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
-    0x08000162   0x00000000   Code   RO          872    .ARM.Collect$$libinit$$00000002  c_w.l(libinit2.o)
-    0x08000162   0x00000000   Code   RO          874    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
-    0x08000162   0x00000000   Code   RO          877    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
-    0x08000162   0x00000000   Code   RO          879    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
-    0x08000162   0x00000000   Code   RO          881    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
-    0x08000162   0x00000000   Code   RO          884    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
-    0x08000162   0x00000000   Code   RO          886    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
-    0x08000162   0x00000000   Code   RO          888    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
-    0x08000162   0x00000000   Code   RO          890    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
-    0x08000162   0x00000000   Code   RO          892    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
-    0x08000162   0x00000000   Code   RO          894    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
-    0x08000162   0x00000000   Code   RO          896    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
-    0x08000162   0x00000000   Code   RO          898    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
-    0x08000162   0x00000000   Code   RO          900    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
-    0x08000162   0x00000000   Code   RO          902    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
-    0x08000162   0x00000000   Code   RO          904    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
-    0x08000162   0x00000000   Code   RO          908    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
-    0x08000162   0x00000000   Code   RO          910    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
-    0x08000162   0x00000000   Code   RO          912    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
-    0x08000162   0x00000000   Code   RO          914    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
-    0x08000162   0x00000002   Code   RO          915    .ARM.Collect$$libinit$$00000033  c_w.l(libinit2.o)
-    0x08000164   0x00000002   Code   RO          935    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
-    0x08000166   0x00000000   Code   RO          949    .ARM.Collect$$libshutdown$$00000003  c_w.l(libshutdown2.o)
-    0x08000166   0x00000000   Code   RO          952    .ARM.Collect$$libshutdown$$00000006  c_w.l(libshutdown2.o)
-    0x08000166   0x00000000   Code   RO          955    .ARM.Collect$$libshutdown$$00000009  c_w.l(libshutdown2.o)
-    0x08000166   0x00000000   Code   RO          957    .ARM.Collect$$libshutdown$$0000000B  c_w.l(libshutdown2.o)
-    0x08000166   0x00000000   Code   RO          960    .ARM.Collect$$libshutdown$$0000000E  c_w.l(libshutdown2.o)
-    0x08000166   0x00000002   Code   RO          961    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
-    0x08000168   0x00000000   Code   RO          840    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
-    0x08000168   0x00000000   Code   RO          842    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
-    0x08000168   0x00000006   Code   RO          854    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
-    0x0800016e   0x00000000   Code   RO          844    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
-    0x0800016e   0x00000004   Code   RO          845    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
-    0x08000172   0x00000000   Code   RO          847    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
-    0x08000172   0x00000008   Code   RO          848    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
-    0x0800017a   0x00000002   Code   RO          869    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
-    0x0800017c   0x00000000   Code   RO          917    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
-    0x0800017c   0x00000004   Code   RO          918    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
-    0x08000180   0x00000006   Code   RO          919    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
+    0x08000144   0x0000001c   Code   RO          999    !!handler_zi        c_w.l(__scatter_zi.o)
+    0x08000160   0x00000002   Code   RO          866    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
+    0x08000162   0x00000000   Code   RO          873    .ARM.Collect$$libinit$$00000002  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          875    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          878    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          880    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          882    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          885    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          887    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          889    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          891    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          893    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          895    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          897    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          899    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          901    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          903    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          905    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          909    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          911    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          913    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          915    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
+    0x08000162   0x00000002   Code   RO          916    .ARM.Collect$$libinit$$00000033  c_w.l(libinit2.o)
+    0x08000164   0x00000002   Code   RO          936    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
+    0x08000166   0x00000000   Code   RO          950    .ARM.Collect$$libshutdown$$00000003  c_w.l(libshutdown2.o)
+    0x08000166   0x00000000   Code   RO          953    .ARM.Collect$$libshutdown$$00000006  c_w.l(libshutdown2.o)
+    0x08000166   0x00000000   Code   RO          956    .ARM.Collect$$libshutdown$$00000009  c_w.l(libshutdown2.o)
+    0x08000166   0x00000000   Code   RO          958    .ARM.Collect$$libshutdown$$0000000B  c_w.l(libshutdown2.o)
+    0x08000166   0x00000000   Code   RO          961    .ARM.Collect$$libshutdown$$0000000E  c_w.l(libshutdown2.o)
+    0x08000166   0x00000002   Code   RO          962    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
+    0x08000168   0x00000000   Code   RO          841    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
+    0x08000168   0x00000000   Code   RO          843    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
+    0x08000168   0x00000006   Code   RO          855    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
+    0x0800016e   0x00000000   Code   RO          845    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
+    0x0800016e   0x00000004   Code   RO          846    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
+    0x08000172   0x00000000   Code   RO          848    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
+    0x08000172   0x00000008   Code   RO          849    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
+    0x0800017a   0x00000002   Code   RO          870    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
+    0x0800017c   0x00000000   Code   RO          918    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
+    0x0800017c   0x00000004   Code   RO          919    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
+    0x08000180   0x00000006   Code   RO          920    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
     0x08000186   0x00000002   PAD
-    0x08000188   0x00000040   Code   RO          784    .text               startup_stm32f10x_md.o
-    0x080001c8   0x00000006   Code   RO          836    .text               c_w.l(heapauxi.o)
-    0x080001ce   0x0000004a   Code   RO          856    .text               c_w.l(sys_stackheap_outer.o)
-    0x08000218   0x0000000c   Code   RO          858    .text               c_w.l(exit.o)
-    0x08000224   0x00000008   Code   RO          866    .text               c_w.l(libspace.o)
-    0x0800022c   0x0000000c   Code   RO          927    .text               c_w.l(sys_exit.o)
-    0x08000238   0x00000002   Code   RO          938    .text               c_w.l(use_no_semi.o)
-    0x0800023a   0x00000000   Code   RO          940    .text               c_w.l(indicate_semi.o)
+    0x08000188   0x00000040   Code   RO          785    .text               startup_stm32f10x_md.o
+    0x080001c8   0x00000006   Code   RO          837    .text               c_w.l(heapauxi.o)
+    0x080001ce   0x0000004a   Code   RO          857    .text               c_w.l(sys_stackheap_outer.o)
+    0x08000218   0x0000000c   Code   RO          859    .text               c_w.l(exit.o)
+    0x08000224   0x00000008   Code   RO          867    .text               c_w.l(libspace.o)
+    0x0800022c   0x0000000c   Code   RO          928    .text               c_w.l(sys_exit.o)
+    0x08000238   0x00000002   Code   RO          939    .text               c_w.l(use_no_semi.o)
+    0x0800023a   0x00000000   Code   RO          941    .text               c_w.l(indicate_semi.o)
     0x0800023a   0x00000002   PAD
-    0x0800023c   0x0000002c   Code   RO           86    i.Err_Response      hekr_protocol.o
-    0x08000268   0x00000116   Code   RO          260    i.GPIO_Init         stm32f10x_gpio.o
-    0x0800037e   0x00000002   PAD
-    0x08000380   0x00000024   Code   RO           88    i.Hekr_Module_State_Copy  hekr_protocol.o
-    0x080003a4   0x0000005a   Code   RO           89    i.Hekr_RecvData_Handle  hekr_protocol.o
-    0x080003fe   0x0000000c   Code   RO           90    i.Hekr_Send_Byte    hekr_protocol.o
-    0x0800040a   0x00000026   Code   RO           91    i.Hekr_Send_Frame   hekr_protocol.o
-    0x08000430   0x00000024   Code   RO           92    i.Hekr_ValidData_Copy  hekr_protocol.o
-    0x08000454   0x0000003c   Code   RO           93    i.Hekr_ValidData_Upload  hekr_protocol.o
-    0x08000490   0x00000070   Code   RO          206    i.NVIC_Init         misc.o
-    0x08000500   0x00000014   Code   RO          207    i.NVIC_PriorityGroupConfig  misc.o
-    0x08000514   0x00000020   Code   RO          382    i.RCC_APB1PeriphClockCmd  stm32f10x_rcc.o
-    0x08000534   0x00000020   Code   RO          384    i.RCC_APB2PeriphClockCmd  stm32f10x_rcc.o
-    0x08000554   0x000000d4   Code   RO          392    i.RCC_GetClocksFreq  stm32f10x_rcc.o
-    0x08000628   0x00000008   Code   RO          791    i.SetSysClock       system_stm32f10x.o
-    0x08000630   0x000000e0   Code   RO          792    i.SetSysClockTo72   system_stm32f10x.o
-    0x08000710   0x00000020   Code   RO           94    i.Sum_Calculate     hekr_protocol.o
-    0x08000730   0x00000020   Code   RO           95    i.Sum_Check_Is_Err  hekr_protocol.o
-    0x08000750   0x00000060   Code   RO          794    i.SystemInit        system_stm32f10x.o
-    0x080007b0   0x00000010   Code   RO            4    i.System_init       main.o
-    0x080007c0   0x0000001c   Code   RO          163    i.UART3_SendChar    uart.o
-    0x080007dc   0x0000008c   Code   RO          164    i.USART3_IRQHandler  uart.o
-    0x08000868   0x00000018   Code   RO          596    i.USART_Cmd         stm32f10x_usart.o
-    0x08000880   0x00000054   Code   RO          600    i.USART_GetITStatus  stm32f10x_usart.o
-    0x080008d4   0x0000004a   Code   RO          602    i.USART_ITConfig    stm32f10x_usart.o
-    0x0800091e   0x00000002   PAD
-    0x08000920   0x000000d8   Code   RO          603    i.USART_Init        stm32f10x_usart.o
-    0x080009f8   0x0000000a   Code   RO          610    i.USART_ReceiveData  stm32f10x_usart.o
-    0x08000a02   0x00000002   PAD
-    0x08000a04   0x000000a8   Code   RO          165    i.Uart3_init        uart.o
-    0x08000aac   0x00000068   Code   RO            5    i.main              main.o
-    0x08000b14   0x00000020   Data   RO          992    Region$$Table       anon$$obj.o
+    0x0800023c   0x0000003c   Code   RO           86    i.ErrResponse       hekr_protocol.o
+    0x08000278   0x00000116   Code   RO          261    i.GPIO_Init         stm32f10x_gpio.o
+    0x0800038e   0x00000002   PAD
+    0x08000390   0x0000003c   Code   RO           87    i.HekrModuleControl  hekr_protocol.o
+    0x080003cc   0x00000024   Code   RO           88    i.HekrModuleStateCopy  hekr_protocol.o
+    0x080003f0   0x00000064   Code   RO           89    i.HekrRecvDataHandle  hekr_protocol.o
+    0x08000454   0x0000000c   Code   RO           90    i.HekrSendByte      hekr_protocol.o
+    0x08000460   0x00000026   Code   RO           91    i.HekrSendFrame     hekr_protocol.o
+    0x08000486   0x00000002   PAD
+    0x08000488   0x00000024   Code   RO           92    i.HekrValidDataCopy  hekr_protocol.o
+    0x080004ac   0x0000004c   Code   RO           93    i.HekrValidDataUpload  hekr_protocol.o
+    0x080004f8   0x00000070   Code   RO          207    i.NVIC_Init         misc.o
+    0x08000568   0x00000014   Code   RO          208    i.NVIC_PriorityGroupConfig  misc.o
+    0x0800057c   0x00000020   Code   RO          383    i.RCC_APB1PeriphClockCmd  stm32f10x_rcc.o
+    0x0800059c   0x00000020   Code   RO          385    i.RCC_APB2PeriphClockCmd  stm32f10x_rcc.o
+    0x080005bc   0x000000d4   Code   RO          393    i.RCC_GetClocksFreq  stm32f10x_rcc.o
+    0x08000690   0x00000008   Code   RO          792    i.SetSysClock       system_stm32f10x.o
+    0x08000698   0x000000e0   Code   RO          793    i.SetSysClockTo72   system_stm32f10x.o
+    0x08000778   0x00000020   Code   RO           94    i.SumCalculate      hekr_protocol.o
+    0x08000798   0x00000020   Code   RO           95    i.SumCheckIsErr     hekr_protocol.o
+    0x080007b8   0x00000060   Code   RO          795    i.SystemInit        system_stm32f10x.o
+    0x08000818   0x00000010   Code   RO            4    i.System_Init       main.o
+    0x08000828   0x0000001c   Code   RO          164    i.UART3_SendChar    uart.o
+    0x08000844   0x00000078   Code   RO          165    i.USART3_IRQHandler  uart.o
+    0x080008bc   0x00000018   Code   RO          597    i.USART_Cmd         stm32f10x_usart.o
+    0x080008d4   0x00000054   Code   RO          601    i.USART_GetITStatus  stm32f10x_usart.o
+    0x08000928   0x0000004a   Code   RO          603    i.USART_ITConfig    stm32f10x_usart.o
+    0x08000972   0x00000002   PAD
+    0x08000974   0x000000d8   Code   RO          604    i.USART_Init        stm32f10x_usart.o
+    0x08000a4c   0x0000000a   Code   RO          611    i.USART_ReceiveData  stm32f10x_usart.o
+    0x08000a56   0x00000002   PAD
+    0x08000a58   0x000000a8   Code   RO          166    i.Uart3_init        uart.o
+    0x08000b00   0x00000070   Code   RO            5    i.main              main.o
+    0x08000b70   0x00000020   Data   RO          993    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x000006c8, Max: 0x00005000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x000006b8, Max: 0x00005000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x20000000   0x00000001   Data   RW            6    .data               main.o
-    0x20000001   0x00000003   Data   RW          167    .data               uart.o
-    0x20000004   0x00000014   Data   RW          412    .data               stm32f10x_rcc.o
-    0x20000018   0x00000037   Zero   RW           96    .bss                hekr_protocol.o
-    0x2000004f   0x00000014   Zero   RW          166    .bss                uart.o
-    0x20000063   0x00000001   PAD
-    0x20000064   0x00000060   Zero   RW          867    .bss                c_w.l(libspace.o)
-    0x200000c4   0x00000004   PAD
-    0x200000c8   0x00000200   Zero   RW          782    HEAP                startup_stm32f10x_md.o
-    0x200002c8   0x00000400   Zero   RW          781    STACK               startup_stm32f10x_md.o
+    0x20000001   0x00000003   PAD
+    0x20000004   0x00000005   Data   RW           97    .data               hekr_protocol.o
+    0x20000009   0x00000003   Data   RW          168    .data               uart.o
+    0x2000000c   0x00000014   Data   RW          413    .data               stm32f10x_rcc.o
+    0x20000020   0x00000021   Zero   RW           96    .bss                hekr_protocol.o
+    0x20000041   0x00000014   Zero   RW          167    .bss                uart.o
+    0x20000055   0x00000003   PAD
+    0x20000058   0x00000060   Zero   RW          868    .bss                c_w.l(libspace.o)
+    0x200000b8   0x00000200   Zero   RW          783    HEAP                startup_stm32f10x_md.o
+    0x200002b8   0x00000400   Zero   RW          782    STACK               startup_stm32f10x_md.o
 
 
 ==============================================================================
@@ -755,20 +768,20 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       380         24          0          0         55       5595   hekr_protocol.o
-       120         20          0          1          0     232884   main.o
+       482         36          0          5         33       7841   hekr_protocol.o
+       128         20          0          1          0     232886   main.o
        132         22          0          0          0       1667   misc.o
-        64         26        236          0       1536        836   startup_stm32f10x_md.o
+        64         26        236          0       1536        832   startup_stm32f10x_md.o
        278          0          0          0          0       2048   stm32f10x_gpio.o
        276         32          0         20          0       4582   stm32f10x_rcc.o
        408          6          0          0          0       5158   stm32f10x_usart.o
-       328         28          0          0          0       2049   system_stm32f10x.o
-       336         36          0          3         20       2334   uart.o
+       328         28          0          0          0       2041   system_stm32f10x.o
+       316         36          0          3         20       2314   uart.o
 
     ----------------------------------------------------------------------
-      2328        194        268         24       1612     257153   Object Totals
+      2420        206        268         32       1592     259369   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-         6          0          0          0          1          0   (incl. Padding)
+         8          0          0          3          3          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -796,8 +809,8 @@ Image component sizes
          2          0          0          0          0         68   use_no_semi.o
 
     ----------------------------------------------------------------------
-       272         16          0          0        100        576   Library Totals
-         6          0          0          0          4          0   (incl. Padding)
+       272         16          0          0         96        576   Library Totals
+         6          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -806,7 +819,7 @@ Image component sizes
        266         16          0          0         96        576   c_w.l
 
     ----------------------------------------------------------------------
-       272         16          0          0        100        576   Library Totals
+       272         16          0          0         96        576   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -815,15 +828,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      2600        210        268         24       1712     256269   Grand Totals
-      2600        210        268         24       1712     256269   ELF Image Totals
-      2600        210        268         24          0          0   ROM Totals
+      2692        222        268         32       1688     258433   Grand Totals
+      2692        222        268         32       1688     258433   ELF Image Totals
+      2692        222        268         32          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 2868 (   2.80kB)
-    Total RW  Size (RW Data + ZI Data)              1736 (   1.70kB)
-    Total ROM Size (Code + RO Data + RW Data)       2892 (   2.82kB)
+    Total RO  Size (Code + RO Data)                 2960 (   2.89kB)
+    Total RW  Size (RW Data + ZI Data)              1720 (   1.68kB)
+    Total ROM Size (Code + RO Data + RW Data)       2992 (   2.92kB)
 
 ==============================================================================
 

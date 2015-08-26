@@ -1,28 +1,30 @@
-#ifndef	_Hekr_Protocol_H_
-#define	_Hekr_Protocol_H_
+#ifndef	_HEKR_PROTOCOL_H_
+#define	_HEKR_PROTOCOL_H_
 
 
-// Hekr USER API **************************************************************
+// HEKR USER API **************************************************************
 
 // 使用前要定义用户所需要的最大数组  
-// 如果有多条不等长命令  取最长长度
-// #define User_Max_Len 0x0F
+// 如果有多条不等长命令  取最长长度  为用户数据长度  非整帧长度
+// #define USER_MAX_LEN 0x0F
 
 //传入串口接收的数据数组  
-//返回值见头文件 RecvData_Handle_Code
-//数据保存在对应数组中 Valid_Data 和 Module_Status
-//unsigned char Hekr_RecvData_Handle(unsigned char* data);
+//返回值见头文件 RecvDataHandleCode
+//数据保存在对应数组中 valid_data 和 ModuleStatus 指针
+//unsigned char HekrRecvDataHandle(unsigned char* data);
 
-//配置及查询hekr模块状态 传入码值见头文件 Hekr_Module_Control_Code
-//状态值保存在Module_Status数组中
-//void Hekr_Module_Control(unsigned char data);
+//配置及查询hekr模块状态 传入码值见头文件 HekrModuleControlCode
+//状态值保存在module_status数组中
+//void HekrModuleControl(unsigned char data);
+
 
 //上传用户有效数据
-//数据存放在Valid_Data数组中 len 为用户数据长度  非整帧长度
-//void Hekr_ValidData_Upload(unsigned char  len);
+//数据存放在valid_data数组中 len 为用户数据长度  非整帧长度
+//void HekrValidDataUpload(unsigned char len);
+
 
 //如果修改串口则需要修改此函数  及对应头文件
-//static void Hekr_Send_Byte(unsigned char ch);
+//static void HekrSendByte(unsigned char ch);  hekr_protocol.c 99行
 //
 // 协议网址  http://docs.hekr.me/protocol/
 // BUG 反馈  pengyu.zhang@hekr.me
@@ -32,184 +34,111 @@
 
 #include "stm8_uart.h"
 
-#define User_Max_Len 0x0F
+#define USER_MAX_LEN 0x09u
+#define HEKR_DATA_LEN 0x05u
+#define HEKR_FRAME_HEADER 0x48u
 
-
-extern unsigned char Hekr_Send_Buffer[User_Max_Len+5];
-extern unsigned char Valid_Data[User_Max_Len];
-extern unsigned char Module_Status[20];
-
-#define Hekr_Frame_Header 0x48u
 
 //*************************************************************************
-//Hekr 帧格式
+//
+//ModuleStatus 指针 包含内容
+//
 //*************************************************************************
-
-//通用帧头格式 
-typedef struct
-{
-	unsigned char header;
-	unsigned char length;
-	unsigned char type;
-	unsigned char number;
-}General_header;
-
-//模块查询帧格式
-typedef struct
-{
-	//通用帧头
-	General_header header;
-	//有效数据
-	unsigned char CMD;
-	unsigned char Reserved;
-	//和校验
-	unsigned char SUM;
-}Module_Query_Frame; 
 
 //模块应答帧格式
 typedef struct
 {
-	//通用帧头
-	General_header header;
 	//有效数据
 	unsigned char CMD;
 	unsigned char Mode;
 	unsigned char WIFI_Status;
-	unsigned char Cloud_Status;
-	unsigned char Signal_Strength;
+	unsigned char CloudStatus;
+	unsigned char SignalStrength;// 0-5 代表信号强度
 	unsigned char Reserved;
-	//和校验
-	unsigned char SUM;
-}Module_Response_Frame; 
-
-//错误帧格式
-typedef struct
-{
-	//通用帧头
-	General_header header;
-	//有效数据
-	unsigned char Error_Code;
-	unsigned char Reserved;
-	//和校验
-	unsigned char SUM;
-}Error_Frame; 
-
-//LED 控制帧格式
-typedef struct
-{
-	//通用帧头
-	General_header header;
-	//有效数据
-	unsigned char CMD;
-	unsigned char Change_Rate;
-	unsigned char Brightness;
-	unsigned char Color_Temperature;
-	unsigned char R;
-	unsigned char G;
-	unsigned char B;
-	unsigned char Reserved;
-	//和校验
-	unsigned char SUM;
-}Led_Control_Frame;
+}ModuleStatusFrame; 
 
 
 //*************************************************************************
-//Hekr 具体码值
+//
+//HekrRecvDataHandle  函数返回值
+//
 //*************************************************************************
 
-//Hekr各帧长度
 typedef	enum
 {
-	Module_Query_Frame_Length = 0x07,
-	Module_Response_Frame_Length = 0x0B,
-	Error_Frame_Length = 0x07
-}All_Frame_Length;
+	RecvDataSumCheckErr = 0x01,
+	LastFrameSendErr = 0x02,
+	MCU_UploadACK = 0x03,
+	ValidDataUpdate = 0x04,
+	RecvDataUseless = 0x05,
+	HekrModuleStateUpdate = 0x06,
+	MCU_ControlModuleACK = 0x07
+}RecvDataHandleCode;
 
-//Hekr各帧类型
-typedef	enum
-{
-	Device_Upload_Type = 0x01,
-	Module_Download_Type = 0x02,
-	Module_Operation_Type = 0xFE,
-	Error_Frame_Type = 0xFF
-}All_Frame_Type;
 
-//Hekr错误码取值
-typedef	enum
-{
-	Error_Operation = 0x01,
-	Error_Sum_Check = 0x02,
-	Error_Data_Range = 0x03,
-	Error_No_CMD = 0xFF
-}All_Error_Value;
-
-//Hekr数据处理返回值
-typedef	enum
-{
-	RecvData_SumCheckErr = 0x01,
-	Last_Frame_Send_Err = 0x02,
-	MCU_Upload_ACK = 0x03,
-	Valid_Data_Update = 0x04,
-	RecvData_Useless = 0x05,
-	Hekr_Module_State_Update = 0x06
-}RecvData_Handle_Code;
 
 //Hekr模块控制码
 typedef	enum
 {
-	Module_Query = 0x01,
-	Module_Restart = 0x02,
-	Module_Recover = 0x03,
-	Hekr_Config = 0x04
-}Hekr_Module_Control_Code;
+	ModuleQuery = 0x01,
+	ModuleRestart = 0x02,
+	ModuleRecover = 0x03,
+	HekrConfig = 0x04
+}HekrModuleControlCode;
+
+
+//*************************************************************************
+//
+//ModuleStatus 指针中各个有效位具体码值
+//
+//*************************************************************************
 
 //Hekr模块状态码
 typedef	enum
 {
 	STA_Mode = 0x01,
-	Hekr_Config_Mode = 0x02,
+	HekrConfig_Mode = 0x02,
 	AP_Mode = 0x03,
 	STA_AP_Mode = 0x04,
 	RF_OFF_Mode = 0x05
-}Hekr_Module_Work_Code;
+}HekrModuleWorkCode;
 
 //Hekr WIFI状态码
 typedef	enum
 {
-	Router_Connected = 0x01,
-	Router_Connected_Fail = 0x02,
-	Router_Connecting = 0x03,
-	Password_Err = 0x04,
-	No_Router = 0x05,
-	Router_Time_Over = 0x06
-}Hekr_Module_WIFI_Code;
+	RouterConnected = 0x01,
+	RouterConnectedFail = 0x02,
+	RouterConnecting = 0x03,
+	PasswordErr = 0x04,
+	NoRouter = 0x05,
+	RouterTimeOver = 0x06
+}HekrModuleWIFICode;
 
 //Hekr Cloud状态码
 typedef	enum
 {
-	Cloud_Connected = 0x01,
+	CloudConnected = 0x01,
 	DNS_Fail = 0x02,
-	Cloud_Time_Over = 0x03
-}Hekr_Module_Cloud_Code;
+	CloudTimeOver = 0x03
+}HekrModuleCloudCode;
+
+
+//*************************************************************************
+//用户数据区
+//*************************************************************************
+
+extern unsigned char valid_data[USER_MAX_LEN];
+extern ModuleStatusFrame *ModuleStatus; 
+
 
 //*************************************************************************
 //函数列表
 //*************************************************************************
 
 // Hekr USER API 
-unsigned char Hekr_RecvData_Handle(unsigned char* data);
-void Hekr_Module_Control(unsigned char data);
-void Hekr_ValidData_Upload(unsigned char len);
+unsigned char HekrRecvDataHandle(unsigned char* data);
+void HekrModuleControl(unsigned char data);
+void HekrValidDataUpload(unsigned char len);
 
-//如果修改串口则需要修改此函数
-static void Hekr_Send_Byte(unsigned char ch);
-
-// Static Function
-static void Hekr_Send_Frame(unsigned char *data);
-static unsigned char Sum_Check_Is_Err(unsigned char* data);
-static void Err_Response(unsigned char data);
-static unsigned char Sum_Calculate(unsigned char* data);
-static void Hekr_ValidData_Copy(unsigned char* data);
-static void Hekr_Module_State_Copy(unsigned char* data);
 
 #endif
