@@ -1,0 +1,80 @@
+#######################################
+# Syntax Coloring Map For Hekr#######################################
+
+#######################################
+# Class (KEYWORD1)
+#######################################
+
+
+#######################################
+
+# methods names#######################################
+
+
+HekrModuleControl	KEYWORD2
+HekrInit			KEYWORD2
+HekrRecvDataHandle	KEYWORD2
+HekrValidDataUpload	KEYWORD2
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+HEKR_FRAME_HEADER	LITERAL1
+
+USER_MAX_LEN 		LITERAL1
+
+HEKR_DATA_LEN		LITERAL1
+ 
+RecvDataSumCheckErr 	LITERAL1
+	
+LastFrameSendErr 		LITERAL1
+	  
+MCU_UploadACK 		LITERAL1
+	  
+ValidDataUpdate		LITERAL1
+	  
+RecvDataUseless 		LITERAL1
+	  
+HekrModuleStateUpdate 	LITERAL1
+	
+MCU_ControlModuleACK 	LITERAL1
+	    
+ModuleQuery 		LITERAL1
+	    
+ModuleRestart 		LITERAL1
+	    
+ModuleRecover 		LITERAL1
+	
+HekrConfig 		LITERAL1
+	        
+STA_Mode 		LITERAL1
+	        
+HekrConfig_Mode 		LITERAL1
+	        
+AP_Mode 		LITERAL1
+	          
+STA_AP_Mode 		LITERAL1
+	        
+RF_OFF_Mode  		LITERAL1
+	        
+RouterConnected		LITERAL1
+	        
+RouterConnectedFail	LITERAL1
+	        
+RouterConnecting 		LITERAL1
+	        
+PasswordErr 		LITERAL1
+	        
+NoRouter 		LITERAL1
+   
+RouterTimeOver 		LITERAL1
+	       
+CloudConnected 		LITERAL1
+	       
+DNS_Fail 			LITERAL1
+	       
+CloudTimeOver		LITERAL1
+	          
+
+        
