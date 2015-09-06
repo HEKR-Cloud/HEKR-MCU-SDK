@@ -1,6 +1,6 @@
 [WorkState_v1-Edit.Breakpoints]
-Break0=TypeFile, ..\app\hekr_protocol.c, 101, 0, 0, 1,
-Break1=TypeFile, main.c, 81, 0, 1, 1,
+Break0=TypeFile, ..\app\hekr_protocol.c, 106, 0, 0, 1,
+Break1=TypeFile, main.c, 89, 0, 1, 1,
 
 [WorkState_v1_2]
 ptn_Child1=DockState
@@ -381,9 +381,9 @@ YPos=30
 MRUWidth=131
 Docking=True
 MRUDockID=59419
-MRUDockLeftPos=8
+MRUDockLeftPos=-1
 MRUDockTopPos=30
-MRUDockRightPos=156
+MRUDockRightPos=147
 MRUDockBottomPos=60
 MRUFloatStyle=8196
 MRUFloatXPos=-1

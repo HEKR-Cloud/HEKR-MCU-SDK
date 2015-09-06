@@ -72,14 +72,19 @@ typedef struct
 //*************************************************************************
 //Hekr 定义变量
 //*************************************************************************
+
+// 内部数据
 static unsigned char hekr_send_buffer[USER_MAX_LEN+HEKR_DATA_LEN];
-unsigned char valid_data[USER_MAX_LEN];
 static unsigned char module_status[10];
-ModuleStatusFrame *ModuleStatus = (ModuleStatusFrame*)&module_status;
 static unsigned char frame_no = 0;
+static void (*hekr_send_btye)(unsigned char);
+
+// 提供用户使用
+ModuleStatusFrame *ModuleStatus = (ModuleStatusFrame*)&module_status;
+unsigned char valid_data[USER_MAX_LEN];
 
 //*************************************************************************
-//Hekr 函数申明
+//Hekr 内部函数申明
 //*************************************************************************
 
 // Static Function
@@ -91,16 +96,15 @@ static unsigned char SumCalculate(unsigned char* data);
 static void HekrValidDataCopy(unsigned char* data);
 static void HekrModuleStateCopy(unsigned char* data);
 
-
 //*************************************************************************
 //Hekr 函数定义
 //*************************************************************************
 
-static void HekrSendByte(unsigned char ch)
-{
-		UART1_SendChar(ch);
+// 用户函数
+void HekrInit(void (*fun)(unsigned char))
+{	
+	hekr_send_btye = fun;
 }
-
 
 unsigned char HekrRecvDataHandle(unsigned char* data)
 {
@@ -154,6 +158,12 @@ void HekrModuleControl(unsigned char data)
 	HekrSendFrame(hekr_send_buffer);
 }
 
+
+// 内部函数
+static void HekrSendByte(unsigned char ch)
+{
+	hekr_send_btye(ch);
+}
 
 
 static void HekrSendFrame(unsigned char *data)
