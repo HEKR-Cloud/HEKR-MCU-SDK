@@ -1,4 +1,4 @@
-#HEKR-MCU-SDK 说明文档
+﻿#HEKR-MCU-SDK 说明文档
 ----
 ##0.主要内容
 *	SDK简介
@@ -151,7 +151,8 @@ example 文件夹下是移植完成的MCU-SDK
 * 2015.8.26 更新STM32-SDK
 * 2015.8.26 更新STM32-uCOSIII-SDK
 * 2015.9.01 更新Arduino-SDK
-
+* 2015.9.01 更新STM32-SDK
+* 2015.9.01 更新STM32-uCOSIII-SDK
  
 ##6.相关链接及反馈
 
