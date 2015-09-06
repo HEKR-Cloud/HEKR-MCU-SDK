@@ -1,0 +1,14 @@
+--cpu Cortex-M3
+"..\obj\main.o"
+"..\obj\hekr_protocol.o"
+"..\obj\uart.o"
+"..\obj\misc.o"
+"..\obj\stm32f10x_gpio.o"
+"..\obj\stm32f10x_rcc.o"
+"..\obj\stm32f10x_usart.o"
+"..\obj\startup_stm32f10x_md.o"
+"..\obj\system_stm32f10x.o"
+--strict --scatter "..\OBJ\Prj.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\Prj.map" -o ..\OBJ\Prj.axf
