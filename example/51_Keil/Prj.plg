@@ -1,0 +1,13 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\Bear\work\HEKR-MCU-SDK\example\51_MDK\Prj.uvproj
+Project File Date:  09/06/2015
+
+<h2>Output:</h2>
+Clean started: Project: 'Prj'
+   deleting intermediate output files for target 'Target 1'
+Clean started: Project: 'Prj'
+   deleting intermediate output files for target 'Target 1'
