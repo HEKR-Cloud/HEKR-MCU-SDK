@@ -4,63 +4,79 @@
 
 // HEKR USER API **************************************************************
 
-// Ê¹ÓÃÇ°Òª¶¨ÒåÓÃ»§ËùĞèÒªµÄ×î´óÊı×é  
-// Èç¹ûÓĞ¶àÌõ²»µÈ³¤ÃüÁî  È¡×î³¤³¤¶È  ÎªÓÃ»§Êı¾İ³¤¶È  ·ÇÕûÖ¡³¤¶È
-// #define USER_MAX_LEN 0x0F
+//ä½¿ç”¨å‰è¦ç¡®å®šç”¨æˆ·æ‰€éœ€è¦çš„æœ€å¤§æ•°ç»„  é»˜è®¤ä¸º100 å¤§äº100éœ€è¦è‡ªè¡Œä¿®æ”¹
+//æ•°ç»„å¤§å°å¯ä»¥è‡ªè¡Œä¿®æ”¹ä¸ºæœ€é•¿é•¿åº¦  
+//å¦‚æœæœ‰å¤šæ¡ä¸ç­‰é•¿å‘½ä»¤  å–æœ€é•¿é•¿åº¦  ä¸ºç”¨æˆ·æ•°æ®é•¿åº¦  éæ•´å¸§é•¿åº¦
+//#define USER_MAX_LEN 0x64u
 
-//´«Èë´®¿Ú½ÓÊÕµÄÊı¾İÊı×é  
-//·µ»ØÖµ¼ûÍ·ÎÄ¼ş RecvDataHandleCode
-//Êı¾İ±£´æÔÚ¶ÔÓ¦Êı×éÖĞ valid_data ºÍ ModuleStatus Ö¸Õë
+//Hekr åè®®åˆå§‹åŒ–
+//ä½¿ç”¨Hekråè®®å‰éœ€å®Œæˆåˆå§‹åŒ–
+//åˆå§‹åŒ–éœ€è¦ç”¨æˆ·æœ‰ä¸²å£å‘é€ä¸€ä¸ªbyteçš„ç¨‹åº
+//eg:  void UART_SendChar(u8 ch); ä¼ è¾“å‚æ•°å¿…é¡»åªæ˜¯ä¸€ä¸ª8bitçš„æ•°
+//     è¯¥å‡½æ•°éœ€è¦ç”¨æˆ·è‡ªè¡Œåœ¨ç¨‹åºä¸­å®šä¹‰
+//HekrInitå‡½æ•°:
+//ä¼ å…¥å‚æ•°ä¸ºç”¨æˆ·ä¸²å£å‘é€ä¸€ä¸ªbyteå‡½æ•°çš„å‡½æ•°å
+//void HekrInit(void (*fun)(unsigned char));
+//eg:  HekrInit(UART_SendChar);   
+
+//ä¼ å…¥ä¸²å£æ¥æ”¶çš„æ•°æ®æ•°ç»„  
+//è¿”å›å€¼è§å¤´æ–‡ä»¶ RecvDataHandleCode
+//ä¼ å…¥æ•°ç»„é•¿åº¦åº”å¤§äºç”¨æˆ·æ•°æ®é•¿åº¦åŠ ä¸ŠHEKR_DATA_LEN
+//æ•°æ®ä¿å­˜åœ¨å¯¹åº”æ•°ç»„ä¸­ valid_data å’Œ ModuleStatus æŒ‡é’ˆ
 //unsigned char HekrRecvDataHandle(unsigned char* data);
 
-//ÅäÖÃ¼°²éÑ¯hekrÄ£¿é×´Ì¬ ´«ÈëÂëÖµ¼ûÍ·ÎÄ¼ş HekrModuleControlCode
-//×´Ì¬Öµ±£´æÔÚmodule_statusÊı×éÖĞ
+//é…ç½®åŠæŸ¥è¯¢hekræ¨¡å—çŠ¶æ€ ä¼ å…¥ç å€¼è§å¤´æ–‡ä»¶ HekrModuleControlCode
+//çŠ¶æ€å€¼ä¿å­˜åœ¨module_statusæ•°ç»„ä¸­
 //void HekrModuleControl(unsigned char data);
 
 
-//ÉÏ´«ÓÃ»§ÓĞĞ§Êı¾İ
-//Êı¾İ´æ·ÅÔÚvalid_dataÊı×éÖĞ len ÎªÓÃ»§Êı¾İ³¤¶È  ·ÇÕûÖ¡³¤¶È
+//ä¸Šä¼ ç”¨æˆ·æœ‰æ•ˆæ•°æ®
+//æ•°æ®å­˜æ”¾åœ¨valid_dataæ•°ç»„ä¸­ len ä¸ºç”¨æˆ·æ•°æ®é•¿åº¦  éæ•´å¸§é•¿åº¦
 //void HekrValidDataUpload(unsigned char len);
 
-
-//Èç¹ûĞŞ¸Ä´®¿ÚÔòĞèÒªĞŞ¸Ä´Ëº¯Êı  ¼°¶ÔÓ¦Í·ÎÄ¼ş
-//static void HekrSendByte(unsigned char ch);  hekr_protocol.c 99ĞĞ
-//
-// Ğ­ÒéÍøÖ·  http://docs.hekr.me/protocol/
-// BUG ·´À¡  pengyu.zhang@hekr.me
-//					 965006619@qq.com
+//åè®®ä¿®æ”¹æ—¥æœŸ 2015.09.01 
+//åè®®ç½‘å€  http://docs.hekr.me/protocol/
+//BUG åé¦ˆ  pengyu.zhang@hekr.me
+//					965006619@qq.com
 //*****************************************************************************
 
 
-#include "stm8_uart.h"
 
-#define USER_MAX_LEN 0x09u
+#define USER_MAX_LEN 0x64u
 #define HEKR_DATA_LEN 0x05u
 #define HEKR_FRAME_HEADER 0x48u
 
 
+#define _KEIL_51_SDK_
+
+#ifdef	_KEIL_51_SDK_
+#define	DATA_AREA		xdata
+#else
+#define	DATA_AREA		
+#endif 
+
 //*************************************************************************
 //
-//ModuleStatus Ö¸Õë °üº¬ÄÚÈİ
+//ModuleStatus æŒ‡é’ˆ åŒ…å«å†…å®¹
 //
 //*************************************************************************
 
-//Ä£¿éÓ¦´ğÖ¡¸ñÊ½
+//æ¨¡å—åº”ç­”å¸§æ ¼å¼
 typedef struct
 {
-	//ÓĞĞ§Êı¾İ
+	//æœ‰æ•ˆæ•°æ®
 	unsigned char CMD;
 	unsigned char Mode;
 	unsigned char WIFI_Status;
 	unsigned char CloudStatus;
-	unsigned char SignalStrength;// 0-5 ´ú±íĞÅºÅÇ¿¶È
+	unsigned char SignalStrength;// 0-5 ä»£è¡¨ä¿¡å·å¼ºåº¦
 	unsigned char Reserved;
 }ModuleStatusFrame; 
 
 
 //*************************************************************************
 //
-//HekrRecvDataHandle  º¯Êı·µ»ØÖµ
+//HekrRecvDataHandle  å‡½æ•°è¿”å›å€¼
 //
 //*************************************************************************
 
@@ -77,7 +93,7 @@ typedef	enum
 
 
 
-//HekrÄ£¿é¿ØÖÆÂë
+//Hekræ¨¡å—æ§åˆ¶ç 
 typedef	enum
 {
 	ModuleQuery = 0x01,
@@ -89,11 +105,11 @@ typedef	enum
 
 //*************************************************************************
 //
-//ModuleStatus Ö¸ÕëÖĞ¸÷¸öÓĞĞ§Î»¾ßÌåÂëÖµ
+//ModuleStatus æŒ‡é’ˆä¸­å„ä¸ªæœ‰æ•ˆä½å…·ä½“ç å€¼
 //
 //*************************************************************************
 
-//HekrÄ£¿é×´Ì¬Âë
+//Hekræ¨¡å—çŠ¶æ€ç 
 typedef	enum
 {
 	STA_Mode = 0x01,
@@ -103,7 +119,7 @@ typedef	enum
 	RF_OFF_Mode = 0x05
 }HekrModuleWorkCode;
 
-//Hekr WIFI×´Ì¬Âë
+//Hekr WIFIçŠ¶æ€ç 
 typedef	enum
 {
 	RouterConnected = 0x01,
@@ -114,7 +130,7 @@ typedef	enum
 	RouterTimeOver = 0x06
 }HekrModuleWIFICode;
 
-//Hekr Cloud×´Ì¬Âë
+//Hekr CloudçŠ¶æ€ç 
 typedef	enum
 {
 	CloudConnected = 0x01,
@@ -124,7 +140,7 @@ typedef	enum
 
 
 //*************************************************************************
-//ÓÃ»§Êı¾İÇø
+//ç”¨æˆ·æ•°æ®åŒº
 //*************************************************************************
 
 extern unsigned char valid_data[USER_MAX_LEN];
@@ -132,12 +148,13 @@ extern ModuleStatusFrame *ModuleStatus;
 
 
 //*************************************************************************
-//º¯ÊıÁĞ±í
+//å‡½æ•°åˆ—è¡¨
 //*************************************************************************
 
 // Hekr USER API 
-unsigned char HekrRecvDataHandle(unsigned char* data);
-void HekrModuleControl(unsigned char data);
+void HekrInit(void (*fun)(unsigned char));
+unsigned char HekrRecvDataHandle(unsigned char DATA_AREA *dat);
+void HekrModuleControl(unsigned char dat);
 void HekrValidDataUpload(unsigned char len);
 
 

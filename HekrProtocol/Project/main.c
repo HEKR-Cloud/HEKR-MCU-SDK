@@ -17,12 +17,23 @@ u8 DateHandleFlag = 0;
 
 void System_init(void);
 
- 
+
 // HEKR USER API **************************************************************
 
-// 使用前要定义用户所需要的最大数组  
-// 如果有多条不等长命令  取最长长度  为用户数据长度  非整帧长度
-// #define USER_MAX_LEN 0x0F
+//使用前要确定用户所需要的最大数组  默认为100 大于100需要自行修改
+//数组大小可以自行修改为最长长度  
+//如果有多条不等长命令  取最长长度  为用户数据长度  非整帧长度
+//#define USER_MAX_LEN 0x64u
+
+//Hekr 协议初始化
+//使用Hekr协议前需完成初始化
+//初始化需要用户有串口发送一个byte的程序
+//eg:  void UART_SendChar(u8 ch); 传输参数必须只是一个8bit的数
+//     该函数需要用户自行在程序中定义
+//HekrInit函数:
+//传入参数为用户串口发送一个byte函数的函数名
+//void HekrInit(void (*fun)(unsigned char));
+//eg:  HekrInit(UART_SendChar);   
 
 //传入串口接收的数据数组  
 //返回值见头文件 RecvDataHandleCode
@@ -38,13 +49,10 @@ void System_init(void);
 //数据存放在valid_data数组中 len 为用户数据长度  非整帧长度
 //void HekrValidDataUpload(unsigned char len);
 
-
-//如果修改串口则需要修改此函数  及对应头文件
-//static void HekrSendByte(unsigned char ch);  hekr_protocol.c 99行
-//
-// 协议网址  http://docs.hekr.me/protocol/
-// BUG 反馈  pengyu.zhang@hekr.me
-//					 965006619@qq.com
+//协议修改日期 2015.09.01 
+//协议网址  http://docs.hekr.me/protocol/
+//BUG 反馈  pengyu.zhang@hekr.me
+//					965006619@qq.com
 //*****************************************************************************
 
 main()
@@ -91,6 +99,7 @@ void System_init(void)
 	System_Clock_init();
 	UART1_Init();
 	delay_init(16);
+	HekrInit(UART1_SendChar);
 	_asm("rim");
 }
  

@@ -4,7 +4,6 @@
 //Hekr 具体码值
 //*************************************************************************
 
-
 //通用帧头格式 
 typedef struct
 {
@@ -72,57 +71,61 @@ typedef struct
 //*************************************************************************
 //Hekr 定义变量
 //*************************************************************************
-static unsigned char hekr_send_buffer[USER_MAX_LEN+HEKR_DATA_LEN];
-unsigned char valid_data[USER_MAX_LEN];
-static unsigned char module_status[10];
-ModuleStatusFrame *ModuleStatus = (ModuleStatusFrame*)&module_status;
+
+// 内部数据
+static unsigned char DATA_AREA hekr_send_buffer[USER_MAX_LEN+HEKR_DATA_LEN] = {0};
+static unsigned char module_status[10] = {0};
 static unsigned char frame_no = 0;
+static void (*hekr_send_btye)(unsigned char);
+
+// 提供用户使用
+ModuleStatusFrame  *ModuleStatus = (ModuleStatusFrame*)&module_status;
+unsigned char DATA_AREA valid_data[USER_MAX_LEN] = {0};
 
 //*************************************************************************
-//Hekr 函数申明
+//Hekr 内部函数申明 
 //*************************************************************************
 
 // Static Function
 static void HekrSendByte(unsigned char ch);
-static void HekrSendFrame(unsigned char *data);
-static unsigned char SumCheckIsErr(unsigned char* data);
-static void ErrResponse(unsigned char data);
-static unsigned char SumCalculate(unsigned char* data);
-static void HekrValidDataCopy(unsigned char* data);
-static void HekrModuleStateCopy(unsigned char* data);
-
+static void HekrSendFrame(unsigned char DATA_AREA *dat);
+static unsigned char SumCheckIsErr(unsigned char DATA_AREA *dat);
+static void ErrResponse(unsigned char dat);
+static unsigned char SumCalculate(unsigned char DATA_AREA *dat);
+static void HekrValidDataCopy(unsigned char DATA_AREA *dat);
+static void HekrModuleStateCopy(unsigned char DATA_AREA *dat);
 
 //*************************************************************************
 //Hekr 函数定义
 //*************************************************************************
 
-static void HekrSendByte(unsigned char ch)
-{
-		UART1_SendChar(ch);
+// 用户函数
+void HekrInit(void (*fun)(unsigned char))
+{	
+	hekr_send_btye = fun;
 }
 
-
-unsigned char HekrRecvDataHandle(unsigned char* data)
+unsigned char HekrRecvDataHandle(unsigned char DATA_AREA *dat)
 {
 	//检查和校验
-	if(SumCheckIsErr(data))
+	if(SumCheckIsErr(dat))
 	{
 		ErrResponse(ErrorSumCheck);
 		return RecvDataSumCheckErr;
 	}
 	//确认帧类型
-	switch(data[2])
+	switch(dat[2])
 	{
 	case DeviceUploadType://MCU上传信息反馈 不需要处理 
 	                        return MCU_UploadACK;
 	case ModuleDownloadType://WIFI下传信息
-	                        HekrSendFrame(data);
-	                        HekrValidDataCopy(data);
+	                        HekrSendFrame(dat);
+	                        HekrValidDataCopy(dat);
 	                        return ValidDataUpdate;
 	case ModuleOperationType://Hekr模块状态
-													if(data[1] != ModuleResponseFrameLength)
+													if(dat[1] != ModuleResponseFrameLength)
 														return MCU_ControlModuleACK;
-	                        HekrModuleStateCopy(data);
+	                        HekrModuleStateCopy(dat);
 	                        return HekrModuleStateUpdate;
 	case ErrorFrameType://上一帧发送错误	
 	                        return LastFrameSendErr;
@@ -135,85 +138,93 @@ void HekrValidDataUpload(unsigned char len)
 {
 	unsigned char i;
 	hekr_send_buffer[0] = HEKR_FRAME_HEADER;
-	hekr_send_buffer[1] = len + 5;;
+	hekr_send_buffer[1] = len + 5;
 	hekr_send_buffer[2] = DeviceUploadType;
 	hekr_send_buffer[3] = frame_no++;
 	for(i = 0; i < len ; i++)
 		hekr_send_buffer[i+4] = valid_data[i];
-	HekrSendFrame(hekr_send_buffer);
+	HekrSendFrame(&hekr_send_buffer[0]);
 }
 
-void HekrModuleControl(unsigned char data)
+void HekrModuleControl(unsigned char dat)
 {
 	hekr_send_buffer[0] = HEKR_FRAME_HEADER;
 	hekr_send_buffer[1] = ModuleQueryFrameLength;
 	hekr_send_buffer[2] = ModuleOperationType;
 	hekr_send_buffer[3] = frame_no++;
-	hekr_send_buffer[4] = data;
+	hekr_send_buffer[4] = dat;
 	hekr_send_buffer[5] = 0x00;
 	HekrSendFrame(hekr_send_buffer);
 }
 
 
-
-static void HekrSendFrame(unsigned char *data)
+// 内部函数
+static void HekrSendByte(unsigned char ch)
 {
-	unsigned char len = data[1];
+	hekr_send_btye(ch);
+}
+
+
+static void HekrSendFrame(unsigned char DATA_AREA *dat)
+{
+	unsigned char len = dat[1];
 	unsigned char i = 0;
-	data[len-1] = SumCalculate(data);
+	dat[len-1] = SumCalculate(dat);
 	for(i = 0 ; i < len ; i++)
 	{
-		HekrSendByte(data[i]);
+		HekrSendByte(dat[i]);
 	}
 }
 
-static unsigned char SumCheckIsErr(unsigned char* data)
+static unsigned char SumCheckIsErr(unsigned char DATA_AREA *dat)
 {
-	unsigned char temp = SumCalculate(data);
-	unsigned char len = data[1] - 1;
-	if(temp == data[len])
+	unsigned char temp = SumCalculate(dat);
+	unsigned char len = dat[1] - 1;
+
+	if(temp == dat[len])
 		return 0;
 	return 1;
 }
 
-static unsigned char SumCalculate(unsigned char* data)
+static unsigned char SumCalculate(unsigned char DATA_AREA *dat)
 {
 	unsigned char temp;
 	unsigned char i;
-	unsigned char len = data[1] - 1;
-	temp = 0;
-	for(i = 0;i < len; i++)
+	unsigned char len = dat[1] - 1;
+
+	for(temp = 0,i = 0;i < len; i++)
 	{
-			temp += data[i];
+		temp += dat[i];
 	}
+
 	return temp;
 }
 
-static void ErrResponse(unsigned char data)
+static void ErrResponse(unsigned char dat)
 {
 	hekr_send_buffer[0] = HEKR_FRAME_HEADER;
 	hekr_send_buffer[1] = ErrorFrameLength;
 	hekr_send_buffer[2] = ErrorFrameType;
 	hekr_send_buffer[3] = frame_no++;
-	hekr_send_buffer[4] = data;
+	hekr_send_buffer[4] = dat;
 	hekr_send_buffer[5] = 0x00;
 	HekrSendFrame(hekr_send_buffer);
 }
 
-static void HekrValidDataCopy(unsigned char* data)
+static void HekrValidDataCopy(unsigned char DATA_AREA *dat)
 {
 	unsigned char len,i;
-	len = data[1]- HEKR_DATA_LEN;
+	len = dat[1]- HEKR_DATA_LEN;
 	for(i = 0 ;i < len ; i++)
-		valid_data[i] = data[i+4];
+		valid_data[i] = dat[i+4];
 }
 
-static void HekrModuleStateCopy(unsigned char* data)
+static void HekrModuleStateCopy(unsigned char DATA_AREA *dat)
 {
 	unsigned char len,i;
-	len = data[1]- HEKR_DATA_LEN;
+	len = dat[1]- HEKR_DATA_LEN;
 	for(i = 0 ;i < len ; i++)
-		module_status[i] = data[i+4];
+		module_status[i] = dat[i+4];
 }
 
 

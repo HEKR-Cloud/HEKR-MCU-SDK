@@ -1,11 +1,11 @@
 #include "hekr_protocol.h"
 
 //*************************************************************************
-//Hekr ¾ßÌåÂëÖµ
+//Hekr å…·ä½“ç å€¼
 //*************************************************************************
 
 
-//Í¨ÓÃÖ¡Í·¸ñÊ½ 
+//é€šç”¨å¸§å¤´æ ¼å¼ 
 typedef struct
 {
 	unsigned char header;
@@ -15,7 +15,7 @@ typedef struct
 }GeneralHeader;
 
 
-//Hekr¸÷Ö¡³¤¶È
+//Hekrå„å¸§é•¿åº¦
 typedef	enum
 {
 	ModuleQueryFrameLength = 0x07,
@@ -23,7 +23,7 @@ typedef	enum
 	ErrorFrameLength = 0x07
 }AllFrameLength;
 
-//Hekr¸÷Ö¡ÀàĞÍ
+//Hekrå„å¸§ç±»å‹
 typedef	enum
 {
 	DeviceUploadType = 0x01,
@@ -33,7 +33,7 @@ typedef	enum
 }AllFrameType;
 
 
-//Hekr´íÎóÂëÈ¡Öµ
+//Hekré”™è¯¯ç å–å€¼
 typedef	enum
 {
 	ErrorOperation = 0x01,
@@ -44,87 +44,91 @@ typedef	enum
 
 
 
-//Ä£¿é²éÑ¯Ö¡¸ñÊ½
+//æ¨¡å—æŸ¥è¯¢å¸§æ ¼å¼
 typedef struct
 {
-	//Í¨ÓÃÖ¡Í·
+	//é€šç”¨å¸§å¤´
 	GeneralHeader header;
-	//ÓĞĞ§Êı¾İ
+	//æœ‰æ•ˆæ•°æ®
 	unsigned char CMD;
 	unsigned char Reserved;
-	//ºÍĞ£Ñé
+	//å’Œæ ¡éªŒ
 	unsigned char SUM;
 }ModuleQueryFrame; 
 
 
-//´íÎóÖ¡¸ñÊ½
+//é”™è¯¯å¸§æ ¼å¼
 typedef struct
 {
-	//Í¨ÓÃÖ¡Í·
+	//é€šç”¨å¸§å¤´
 	GeneralHeader header;
-	//ÓĞĞ§Êı¾İ
+	//æœ‰æ•ˆæ•°æ®
 	unsigned char ErrorCode;
 	unsigned char Reserved;
-	//ºÍĞ£Ñé
+	//å’Œæ ¡éªŒ
 	unsigned char SUM;
 }ErrorFrame; 
 
 //*************************************************************************
-//Hekr ¶¨Òå±äÁ¿
+//Hekr å®šä¹‰å˜é‡
 //*************************************************************************
-static unsigned char hekr_send_buffer[USER_MAX_LEN+HEKR_DATA_LEN];
-unsigned char valid_data[USER_MAX_LEN];
-static unsigned char module_status[10];
-ModuleStatusFrame *ModuleStatus = (ModuleStatusFrame*)&module_status;
+
+// å†…éƒ¨æ•°æ®
+static unsigned char hekr_send_buffer[USER_MAX_LEN+HEKR_DATA_LEN] = {0};
+static unsigned char module_status[10] = {0};
 static unsigned char frame_no = 0;
+static void (*hekr_send_btye)(unsigned char);
+
+// æä¾›ç”¨æˆ·ä½¿ç”¨
+ModuleStatusFrame *ModuleStatus = (ModuleStatusFrame*)&module_status;
+unsigned char valid_data[USER_MAX_LEN] = {0};
 
 //*************************************************************************
-//Hekr º¯ÊıÉêÃ÷
+//Hekr å†…éƒ¨å‡½æ•°ç”³æ˜
 //*************************************************************************
 
 // Static Function
 static void HekrSendByte(unsigned char ch);
-static void HekrSendFrame(unsigned char *data);
-static unsigned char SumCheckIsErr(unsigned char* data);
-static void ErrResponse(unsigned char data);
-static unsigned char SumCalculate(unsigned char* data);
-static void HekrValidDataCopy(unsigned char* data);
-static void HekrModuleStateCopy(unsigned char* data);
-
+static void HekrSendFrame(unsigned char *dat);
+static unsigned char SumCheckIsErr(unsigned char* dat);
+static void ErrResponse(unsigned char dat);
+static unsigned char SumCalculate(unsigned char* dat);
+static void HekrValidDataCopy(unsigned char* dat);
+static void HekrModuleStateCopy(unsigned char* dat);
 
 //*************************************************************************
-//Hekr º¯Êı¶¨Òå
+//Hekr å‡½æ•°å®šä¹‰
 //*************************************************************************
 
-static void HekrSendByte(unsigned char ch)
-{
-		UART3_SendChar(ch);
+// ç”¨æˆ·å‡½æ•°
+void HekrInit(void (*fun)(unsigned char))
+{	
+	hekr_send_btye = fun;
 }
 
-
-unsigned char HekrRecvDataHandle(unsigned char* data)
+unsigned char HekrRecvDataHandle(unsigned char* dat)
 {
-	//¼ì²éºÍĞ£Ñé
-	if(SumCheckIsErr(data))
+	//æ£€æŸ¥å’Œæ ¡éªŒ
+	if(SumCheckIsErr(dat))
 	{
 		ErrResponse(ErrorSumCheck);
 		return RecvDataSumCheckErr;
 	}
-	//È·ÈÏÖ¡ÀàĞÍ
-	switch(data[2])
+	//ç¡®è®¤å¸§ç±»å‹
+	switch(dat[2])
 	{
-	case DeviceUploadType://MCUÉÏ´«ĞÅÏ¢·´À¡ ²»ĞèÒª´¦Àí 
+	case DeviceUploadType://MCUä¸Šä¼ ä¿¡æ¯åé¦ˆ ä¸éœ€è¦å¤„ç† 
 	                        return MCU_UploadACK;
-	case ModuleDownloadType://WIFIÏÂ´«ĞÅÏ¢
-	                        HekrSendFrame(data);
-	                        HekrValidDataCopy(data);
+	case ModuleDownloadType://WIFIä¸‹ä¼ ä¿¡æ¯
+	                        HekrSendFrame(dat);
+	                        HekrValidDataCopy(dat);
 	                        return ValidDataUpdate;
-	case ModuleOperationType://HekrÄ£¿é×´Ì¬
-													if(data[1] != ModuleResponseFrameLength)
+	case ModuleOperationType://Hekræ¨¡å—çŠ¶æ€
+													if(dat[1] != ModuleResponseFrameLength)
 														return MCU_ControlModuleACK;
-	                        HekrModuleStateCopy(data);
+	                        HekrModuleStateCopy(dat);
 	                        return HekrModuleStateUpdate;
-	case ErrorFrameType://ÉÏÒ»Ö¡·¢ËÍ´íÎó	
+	case ErrorFrameType://ä¸Šä¸€å¸§å‘é€é”™è¯¯	
 	                        return LastFrameSendErr;
 	default:ErrResponse(ErrorNoCMD);break;
 	}
@@ -143,77 +147,83 @@ void HekrValidDataUpload(unsigned char len)
 	HekrSendFrame(hekr_send_buffer);
 }
 
-void HekrModuleControl(unsigned char data)
+void HekrModuleControl(unsigned char dat)
 {
 	hekr_send_buffer[0] = HEKR_FRAME_HEADER;
 	hekr_send_buffer[1] = ModuleQueryFrameLength;
 	hekr_send_buffer[2] = ModuleOperationType;
 	hekr_send_buffer[3] = frame_no++;
-	hekr_send_buffer[4] = data;
+	hekr_send_buffer[4] = dat;
 	hekr_send_buffer[5] = 0x00;
 	HekrSendFrame(hekr_send_buffer);
 }
 
 
-
-static void HekrSendFrame(unsigned char *data)
+// å†…éƒ¨å‡½æ•°
+static void HekrSendByte(unsigned char ch)
 {
-	unsigned char len = data[1];
+	hekr_send_btye(ch);
+}
+
+
+static void HekrSendFrame(unsigned char *dat)
+{
+	unsigned char len = dat[1];
 	unsigned char i = 0;
-	data[len-1] = SumCalculate(data);
+	dat[len-1] = SumCalculate(dat);
 	for(i = 0 ; i < len ; i++)
 	{
-		HekrSendByte(data[i]);
+		HekrSendByte(dat[i]);
 	}
 }
 
-static unsigned char SumCheckIsErr(unsigned char* data)
+static unsigned char SumCheckIsErr(unsigned char* dat)
 {
-	unsigned char temp = SumCalculate(data);
-	unsigned char len = data[1] - 1;
-	if(temp == data[len])
+	unsigned char temp = SumCalculate(dat);
+	unsigned char len = dat[1] - 1;
+	if(temp == dat[len])
 		return 0;
 	return 1;
 }
 
-static unsigned char SumCalculate(unsigned char* data)
+static unsigned char SumCalculate(unsigned char* dat)
 {
 	unsigned char temp;
 	unsigned char i;
-	unsigned char len = data[1] - 1;
+	unsigned char len = dat[1] - 1;
 	temp = 0;
 	for(i = 0;i < len; i++)
 	{
-			temp += data[i];
+			temp += dat[i];
 	}
 	return temp;
 }
 
-static void ErrResponse(unsigned char data)
+static void ErrResponse(unsigned char dat)
 {
 	hekr_send_buffer[0] = HEKR_FRAME_HEADER;
 	hekr_send_buffer[1] = ErrorFrameLength;
 	hekr_send_buffer[2] = ErrorFrameType;
 	hekr_send_buffer[3] = frame_no++;
-	hekr_send_buffer[4] = data;
+	hekr_send_buffer[4] = dat;
 	hekr_send_buffer[5] = 0x00;
 	HekrSendFrame(hekr_send_buffer);
 }
 
-static void HekrValidDataCopy(unsigned char* data)
+static void HekrValidDataCopy(unsigned char* dat)
 {
 	unsigned char len,i;
-	len = data[1]- HEKR_DATA_LEN;
+	len = dat[1]- HEKR_DATA_LEN;
 	for(i = 0 ;i < len ; i++)
-		valid_data[i] = data[i+4];
+		valid_data[i] = dat[i+4];
 }
 
-static void HekrModuleStateCopy(unsigned char* data)
+static void HekrModuleStateCopy(unsigned char* dat)
 {
 	unsigned char len,i;
-	len = data[1]- HEKR_DATA_LEN;
+	len = dat[1]- HEKR_DATA_LEN;
 	for(i = 0 ;i < len ; i++)
-		module_status[i] = data[i+4];
+		module_status[i] = dat[i+4];
 }
 
 

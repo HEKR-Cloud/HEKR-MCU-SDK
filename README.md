@@ -1,4 +1,4 @@
-#HEKR-MCU-SDK 说明文档
+﻿#HEKR-MCU-SDK 说明文档
 ----
 ##0.主要内容
 *	SDK简介
@@ -136,23 +136,49 @@ example 文件夹下是移植完成的MCU-SDK
 
 *	开发平台 mega328p
 *	开发环境 Arduino IDE 1.6.5
-*	开发工具 UART
+*	开发工具 UART模块
 *	通信方式 UART 参数 9600-8-N-1
 *	通信协议 氦氪HEKR模块透传协议
 
 注意： 提供的Arduino库文件是.cpp 仅仅是后缀不同，内容相同，详细描述在对应文件夹下的Readme.txt中
+
+####4.4 C51 的hekr协议SDK 
+具体参数如下
+
+*	开发平台 STC89C52
+*	开发环境 Keil  4.72.90
+*	开发工具 UART模块
+*	通信方式 UART 参数 9600-8-N-1
+*	通信协议 氦氪HEKR模块透传协议
+
+注意： 提供的51的库文件在使用是要定义一个宏，其他无需定义，头文件中有描述
+
+####4.5 MSP430 的hekr协议SDK 
+具体参数如下
+
+*	开发平台 MSP430F149
+*	开发环境 IAR 5.30.1
+*	开发工具 UART模块  MSP430BSL
+*	通信方式 UART 参数 9600-8-N-1
+*	通信协议 氦氪HEKR模块透传协议
+
 
 ##5.更新历史
 * 2015.7.30 STM8-SDK及Readme.md文档编写
 * 2015.8.07 增加STM32-SDK移植样例 Readme.md文档补充
 * 2015.8.13 修复收到的有效数据缺位错误
 * 2015.8.14 增加用户不等长命令描述 Readme.md文档补充
+* 2015.8.19 增加STM32-uCOSIII SDK例程 Readme.md文档补充
 * 2015.8.26 完善帧序号,模块状态改为指针,优化代码结构
 * 2015.8.26 更新STM32-SDK
 * 2015.8.26 更新STM32-uCOSIII-SDK
-* 2015.9.01 更新Arduino-SDK
+* 2015.9.01 增加Arduino-SDK
+* 2015.9.06 更新STM8-SDK
+* 2015.9.06 更新STM32-SDK
+* 2015.9.06 更新STM32-uCOSIII-SDK
+* 2015.9.07 增加51-SDK
+* 2015.9.07 增加MSP430-SDK
 
- 
 ##6.相关链接及反馈
 
 SDK 获取 ：  https://github.com/HEKR-Cloud/HEKR-MCU-SDK.git

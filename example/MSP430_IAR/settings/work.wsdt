@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<Workspace>
+  <ConfigDictionary>
+    
+  <CurrentConfigs><Project>prj/Debug</Project></CurrentConfigs></ConfigDictionary>
+  <Desktop>
+    <Static>
+      <Workspace>
+        <ColumnWidths>
+          
+          
+          
+          
+        <Column0>166</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
+      </Workspace>
+      <Build>
+        
+        
+        
+        
+      <ColumnWidth0>20</ColumnWidth0><ColumnWidth1>877</ColumnWidth1><ColumnWidth2>234</ColumnWidth2><ColumnWidth3>58</ColumnWidth3></Build>
+      <TerminalIO/>
+    </Static>
+    <Windows>
+      
+      
+    <Wnd2>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-15554-24795</Identity>
+            <TabName>Workspace</TabName>
+            <Factory>Workspace</Factory>
+            <Session>
+              
+            <NodeDict><ExpandedNode>prj</ExpandedNode><ExpandedNode>prj/Output</ExpandedNode></NodeDict></Session>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd2><Wnd3>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-4471-26027</Identity>
+            <TabName>Build</TabName>
+            <Factory>Build</Factory>
+            <Session/>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd3></Windows>
+    <Editor>
+      
+      
+      
+      
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\main.c</Filename><XPos>0</XPos><YPos>21</YPos><SelStart>2085</SelStart><SelEnd>2085</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\IAR Systems\Embedded Workbench 6.0 Evaluation\430\inc\msp430x14x.h</Filename><XPos>0</XPos><YPos>396</YPos><SelStart>18054</SelStart><SelEnd>18060</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\hekr_protocol.h</Filename><XPos>0</XPos><YPos>45</YPos><SelStart>1323</SelStart><SelEnd>1323</SelEnd></Tab><ActiveTab>2</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\hekr_protocol.c</Filename><XPos>0</XPos><YPos>216</YPos><SelStart>5234</SelStart><SelEnd>5234</SelEnd></Tab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Positions>
+      
+      
+      
+      
+      
+    <Top><Row0><Sizes><Toolbar-0260a8a0><key>iaridepm.enu1</key></Toolbar-0260a8a0></Sizes></Row0></Top><Left><Row0><Sizes><Wnd2><Rect><Top>-2</Top><Left>-2</Left><Bottom>428</Bottom><Right>240</Right><x>-2</x><y>-2</y><xscreen>128</xscreen><yscreen>160</yscreen><sizeHorzCX>104150</sizeHorzCX><sizeHorzCY>253566</sizeHorzCY><sizeVertCX>196908</sizeVertCX><sizeVertCY>681458</sizeVertCY></Rect></Wnd2></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd3><Rect><Top>-2</Top><Left>-2</Left><Bottom>158</Bottom><Right>1231</Right><x>-2</x><y>-2</y><xscreen>1233</xscreen><yscreen>160</yscreen><sizeHorzCX>1003255</sizeHorzCX><sizeHorzCY>253566</sizeHorzCY><sizeVertCX>104150</sizeVertCX><sizeVertCY>253566</sizeVertCY></Rect></Wnd3></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+  </Desktop>
+</Workspace>
+
+
