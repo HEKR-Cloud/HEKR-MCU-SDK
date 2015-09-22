@@ -1,0 +1,12 @@
+;	STMicroelectronics Workspace file
+
+[Version]
+Keyword=ST7Workspace-V0.7
+
+[Project0]
+Filename=led_control.stp
+Dependencies=
+[Options]
+ActiveProject=led_control
+ActiveConfig=Debug
+AddSortedElements=1
