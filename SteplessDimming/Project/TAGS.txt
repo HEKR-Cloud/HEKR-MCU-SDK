@@ -1,0 +1,380 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AP_Mode	..\app\hekr_protocol.h	109;"	enumerator	enum:__anon10
+AllErrorValue	..\app\hekr_protocol.c	43;"	typedef	typeref:enum:__anon4	file:
+AllFrameLength	..\app\hekr_protocol.c	24;"	typedef	typeref:enum:__anon2	file:
+AllFrameType	..\app\hekr_protocol.c	33;"	typedef	typeref:enum:__anon3	file:
+BUFSIZ	d:\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	26;"	macro
+Baud_9600	..\chip\inc\stm8_uart.h	4;"	macro
+BrightMode1	..\app\bright_mode.c	9;"	macro	file:
+BrightMode2	..\app\bright_mode.c	11;"	macro	file:
+BrightMode3	..\app\bright_mode.c	13;"	macro	file:
+Bright_ModeInit	..\app\bright_mode.c	18;"	function	signature:(void)
+Bright_ModeInit	..\app\bright_mode.h	9;"	prototype	signature:(void)
+CMD	..\app\hekr_protocol.c	53;"	member	struct:__anon5	file:
+CMD	..\app\hekr_protocol.h	60;"	member	struct:__anon7
+COUNT_BYTE	..\app\bright_mode.c	8;"	macro	file:
+CloudConnected	..\app\hekr_protocol.h	128;"	enumerator	enum:__anon12
+CloudStatus	..\app\hekr_protocol.h	63;"	member	struct:__anon7
+CloudTimeOver	..\app\hekr_protocol.h	130;"	enumerator	enum:__anon12
+ColourMode1	..\app\bright_mode.c	10;"	macro	file:
+ColourMode2	..\app\bright_mode.c	12;"	macro	file:
+ColourMode3	..\app\bright_mode.c	14;"	macro	file:
+CurBrighControl	..\app\led.c	122;"	function	signature:(void)
+CurBrighControl	..\app\led.h	33;"	prototype	signature:(void)
+DEF_16BIT_REG_AT	stm8s103f.h	20;"	macro
+DEF_16BIT_REG_AT	stm8s103f.h	25;"	macro
+DEF_8BIT_REG_AT	stm8s103f.h	19;"	macro
+DEF_8BIT_REG_AT	stm8s103f.h	24;"	macro
+DNS_Fail	..\app\hekr_protocol.h	129;"	enumerator	enum:__anon12
+DataHandle	main.c	26;"	prototype	file:	signature:(void)
+DataHandle	main.c	71;"	function	signature:(void)
+DeviceUploadType	..\app\hekr_protocol.c	29;"	enumerator	enum:__anon3	file:
+EEPROM_Lock	..\chip\src\stm8_eeprom.c	16;"	function	file:	signature:(void)
+EEPROM_UnLock	..\chip\src\stm8_eeprom.c	4;"	function	file:	signature:(void)
+EOF	d:\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	27;"	macro
+ErrResponse	..\app\hekr_protocol.c	202;"	function	file:	signature:(unsigned char data)
+ErrResponse	..\app\hekr_protocol.c	94;"	prototype	file:	signature:(unsigned char data)
+ErrorCode	..\app\hekr_protocol.c	66;"	member	struct:__anon6	file:
+ErrorDataRange	..\app\hekr_protocol.c	41;"	enumerator	enum:__anon4	file:
+ErrorFrame	..\app\hekr_protocol.c	70;"	typedef	typeref:struct:__anon6	file:
+ErrorFrameLength	..\app\hekr_protocol.c	23;"	enumerator	enum:__anon2	file:
+ErrorFrameType	..\app\hekr_protocol.c	32;"	enumerator	enum:__anon3	file:
+ErrorNoCMD	..\app\hekr_protocol.c	42;"	enumerator	enum:__anon4	file:
+ErrorOperation	..\app\hekr_protocol.c	39;"	enumerator	enum:__anon4	file:
+ErrorSumCheck	..\app\hekr_protocol.c	40;"	enumerator	enum:__anon4	file:
+GeneralHeader	..\app\hekr_protocol.c	15;"	typedef	typeref:struct:__anon1	file:
+HEKR_DATA_LEN	..\app\hekr_protocol.h	46;"	macro
+HEKR_FRAME_HEADER	..\app\hekr_protocol.h	47;"	macro
+HekrConfig	..\app\hekr_protocol.h	94;"	enumerator	enum:__anon9
+HekrConfig_Mode	..\app\hekr_protocol.h	108;"	enumerator	enum:__anon10
+HekrInit	..\app\hekr_protocol.c	104;"	function	signature:(void (*fun)(unsigned char))
+HekrInit	..\app\hekr_protocol.h	147;"	prototype	signature:(void (*fun)(unsigned char))
+HekrModuleCloudCode	..\app\hekr_protocol.h	131;"	typedef	typeref:enum:__anon12
+HekrModuleControl	..\app\hekr_protocol.c	150;"	function	signature:(unsigned char data)
+HekrModuleControl	..\app\hekr_protocol.h	149;"	prototype	signature:(unsigned char data)
+HekrModuleControlCode	..\app\hekr_protocol.h	95;"	typedef	typeref:enum:__anon9
+HekrModuleStateCopy	..\app\hekr_protocol.c	221;"	function	file:	signature:(unsigned char* data)
+HekrModuleStateCopy	..\app\hekr_protocol.c	97;"	prototype	file:	signature:(unsigned char* data)
+HekrModuleStateUpdate	..\app\hekr_protocol.h	82;"	enumerator	enum:__anon8
+HekrModuleWIFICode	..\app\hekr_protocol.h	123;"	typedef	typeref:enum:__anon11
+HekrModuleWorkCode	..\app\hekr_protocol.h	112;"	typedef	typeref:enum:__anon10
+HekrRecvDataHandle	..\app\hekr_protocol.c	109;"	function	signature:(unsigned char* data)
+HekrRecvDataHandle	..\app\hekr_protocol.h	148;"	prototype	signature:(unsigned char* data)
+HekrSendByte	..\app\hekr_protocol.c	163;"	function	file:	signature:(unsigned char ch)
+HekrSendByte	..\app\hekr_protocol.c	91;"	prototype	file:	signature:(unsigned char ch)
+HekrSendFrame	..\app\hekr_protocol.c	169;"	function	file:	signature:(unsigned char *data)
+HekrSendFrame	..\app\hekr_protocol.c	92;"	prototype	file:	signature:(unsigned char *data)
+HekrValidDataCopy	..\app\hekr_protocol.c	213;"	function	file:	signature:(unsigned char* data)
+HekrValidDataCopy	..\app\hekr_protocol.c	96;"	prototype	file:	signature:(unsigned char* data)
+HekrValidDataUpload	..\app\hekr_protocol.c	138;"	function	signature:(unsigned char len)
+HekrValidDataUpload	..\app\hekr_protocol.h	150;"	prototype	signature:(unsigned char len)
+LED_Bright_Control	..\app\led.h	24;"	enumerator	enum:__anon13
+LED_ClodWhiteBrightSet	..\app\led.c	28;"	prototype	file:	signature:(u16 dat)
+LED_ClodWhiteBrightSet	..\app\led.c	38;"	function	signature:(u16 dat)
+LED_Close	..\app\led.c	24;"	prototype	file:	signature:(void)
+LED_Close	..\app\led.c	62;"	function	file:	signature:(void)
+LED_Colour_Temperature	..\app\led.h	25;"	enumerator	enum:__anon13
+LED_Open	..\app\led.c	25;"	prototype	file:	signature:(void)
+LED_Open	..\app\led.c	74;"	function	file:	signature:(void)
+LED_Order_Code	..\app\led.h	27;"	typedef	typeref:enum:__anon13
+LED_PowerONOFF	..\app\led.h	23;"	enumerator	enum:__anon13
+LED_Query	..\app\led.h	22;"	enumerator	enum:__anon13
+LED_StateControl	..\app\led.c	45;"	function	signature:(u8 dat)
+LED_StateControl	..\app\led.h	31;"	prototype	signature:(u8 dat)
+LED_WarmWhiteBrightSet	..\app\led.c	27;"	prototype	file:	signature:(u16 dat)
+LED_WarmWhiteBrightSet	..\app\led.c	31;"	function	signature:(u16 dat)
+LastFrameSendErr	..\app\hekr_protocol.h	78;"	enumerator	enum:__anon8
+MCU_ConfigMode	..\app\led.c	151;"	function	signature:(void)
+MCU_ConfigMode	..\app\led.h	34;"	prototype	signature:(void)
+MCU_ControlModuleACK	..\app\hekr_protocol.h	83;"	enumerator	enum:__anon8
+MCU_UploadACK	..\app\hekr_protocol.h	79;"	enumerator	enum:__anon8
+Mode	..\app\hekr_protocol.h	61;"	member	struct:__anon7
+ModuleDownloadType	..\app\hekr_protocol.c	30;"	enumerator	enum:__anon3	file:
+ModuleOperationType	..\app\hekr_protocol.c	31;"	enumerator	enum:__anon3	file:
+ModuleQuery	..\app\hekr_protocol.h	91;"	enumerator	enum:__anon9
+ModuleQueryFrame	..\app\hekr_protocol.c	57;"	typedef	typeref:struct:__anon5	file:
+ModuleQueryFrameLength	..\app\hekr_protocol.c	21;"	enumerator	enum:__anon2	file:
+ModuleRecover	..\app\hekr_protocol.h	93;"	enumerator	enum:__anon9
+ModuleResponseFrameLength	..\app\hekr_protocol.c	22;"	enumerator	enum:__anon2	file:
+ModuleRestart	..\app\hekr_protocol.h	92;"	enumerator	enum:__anon9
+ModuleStatus	..\app\hekr_protocol.c	83;"	variable
+ModuleStatusFrame	..\app\hekr_protocol.h	66;"	typedef	typeref:struct:__anon7
+NULL	d:\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	28;"	macro
+NoRouter	..\app\hekr_protocol.h	121;"	enumerator	enum:__anon11
+NonHandledInterrupt	stm8_interrupt_vector.c	12;"	function	signature:(void)
+PA_CR1	..\system\sys\sys.h	101;"	variable
+PA_CR1	..\system\sys\sys.h	105;"	variable
+PA_CR1	..\system\sys\sys.h	109;"	variable
+PA_CR1	..\system\sys\sys.h	113;"	variable
+PA_CR1	..\system\sys\sys.h	117;"	variable
+PA_CR1	..\system\sys\sys.h	121;"	variable
+PA_CR1	..\system\sys\sys.h	97;"	variable
+PA_CR2	..\system\sys\sys.h	102;"	variable
+PA_CR2	..\system\sys\sys.h	106;"	variable
+PA_CR2	..\system\sys\sys.h	110;"	variable
+PA_CR2	..\system\sys\sys.h	114;"	variable
+PA_CR2	..\system\sys\sys.h	118;"	variable
+PA_CR2	..\system\sys\sys.h	122;"	variable
+PA_CR2	..\system\sys\sys.h	98;"	variable
+PA_DDR	..\system\sys\sys.h	100;"	variable
+PA_DDR	..\system\sys\sys.h	104;"	variable
+PA_DDR	..\system\sys\sys.h	108;"	variable
+PA_DDR	..\system\sys\sys.h	112;"	variable
+PA_DDR	..\system\sys\sys.h	116;"	variable
+PA_DDR	..\system\sys\sys.h	120;"	variable
+PA_DDR	..\system\sys\sys.h	96;"	variable
+PA_IDR	..\system\sys\sys.h	57;"	variable
+PA_IDR	..\system\sys\sys.h	58;"	variable
+PA_IDR	..\system\sys\sys.h	59;"	variable
+PA_IDR	..\system\sys\sys.h	60;"	variable
+PA_IDR	..\system\sys\sys.h	61;"	variable
+PA_IDR	..\system\sys\sys.h	62;"	variable
+PA_IDR	..\system\sys\sys.h	63;"	variable
+PA_IDR	..\system\sys\sys.h	64;"	variable
+PA_ODR	..\system\sys\sys.h	20;"	variable
+PA_ODR	..\system\sys\sys.h	21;"	variable
+PA_ODR	..\system\sys\sys.h	22;"	variable
+PA_ODR	..\system\sys\sys.h	23;"	variable
+PA_ODR	..\system\sys\sys.h	24;"	variable
+PA_ODR	..\system\sys\sys.h	25;"	variable
+PA_ODR	..\system\sys\sys.h	26;"	variable
+PA_ODR	..\system\sys\sys.h	27;"	variable
+PB_CR1	..\system\sys\sys.h	127;"	variable
+PB_CR1	..\system\sys\sys.h	131;"	variable
+PB_CR1	..\system\sys\sys.h	135;"	variable
+PB_CR1	..\system\sys\sys.h	139;"	variable
+PB_CR1	..\system\sys\sys.h	143;"	variable
+PB_CR1	..\system\sys\sys.h	147;"	variable
+PB_CR1	..\system\sys\sys.h	151;"	variable
+PB_CR2	..\system\sys\sys.h	128;"	variable
+PB_CR2	..\system\sys\sys.h	132;"	variable
+PB_CR2	..\system\sys\sys.h	136;"	variable
+PB_CR2	..\system\sys\sys.h	140;"	variable
+PB_CR2	..\system\sys\sys.h	144;"	variable
+PB_CR2	..\system\sys\sys.h	148;"	variable
+PB_CR2	..\system\sys\sys.h	152;"	variable
+PB_DDR	..\system\sys\sys.h	126;"	variable
+PB_DDR	..\system\sys\sys.h	130;"	variable
+PB_DDR	..\system\sys\sys.h	134;"	variable
+PB_DDR	..\system\sys\sys.h	138;"	variable
+PB_DDR	..\system\sys\sys.h	142;"	variable
+PB_DDR	..\system\sys\sys.h	146;"	variable
+PB_DDR	..\system\sys\sys.h	150;"	variable
+PB_IDR	..\system\sys\sys.h	66;"	variable
+PB_IDR	..\system\sys\sys.h	67;"	variable
+PB_IDR	..\system\sys\sys.h	68;"	variable
+PB_IDR	..\system\sys\sys.h	69;"	variable
+PB_IDR	..\system\sys\sys.h	70;"	variable
+PB_IDR	..\system\sys\sys.h	71;"	variable
+PB_IDR	..\system\sys\sys.h	72;"	variable
+PB_IDR	..\system\sys\sys.h	73;"	variable
+PB_ODR	..\system\sys\sys.h	29;"	variable
+PB_ODR	..\system\sys\sys.h	30;"	variable
+PB_ODR	..\system\sys\sys.h	31;"	variable
+PB_ODR	..\system\sys\sys.h	32;"	variable
+PB_ODR	..\system\sys\sys.h	33;"	variable
+PB_ODR	..\system\sys\sys.h	34;"	variable
+PB_ODR	..\system\sys\sys.h	35;"	variable
+PB_ODR	..\system\sys\sys.h	36;"	variable
+PC_CR1	..\system\sys\sys.h	156;"	variable
+PC_CR1	..\system\sys\sys.h	160;"	variable
+PC_CR1	..\system\sys\sys.h	164;"	variable
+PC_CR1	..\system\sys\sys.h	168;"	variable
+PC_CR1	..\system\sys\sys.h	172;"	variable
+PC_CR1	..\system\sys\sys.h	176;"	variable
+PC_CR1	..\system\sys\sys.h	180;"	variable
+PC_CR2	..\system\sys\sys.h	157;"	variable
+PC_CR2	..\system\sys\sys.h	161;"	variable
+PC_CR2	..\system\sys\sys.h	165;"	variable
+PC_CR2	..\system\sys\sys.h	169;"	variable
+PC_CR2	..\system\sys\sys.h	173;"	variable
+PC_CR2	..\system\sys\sys.h	177;"	variable
+PC_CR2	..\system\sys\sys.h	181;"	variable
+PC_DDR	..\system\sys\sys.h	155;"	variable
+PC_DDR	..\system\sys\sys.h	159;"	variable
+PC_DDR	..\system\sys\sys.h	163;"	variable
+PC_DDR	..\system\sys\sys.h	167;"	variable
+PC_DDR	..\system\sys\sys.h	171;"	variable
+PC_DDR	..\system\sys\sys.h	175;"	variable
+PC_DDR	..\system\sys\sys.h	179;"	variable
+PC_IDR	..\system\sys\sys.h	75;"	variable
+PC_IDR	..\system\sys\sys.h	76;"	variable
+PC_IDR	..\system\sys\sys.h	77;"	variable
+PC_IDR	..\system\sys\sys.h	78;"	variable
+PC_IDR	..\system\sys\sys.h	79;"	variable
+PC_IDR	..\system\sys\sys.h	80;"	variable
+PC_IDR	..\system\sys\sys.h	81;"	variable
+PC_IDR	..\system\sys\sys.h	82;"	variable
+PC_ODR	..\system\sys\sys.h	38;"	variable
+PC_ODR	..\system\sys\sys.h	39;"	variable
+PC_ODR	..\system\sys\sys.h	40;"	variable
+PC_ODR	..\system\sys\sys.h	41;"	variable
+PC_ODR	..\system\sys\sys.h	42;"	variable
+PC_ODR	..\system\sys\sys.h	43;"	variable
+PC_ODR	..\system\sys\sys.h	44;"	variable
+PC_ODR	..\system\sys\sys.h	45;"	variable
+PD_CR1	..\system\sys\sys.h	185;"	variable
+PD_CR1	..\system\sys\sys.h	189;"	variable
+PD_CR1	..\system\sys\sys.h	193;"	variable
+PD_CR1	..\system\sys\sys.h	197;"	variable
+PD_CR1	..\system\sys\sys.h	201;"	variable
+PD_CR1	..\system\sys\sys.h	205;"	variable
+PD_CR1	..\system\sys\sys.h	209;"	variable
+PD_CR2	..\system\sys\sys.h	186;"	variable
+PD_CR2	..\system\sys\sys.h	190;"	variable
+PD_CR2	..\system\sys\sys.h	194;"	variable
+PD_CR2	..\system\sys\sys.h	198;"	variable
+PD_CR2	..\system\sys\sys.h	202;"	variable
+PD_CR2	..\system\sys\sys.h	206;"	variable
+PD_CR2	..\system\sys\sys.h	210;"	variable
+PD_DDR	..\system\sys\sys.h	184;"	variable
+PD_DDR	..\system\sys\sys.h	188;"	variable
+PD_DDR	..\system\sys\sys.h	192;"	variable
+PD_DDR	..\system\sys\sys.h	196;"	variable
+PD_DDR	..\system\sys\sys.h	200;"	variable
+PD_DDR	..\system\sys\sys.h	204;"	variable
+PD_DDR	..\system\sys\sys.h	208;"	variable
+PD_IDR	..\system\sys\sys.h	84;"	variable
+PD_IDR	..\system\sys\sys.h	85;"	variable
+PD_IDR	..\system\sys\sys.h	86;"	variable
+PD_IDR	..\system\sys\sys.h	87;"	variable
+PD_IDR	..\system\sys\sys.h	88;"	variable
+PD_IDR	..\system\sys\sys.h	89;"	variable
+PD_IDR	..\system\sys\sys.h	90;"	variable
+PD_IDR	..\system\sys\sys.h	91;"	variable
+PD_ODR	..\system\sys\sys.h	47;"	variable
+PD_ODR	..\system\sys\sys.h	48;"	variable
+PD_ODR	..\system\sys\sys.h	49;"	variable
+PD_ODR	..\system\sys\sys.h	50;"	variable
+PD_ODR	..\system\sys\sys.h	51;"	variable
+PD_ODR	..\system\sys\sys.h	52;"	variable
+PD_ODR	..\system\sys\sys.h	53;"	variable
+PD_ODR	..\system\sys\sys.h	54;"	variable
+PasswordErr	..\app\hekr_protocol.h	120;"	enumerator	enum:__anon11
+RF_OFF_Mode	..\app\hekr_protocol.h	111;"	enumerator	enum:__anon10
+ReadEEPROM	..\chip\inc\stm8_eeprom.h	7;"	prototype	signature:(u8 dat)
+ReadEEPROM	..\chip\src\stm8_eeprom.c	22;"	function	signature:(u8 dat)
+RecvBuffer	main.c	20;"	variable
+RecvCount	main.c	19;"	variable
+RecvDataHandleCode	..\app\hekr_protocol.h	84;"	typedef	typeref:enum:__anon8
+RecvDataSumCheckErr	..\app\hekr_protocol.h	77;"	enumerator	enum:__anon8
+RecvDataUseless	..\app\hekr_protocol.h	81;"	enumerator	enum:__anon8
+RecvFlag	main.c	18;"	variable
+Reserved	..\app\hekr_protocol.c	54;"	member	struct:__anon5	file:
+Reserved	..\app\hekr_protocol.c	67;"	member	struct:__anon6	file:
+Reserved	..\app\hekr_protocol.h	65;"	member	struct:__anon7
+RouterConnected	..\app\hekr_protocol.h	117;"	enumerator	enum:__anon11
+RouterConnectedFail	..\app\hekr_protocol.h	118;"	enumerator	enum:__anon11
+RouterConnecting	..\app\hekr_protocol.h	119;"	enumerator	enum:__anon11
+RouterTimeOver	..\app\hekr_protocol.h	122;"	enumerator	enum:__anon11
+STA_AP_Mode	..\app\hekr_protocol.h	110;"	enumerator	enum:__anon10
+STA_Mode	..\app\hekr_protocol.h	107;"	enumerator	enum:__anon10
+STM8S103F	stm8s103f.h	12;"	macro
+SUM	..\app\hekr_protocol.c	56;"	member	struct:__anon5	file:
+SUM	..\app\hekr_protocol.c	69;"	member	struct:__anon6	file:
+SignalStrength	..\app\hekr_protocol.h	64;"	member	struct:__anon7
+SumCalculate	..\app\hekr_protocol.c	189;"	function	file:	signature:(unsigned char* data)
+SumCalculate	..\app\hekr_protocol.c	95;"	prototype	file:	signature:(unsigned char* data)
+SumCheckIsErr	..\app\hekr_protocol.c	180;"	function	file:	signature:(unsigned char* data)
+SumCheckIsErr	..\app\hekr_protocol.c	93;"	prototype	file:	signature:(unsigned char* data)
+System_Clock_init	..\system\sys\sys.c	3;"	function	signature:(void)
+System_Clock_init	..\system\sys\sys.h	18;"	prototype	signature:(void)
+System_init	main.c	25;"	prototype	file:	signature:(void)
+System_init	main.c	51;"	function	signature:(void)
+TIM1_IRQHandler	main.c	113;"	function	signature:(void)
+TIM1_IRQHandler	stm8_interrupt_vector.c	23;"	prototype	file:	signature:(void)
+TIM1_Init	..\chip\inc\stm8_tim1.h	4;"	prototype	signature:(void)
+TIM1_Init	..\chip\src\stm8_tim1.c	4;"	function	signature:(void)
+TIM2_CH2_Duty	..\chip\inc\stm8_tim2pwm.h	5;"	prototype	signature:(unsigned char H,unsigned char L)
+TIM2_CH2_Duty	..\chip\src\stm8_tim2pwm.c	21;"	function	signature:(unsigned char H,unsigned char L)
+TIM2_CH3_Duty	..\chip\inc\stm8_tim2pwm.h	6;"	prototype	signature:(unsigned char H,unsigned char L)
+TIM2_CH3_Duty	..\chip\src\stm8_tim2pwm.c	27;"	function	signature:(unsigned char H,unsigned char L)
+TIM2_Init	..\chip\inc\stm8_tim2pwm.h	4;"	prototype	signature:(void)
+TIM2_Init	..\chip\src\stm8_tim2pwm.c	4;"	function	signature:(void)
+UART1_Init	..\chip\inc\stm8_uart.h	7;"	prototype	signature:(void)
+UART1_Init	..\chip\src\stm8_uart.c	18;"	function	signature:(void)
+UART1_Recv_IRQHandler	main.c	129;"	function	signature:(void)
+UART1_Recv_IRQHandler	stm8_interrupt_vector.c	22;"	prototype	file:	signature:(void)
+UART1_SendChar	..\chip\inc\stm8_uart.h	8;"	prototype	signature:(unsigned char ch)
+UART1_SendChar	..\chip\src\stm8_uart.c	45;"	function	signature:(unsigned char ch)
+USER_MAX_LEN	..\app\hekr_protocol.h	45;"	macro
+UpdateBright	..\app\led.c	110;"	function	signature:(void)
+UpdateBright	..\app\led.h	32;"	prototype	signature:(void)
+UpdateColorTemp	..\app\led.c	26;"	prototype	file:	signature:(void)
+UpdateColourTemp	..\app\led.c	81;"	function	file:	signature:(void)
+UserValidLen	main.c	23;"	variable
+ValidDataUpdate	..\app\hekr_protocol.h	80;"	enumerator	enum:__anon8
+WIFI_Status	..\app\hekr_protocol.h	62;"	member	struct:__anon7
+WriteEEPROM	..\chip\inc\stm8_eeprom.h	8;"	prototype	signature:(u8 dat,u8 ch)
+WriteEEPROM	..\chip\src\stm8_eeprom.c	34;"	function	signature:(u8 dat,u8 ch)
+_BRIGHT_MODE_H_	..\app\bright_mode.h	2;"	macro
+_HEKR_PROTOCOL_H_	..\app\hekr_protocol.h	2;"	macro
+_LED_H_	..\app\led.h	2;"	macro
+_STM8_EEPROM_H	..\chip\inc\stm8_eeprom.h	2;"	macro
+_STM8_TIM1_H_	..\chip\inc\stm8_tim1.h	2;"	macro
+_STM8_TIM2PWM_H	..\chip\inc\stm8_tim2pwm.h	2;"	macro
+_STM8_UART_H	..\chip\inc\stm8_uart.h	2;"	macro
+_SYS_H	..\system\sys\sys.h	2;"	macro
+__DELAY_H	..\system\delay\delay.h	2;"	macro
+__MODS0__	d:\program files (x86)\cosmic\cxstm8\hstm8\mods0.h	11;"	macro
+__SIZE_T__	d:\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	9;"	macro
+__STDIO__	d:\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	6;"	macro
+__STM8S103F__	stm8s103f.h	6;"	macro
+_stext	stm8_interrupt_vector.c	20;"	prototype	file:
+_vectab	stm8_interrupt_vector.c	25;"	variable
+ascii	..\system\sys\sys.h	9;"	typedef
+bool	..\system\sys\sys.h	8;"	typedef
+bright_set	..\app\led.c	17;"	variable
+clod_bright_update	..\app\led.c	7;"	variable
+colour_set	..\app\led.c	18;"	variable
+cur_clod_bright	..\app\led.c	11;"	variable
+cur_warm_bright	..\app\led.c	12;"	variable
+delay_init	..\system\delay\delay.c	4;"	function	signature:(unsigned char clk)
+delay_init	..\system\delay\delay.h	5;"	prototype	signature:(unsigned char clk)
+delay_ms	..\system\delay\delay.c	31;"	function	signature:(unsigned int nms)
+delay_ms	..\system\delay\delay.h	7;"	prototype	signature:(unsigned int nms)
+delay_us	..\system\delay\delay.c	14;"	function	signature:(unsigned int nus)
+delay_us	..\system\delay\delay.h	6;"	prototype	signature:(unsigned int nus)
+fac_us	..\system\delay\delay.c	2;"	variable
+frame_no	..\app\hekr_protocol.c	79;"	variable	file:
+getchar	d:\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	15;"	prototype	signature:(void)
+gets	d:\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	16;"	prototype	signature:(char *s)
+goal_clod_bright	..\app\led.c	13;"	variable
+goal_warm_bright	..\app\led.c	14;"	variable
+header	..\app\hekr_protocol.c	11;"	member	struct:__anon1	file:
+header	..\app\hekr_protocol.c	51;"	member	struct:__anon5	file:
+header	..\app\hekr_protocol.c	64;"	member	struct:__anon6	file:
+hekr_send_btye	..\app\hekr_protocol.c	80;"	variable	file:
+hekr_send_buffer	..\app\hekr_protocol.c	77;"	variable	file:
+interrupt_handler	stm8_interrupt_vector.c	9;"	member	struct:interrupt_vector	file:
+interrupt_handler_t	stm8_interrupt_vector.c	5;"	typedef	file:
+interrupt_instruction	stm8_interrupt_vector.c	8;"	member	struct:interrupt_vector	file:
+interrupt_vector	stm8_interrupt_vector.c	7;"	struct	file:
+led_open_flag	..\app\led.c	21;"	variable
+length	..\app\hekr_protocol.c	12;"	member	struct:__anon1	file:
+main	main.c	28;"	function
+module_status	..\app\hekr_protocol.c	78;"	variable	file:
+number	..\app\hekr_protocol.c	14;"	member	struct:__anon1	file:
+printf	d:\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	17;"	prototype	signature:(char *format, ...)
+putchar	..\chip\inc\stm8_uart.h	10;"	prototype	signature:(char ch)
+putchar	..\chip\src\stm8_uart.c	51;"	function	signature:(char ch)
+putchar	d:\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	18;"	prototype	signature:(char c)
+puts	d:\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	19;"	prototype	signature:(char *s)
+s16	..\system\sys\sys.h	13;"	typedef
+s32	..\system\sys\sys.h	15;"	typedef
+s8	..\system\sys\sys.h	11;"	typedef
+scanf	d:\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	20;"	prototype	signature:(char *format, ...)
+size_t	d:\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	10;"	typedef
+sprintf	d:\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	22;"	prototype	signature:(char *s, char *format, ...)
+sscanf	d:\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	21;"	prototype	signature:(char *s, char *format, ...)
+type	..\app\hekr_protocol.c	13;"	member	struct:__anon1	file:
+u16	..\system\sys\sys.h	12;"	typedef
+u32	..\system\sys\sys.h	14;"	typedef
+u8	..\system\sys\sys.h	10;"	typedef
+valid_data	..\app\hekr_protocol.c	84;"	variable
+warm_bright_update	..\app\led.c	8;"	variable

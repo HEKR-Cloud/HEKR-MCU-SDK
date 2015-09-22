@@ -1,0 +1,23 @@
+..\app\bright_mode.c
+..\app\bright_mode.h
+..\app\hekr_protocol.c
+..\app\hekr_protocol.h
+..\app\led.c
+..\app\led.h
+..\chip\inc\stm8_eeprom.h
+..\chip\inc\stm8_tim1.h
+..\chip\inc\stm8_tim2pwm.h
+..\chip\inc\stm8_uart.h
+..\chip\src\stm8_eeprom.c
+..\chip\src\stm8_tim1.c
+..\chip\src\stm8_tim2pwm.c
+..\chip\src\stm8_uart.c
+main.c
+stm8_interrupt_vector.c
+stm8s103f.h
+..\system\delay\delay.c
+..\system\delay\delay.h
+..\system\sys\sys.c
+..\system\sys\sys.h
+d:\program files (x86)\cosmic\cxstm8\hstm8\mods0.h
+d:\program files (x86)\cosmic\cxstm8\hstm8\stdio.h
