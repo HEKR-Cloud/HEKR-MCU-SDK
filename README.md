@@ -195,7 +195,7 @@ SDK 获取 ：  https://github.com/HEKR-Cloud/HEKR-MCU-SDK.git
 
 氦氪HEKR模块透传协议 ： http://docs.hekr.me/protocol/
 
-Bug反馈 ： pengyu.zhang@hekr.me   或者 965006619@qq.com
+Bug反馈 ： 请在[issues](https://github.com/HEKR-Cloud/HEKR-MCU-SDK/issues)中提交问题
 
 
 
