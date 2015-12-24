@@ -1,9 +1,11 @@
 ﻿#include <reg52.h>        
 #include "hekr_protocol.h"
 
+#define USER_REV_BUFF_MAX_LEN		20	// 根据实际情况调整接收buffer大小
+
 void InitUART(void);
 void SendByte(unsigned char dat);
-unsigned char xdata Recv_Buffer[20];
+unsigned char xdata Recv_Buffer[USER_REV_BUFF_MAX_LEN];
 unsigned char Recv_STA = 0;
 /*------------------------------------------------
                     主函数
@@ -58,23 +60,36 @@ void SendByte(unsigned char dat)
 void UART_SER (void) interrupt 4 
 {
 	unsigned char Temp;        
-  static unsigned char count,flag = 0;
+	static unsigned char count,flag = 0;
 	
-  if(RI)                      
-  {
-		RI=0;                      
-	  Temp=SBUF;   
-		if(Temp == HEKR_FRAME_HEADER)
+	if (RI)                      
+	{
+  		RI = 0;                      
+		Temp = SBUF;
+
+		if (0 == flag)
 		{
-			count = 0;
-			flag = 1;
-		}
-		if(flag == 1)
-		{
-			Recv_Buffer[count++] = Temp;
-			if(count > 4 && count >= Recv_Buffer[1])
+			if (HEKR_FRAME_HEADER == Temp)
 			{
-				Recv_STA = 1;
+				count = 0;
+				flag = 1;
+				Recv_Buffer[count++] = Temp;
+			}
+		}
+		else
+		{
+			if (USER_REV_BUFF_MAX_LEN > count)
+			{
+				Recv_Buffer[count++] = Temp;
+				if((count > 4) && (count >= Recv_Buffer[1]))
+				{
+					Recv_STA = 1;
+					flag = 0;
+					count = 0;
+				}
+			}
+			else
+			{
 				flag = 0;
 				count = 0;
 			}
