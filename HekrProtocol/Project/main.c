@@ -14,6 +14,7 @@ u8 RecvCount = 0;
 u8 RecvBuffer[20];
 u8 DateHandleFlag = 0;
 
+@near unsigned char ProdKey[16] = {0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x0A,0x0B,0x0C,0x0D,0x0E,0x0F,0x10};         //产品秘钥设置，共16个字节
 
 void System_init(void);
 
@@ -60,7 +61,18 @@ main()
 	u8 temp;
 	u8 UserValidLen = 9;
 	System_init();
-	
+	/*************模块操作函数************
+	Module_State_Function();               //模块状态查询
+	Module_Soft_Reboot_Function();         //模块软重启
+	Module_Factory_Reset_Function();       //模块恢复出厂设置
+	Hekr_Config_Function();                //模块进入一键配置
+	Module_Set_Sleep_Function();           //模块进入休眠
+	Module_Weakup_Function();              //模块休眠唤醒
+  Module_Factory_Test_Function();        //模块进入厂测模式
+	Module_Firmware_Versions_Function();   //模块版本查询
+	Module_ProdKey_Get_Function();         //模块产品秘钥ProdKey查询
+	Set_ProdKey(ProdKey);                  //模块ProdKey设置，用户根据从console平台获取的ProdKey值设置产品秘钥数组ProdKey[16]
+	*/
 	// 上传有效数据
 	HekrValidDataUpload(UserValidLen);
 	// 配置及查询hekr模块状态

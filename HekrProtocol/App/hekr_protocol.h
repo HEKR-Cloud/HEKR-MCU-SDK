@@ -149,5 +149,16 @@ unsigned char HekrRecvDataHandle(unsigned char* data);
 void HekrModuleControl(unsigned char data);
 void HekrValidDataUpload(unsigned char len);
 
+void Module_State_Function(void);     
+void Module_Soft_Reboot_Function(void);
+void Module_Factory_Reset_Function(void);
+void Hekr_Config_Function(void);
+void Module_Set_Sleep_Function(void);
+void Module_Weakup_Function(void);
+void Module_Factory_Test_Function(void);
+void Module_Firmware_Versions_Function(void);
+void Module_ProdKey_Get_Function(void);
+
+void Set_ProdKey(unsigned char *ProdKey_16Byte_Set);
 
 #endif
