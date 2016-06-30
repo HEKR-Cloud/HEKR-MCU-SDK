@@ -1,0 +1,652 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        06/27/2016  15:45:35  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+G:\NEW_WINDOWS\KEIL\C51\BIN\BL51.EXE STARTUP.obj, main.obj, hekr_protocol.obj TO Prj RAMSIZE (256)
+
+
+MEMORY MODEL: LARGE
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  main.obj (MAIN)
+  hekr_protocol.obj (HEKR_PROTOCOL)
+  G:\NEW_WINDOWS\KEIL\C51\LIB\C51L.LIB (?C_INIT)
+  G:\NEW_WINDOWS\KEIL\C51\LIB\C51L.LIB (?C?CLDOPTR)
+  G:\NEW_WINDOWS\KEIL\C51\LIB\C51L.LIB (?C?ICALL)
+
+
+LINK MAP OF MODULE:  Prj (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0010H     UNIT         ?ID?MAIN
+            IDATA   0018H     0001H     UNIT         ?STACK
+
+            * * * * * * *  X D A T A   M E M O R Y  * * * * * * *
+            XDATA   0000H     00DEH     UNIT         ?XD?HEKR_PROTOCOL
+            XDATA   00DEH     0017H     UNIT         ?XD?MAIN
+            XDATA   00F5H     0009H     UNIT         _XDATA_GROUP_
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0016H     UNIT         ?PR?INITUART?MAIN
+                    0019H     000AH                  *** GAP ***
+            CODE    0023H     0003H     ABSOLUTE     
+            CODE    0026H     0107H     UNIT         ?C_INITSEG
+            CODE    012DH     00AFH     UNIT         ?PR?MAIN?MAIN
+            CODE    01DCH     008CH     UNIT         ?C_C51STARTUP
+            CODE    0268H     0088H     UNIT         ?PR?UART_SER?MAIN
+            CODE    02F0H     0076H     UNIT         ?PR?_HEKRRECVDATAHANDLE?HEKR_PROTOCOL
+            CODE    0366H     0068H     UNIT         ?PR?_HEKRSENDFRAME?HEKR_PROTOCOL
+            CODE    03CEH     0057H     UNIT         ?PR?_SET_PRODKEY?HEKR_PROTOCOL
+            CODE    0425H     0046H     UNIT         ?PR?_HEKRVALIDDATAUPLOAD?HEKR_PROTOCOL
+            CODE    046BH     0035H     UNIT         ?PR?_SUMCHECKISERR?HEKR_PROTOCOL
+            CODE    04A0H     0033H     UNIT         ?C?LIB_CODE
+            CODE    04D3H     0031H     UNIT         ?PR?_HEKRVALIDDATACOPY?HEKR_PROTOCOL
+            CODE    0504H     0031H     UNIT         ?PR?_HEKRMODULESTATECOPY?HEKR_PROTOCOL
+            CODE    0535H     0028H     UNIT         ?PR?MODULE_STATE_FUNCTION?HEKR_PROTOCOL
+            CODE    055DH     0028H     UNIT         ?PR?MODULE_SOFT_REBOOT_FUNCTION?HEKR_PROTOCOL
+            CODE    0585H     0028H     UNIT         ?PR?MODULE_FACTORY_RESET_FUNCTION?HEKR_PROTOCOL
+            CODE    05ADH     0028H     UNIT         ?PR?HEKR_CONFIG_FUNCTION?HEKR_PROTOCOL
+            CODE    05D5H     0028H     UNIT         ?PR?MODULE_SET_SLEEP_FUNCTION?HEKR_PROTOCOL
+            CODE    05FDH     0028H     UNIT         ?PR?MODULE_WEAKUP_FUNCTION?HEKR_PROTOCOL
+            CODE    0625H     0028H     UNIT         ?PR?MODULE_FACTORY_TEST_FUNCTION?HEKR_PROTOCOL
+            CODE    064DH     0028H     UNIT         ?PR?MODULE_FIRMWARE_VERSIONS_FUNCTION?HEKR_PROTOCOL
+            CODE    0675H     0028H     UNIT         ?PR?MODULE_PRODKEY_GET_FUNCTION?HEKR_PROTOCOL
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2016  15:45:35  PAGE 2
+
+
+            CODE    069DH     0027H     UNIT         ?PR?_ERRRESPONSE?HEKR_PROTOCOL
+            CODE    06C4H     0021H     UNIT         ?PR?_SUMCALCULATE?HEKR_PROTOCOL
+            CODE    06E5H     000FH     UNIT         ?PR?_HEKRSENDBYTE?HEKR_PROTOCOL
+            CODE    06F4H     000DH     UNIT         ?PR?_SENDBYTE?MAIN
+            CODE    0701H     000CH     UNIT         ?PR?_HEKRINIT?HEKR_PROTOCOL
+
+
+
+OVERLAY MAP OF MODULE:   Prj (?C_STARTUP)
+
+
+SEGMENT                                            XDATA_GROUP
+  +--> CALLED SEGMENT                            START    LENGTH
+----------------------------------------------------------------
+?C_C51STARTUP                                    -----    -----
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN                                    00F5H    0002H
+  +--> ?PR?INITUART?MAIN
+  +--> ?PR?_SENDBYTE?MAIN
+  +--> ?PR?_HEKRINIT?HEKR_PROTOCOL
+  +--> ?PR?_HEKRVALIDDATAUPLOAD?HEKR_PROTOCOL
+  +--> ?PR?MODULE_STATE_FUNCTION?HEKR_PROTOCOL
+  +--> ?PR?MODULE_SOFT_REBOOT_FUNCTION?HEKR_...
+  +--> ?PR?MODULE_FACTORY_RESET_FUNCTION?HEK...
+  +--> ?PR?HEKR_CONFIG_FUNCTION?HEKR_PROTOCOL
+  +--> ?PR?MODULE_SET_SLEEP_FUNCTION?HEKR_PR...
+  +--> ?PR?MODULE_WEAKUP_FUNCTION?HEKR_PROTOCOL
+  +--> ?PR?MODULE_FIRMWARE_VERSIONS_FUNCTION...
+  +--> ?PR?MODULE_PRODKEY_GET_FUNCTION?HEKR_...
+  +--> ?PR?MODULE_FACTORY_TEST_FUNCTION?HEKR...
+  +--> ?PR?_SET_PRODKEY?HEKR_PROTOCOL
+  +--> ?PR?_HEKRRECVDATAHANDLE?HEKR_PROTOCOL
+
+?PR?_HEKRVALIDDATAUPLOAD?HEKR_PROTOCOL           -----    -----
+  +--> ?PR?_HEKRSENDFRAME?HEKR_PROTOCOL
+
+?PR?_HEKRSENDFRAME?HEKR_PROTOCOL                 00FAH    0004H
+  +--> ?PR?_SUMCALCULATE?HEKR_PROTOCOL
+  +--> ?PR?_HEKRSENDBYTE?HEKR_PROTOCOL
+
+?PR?MODULE_STATE_FUNCTION?HEKR_PROTOCOL          -----    -----
+  +--> ?PR?_HEKRSENDFRAME?HEKR_PROTOCOL
+
+?PR?MODULE_SOFT_REBOOT_FUNCTION?HEKR_...         -----    -----
+  +--> ?PR?_HEKRSENDFRAME?HEKR_PROTOCOL
+
+?PR?MODULE_FACTORY_RESET_FUNCTION?HEK...         -----    -----
+  +--> ?PR?_HEKRSENDFRAME?HEKR_PROTOCOL
+
+?PR?HEKR_CONFIG_FUNCTION?HEKR_PROTOCOL           -----    -----
+  +--> ?PR?_HEKRSENDFRAME?HEKR_PROTOCOL
+
+?PR?MODULE_SET_SLEEP_FUNCTION?HEKR_PR...         -----    -----
+  +--> ?PR?_HEKRSENDFRAME?HEKR_PROTOCOL
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2016  15:45:35  PAGE 3
+
+
+?PR?MODULE_WEAKUP_FUNCTION?HEKR_PROTOCOL         -----    -----
+  +--> ?PR?_HEKRSENDFRAME?HEKR_PROTOCOL
+
+?PR?MODULE_FIRMWARE_VERSIONS_FUNCTION...         -----    -----
+  +--> ?PR?_HEKRSENDFRAME?HEKR_PROTOCOL
+
+?PR?MODULE_PRODKEY_GET_FUNCTION?HEKR_...         -----    -----
+  +--> ?PR?_HEKRSENDFRAME?HEKR_PROTOCOL
+
+?PR?MODULE_FACTORY_TEST_FUNCTION?HEKR...         -----    -----
+  +--> ?PR?_HEKRSENDFRAME?HEKR_PROTOCOL
+
+?PR?_SET_PRODKEY?HEKR_PROTOCOL                   00F7H    0003H
+  +--> ?PR?_HEKRSENDFRAME?HEKR_PROTOCOL
+
+?PR?_HEKRRECVDATAHANDLE?HEKR_PROTOCOL            00F7H    0002H
+  +--> ?PR?_SUMCHECKISERR?HEKR_PROTOCOL
+  +--> ?PR?_ERRRESPONSE?HEKR_PROTOCOL
+  +--> ?PR?_HEKRSENDFRAME?HEKR_PROTOCOL
+  +--> ?PR?_HEKRVALIDDATACOPY?HEKR_PROTOCOL
+  +--> ?PR?_HEKRMODULESTATECOPY?HEKR_PROTOCOL
+
+?PR?_SUMCHECKISERR?HEKR_PROTOCOL                 00F9H    0002H
+  +--> ?PR?_SUMCALCULATE?HEKR_PROTOCOL
+
+?PR?_ERRRESPONSE?HEKR_PROTOCOL                   -----    -----
+  +--> ?PR?_HEKRSENDFRAME?HEKR_PROTOCOL
+
+
+
+SYMBOL TABLE OF MODULE:  Prj (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:01DCH         SEGMENT       ?C_C51STARTUP
+  I:0018H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:01DFH         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:01DCH         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2016  15:45:35  PAGE 4
+
+
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:01DCH         LINE#         133
+  C:01DEH         LINE#         134
+  C:01DFH         LINE#         135
+  C:01E0H         LINE#         136
+  C:01E2H         LINE#         185
+  C:01E5H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  C:0268H         PUBLIC        UART_SER
+  D:00A8H         PUBLIC        IE
+  B:00A8H.4       PUBLIC        ES
+  D:00B8H         PUBLIC        IP
+  B:0098H.0       PUBLIC        RI
+  B:0098H.1       PUBLIC        TI
+  C:06F9H         PUBLIC        _SendByte
+  C:012DH         PUBLIC        main
+  D:0099H         PUBLIC        SBUF
+  D:0087H         PUBLIC        PCON
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  I:0008H         PUBLIC        ProdKey
+  D:008DH         PUBLIC        TH1
+  X:00E0H         PUBLIC        Recv_Buffer
+  D:008BH         PUBLIC        TL1
+  C:0003H         PUBLIC        InitUART
+  B:0088H.6       PUBLIC        TR1
+  X:00F4H         PUBLIC        Recv_STA
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  -------         DO            
+  X:00F5H         SYMBOL        temp
+  X:00F6H         SYMBOL        UserValidLen
+  -------         ENDDO         
+  C:012DH         LINE#         16
+  C:012DH         LINE#         17
+  C:012DH         LINE#         18
+  C:0136H         LINE#         19
+  C:0139H         LINE#         20
+  C:0142H         LINE#         21
+  C:014AH         LINE#         25
+  C:014DH         LINE#         26
+  C:0150H         LINE#         27
+  C:0153H         LINE#         28
+  C:0156H         LINE#         29
+  C:0159H         LINE#         30
+  C:015CH         LINE#         31
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2016  15:45:35  PAGE 5
+
+
+  C:015FH         LINE#         32
+  C:0162H         LINE#         33
+  C:0165H         LINE#         34
+  C:016EH         LINE#         37
+  C:016EH         LINE#         38
+  C:016EH         LINE#         39
+  C:0174H         LINE#         40
+  C:0174H         LINE#         41
+  C:0180H         LINE#         42
+  C:0183H         LINE#         43
+  C:0183H         LINE#         46
+  C:018BH         LINE#         48
+  C:018BH         LINE#         49
+  C:0193H         LINE#         50
+  C:0193H         LINE#         53
+  C:01A3H         LINE#         54
+  C:01B3H         LINE#         55
+  C:01C4H         LINE#         56
+  C:01D5H         LINE#         58
+  C:01D5H         LINE#         59
+  C:01DAH         LINE#         60
+  C:01DAH         LINE#         61
+  -------         ENDPROC       MAIN
+  -------         PROC          INITUART
+  C:0003H         LINE#         64
+  C:0003H         LINE#         65
+  C:0003H         LINE#         66
+  C:0006H         LINE#         67
+  C:0009H         LINE#         70
+  C:000CH         LINE#         71
+  C:000FH         LINE#         72
+  C:0012H         LINE#         73
+  C:0014H         LINE#         74
+  C:0016H         LINE#         75
+  C:0018H         LINE#         76
+  -------         ENDPROC       INITUART
+  C:06F5H         SYMBOL        L?0021
+  -------         PROC          L?0020
+  -------         ENDPROC       L?0020
+  C:06F5H         SYMBOL        L?0021
+  -------         PROC          _SENDBYTE
+  D:0007H         SYMBOL        dat
+  C:06F9H         LINE#         78
+  C:06F9H         LINE#         79
+  C:06F9H         LINE#         80
+  C:06FBH         LINE#         81
+  C:06FEH         LINE#         82
+  C:0700H         LINE#         83
+  -------         ENDPROC       _SENDBYTE
+  -------         PROC          UART_SER
+  -------         DO            
+  D:0007H         SYMBOL        Temp
+  X:00DEH         SYMBOL        count
+  X:00DFH         SYMBOL        flag
+  -------         ENDDO         
+  C:0268H         LINE#         85
+  C:0277H         LINE#         90
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2016  15:45:35  PAGE 6
+
+
+  C:027AH         LINE#         91
+  C:027AH         LINE#         92
+  C:027CH         LINE#         93
+  C:027EH         LINE#         95
+  C:0284H         LINE#         96
+  C:0284H         LINE#         97
+  C:0289H         LINE#         98
+  C:0289H         LINE#         99
+  C:028DH         LINE#         100
+  C:0290H         LINE#         101
+  C:02A3H         LINE#         102
+  C:02A3H         LINE#         103
+  C:02A5H         LINE#         105
+  C:02A5H         LINE#         106
+  C:02B0H         LINE#         107
+  C:02B0H         LINE#         108
+  C:02BFH         LINE#         109
+  C:02D2H         LINE#         110
+  C:02D2H         LINE#         111
+  C:02D8H         LINE#         112
+  C:02D8H         LINE#         113
+  C:02D8H         LINE#         114
+  C:02D8H         LINE#         115
+  C:02DAH         LINE#         117
+  C:02DAH         LINE#         118
+  C:02DFH         LINE#         119
+  C:02E3H         LINE#         120
+  C:02E3H         LINE#         121
+  C:02E3H         LINE#         122
+  C:02E3H         LINE#         123
+  -------         ENDPROC       UART_SER
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        HEKR_PROTOCOL
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:069DH         SYMBOL        _ErrResponse
+  C:046BH         SYMBOL        _SumCheckIsErr
+  C:05D5H         PUBLIC        Module_Set_Sleep_Function
+  C:0366H         SYMBOL        _HekrSendFrame
+  X:0000H         PUBLIC        valid_data
+  X:0064H         SYMBOL        module_status
+  X:006EH         SYMBOL        hekr_send_buffer
+  C:0504H         SYMBOL        _HekrModuleStateCopy
+  C:04D3H         SYMBOL        _HekrValidDataCopy
+  C:0701H         PUBLIC        _HekrInit
+  C:06E5H         SYMBOL        _HekrSendByte
+  C:0585H         PUBLIC        Module_Factory_Reset_Function
+  C:0675H         PUBLIC        Module_ProdKey_Get_Function
+  C:06C4H         SYMBOL        _SumCalculate
+  X:00D7H         SYMBOL        frame_no
+  X:00D8H         SYMBOL        _hekr_send_btye
+  C:03CEH         PUBLIC        _Set_ProdKey
+  C:0625H         PUBLIC        Module_Factory_Test_Function
+  C:055DH         PUBLIC        Module_Soft_Reboot_Function
+  C:0425H         PUBLIC        _HekrValidDataUpload
+  C:05FDH         PUBLIC        Module_Weakup_Function
+  C:02F0H         PUBLIC        _HekrRecvDataHandle
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2016  15:45:35  PAGE 7
+
+
+  C:05ADH         PUBLIC        Hekr_Config_Function
+  X:00DBH         PUBLIC        ModuleStatus
+  C:064DH         PUBLIC        Module_Firmware_Versions_Function
+  C:0535H         PUBLIC        Module_State_Function
+  -------         PROC          _HEKRINIT
+  D:0001H         SYMBOL        fun
+  C:0701H         LINE#         104
+  C:0701H         LINE#         105
+  C:0701H         LINE#         106
+  C:070CH         LINE#         107
+  -------         ENDPROC       _HEKRINIT
+  -------         PROC          _HEKRRECVDATAHANDLE
+  X:00F7H         SYMBOL        dat
+  C:02F0H         LINE#         109
+  C:02F8H         LINE#         110
+  C:02F8H         LINE#         112
+  C:02FEH         LINE#         113
+  C:02FEH         LINE#         114
+  C:0303H         LINE#         115
+  C:0306H         LINE#         116
+  C:0306H         LINE#         118
+  C:0324H         LINE#         119
+  C:0324H         LINE#         120
+  C:0324H         LINE#         121
+  C:0327H         LINE#         122
+  C:0327H         LINE#         123
+  C:032EH         LINE#         124
+  C:0339H         LINE#         125
+  C:033CH         LINE#         126
+  C:033CH         LINE#         127
+  C:034EH         LINE#         128
+  C:0351H         LINE#         129
+  C:0358H         LINE#         130
+  C:035BH         LINE#         131
+  C:035BH         LINE#         132
+  C:035EH         LINE#         133
+  C:0363H         LINE#         134
+  C:0363H         LINE#         135
+  C:0365H         LINE#         136
+  -------         ENDPROC       _HEKRRECVDATAHANDLE
+  -------         PROC          _HEKRVALIDDATAUPLOAD
+  D:0006H         SYMBOL        len
+  -------         DO            
+  D:0007H         SYMBOL        i
+  -------         ENDDO         
+  C:0425H         LINE#         138
+  C:0427H         LINE#         139
+  C:0427H         LINE#         141
+  C:042DH         LINE#         142
+  C:0432H         LINE#         143
+  C:0436H         LINE#         144
+  C:0442H         LINE#         145
+  C:0449H         LINE#         146
+  C:0464H         LINE#         147
+  -------         ENDPROC       _HEKRVALIDDATAUPLOAD
+  -------         PROC          MODULE_STATE_FUNCTION
+  C:0535H         LINE#         151
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2016  15:45:35  PAGE 8
+
+
+  C:0535H         LINE#         152
+  C:0535H         LINE#         153
+  C:053BH         LINE#         154
+  C:053FH         LINE#         155
+  C:0543H         LINE#         156
+  C:054FH         LINE#         157
+  C:0553H         LINE#         158
+  C:0556H         LINE#         159
+  -------         ENDPROC       MODULE_STATE_FUNCTION
+  -------         PROC          MODULE_SOFT_REBOOT_FUNCTION
+  C:055DH         LINE#         163
+  C:055DH         LINE#         164
+  C:055DH         LINE#         165
+  C:0563H         LINE#         166
+  C:0567H         LINE#         167
+  C:056BH         LINE#         168
+  C:0577H         LINE#         169
+  C:057BH         LINE#         170
+  C:057EH         LINE#         171
+  -------         ENDPROC       MODULE_SOFT_REBOOT_FUNCTION
+  -------         PROC          MODULE_FACTORY_RESET_FUNCTION
+  C:0585H         LINE#         175
+  C:0585H         LINE#         176
+  C:0585H         LINE#         177
+  C:058BH         LINE#         178
+  C:058FH         LINE#         179
+  C:0593H         LINE#         180
+  C:059FH         LINE#         181
+  C:05A3H         LINE#         182
+  C:05A6H         LINE#         183
+  -------         ENDPROC       MODULE_FACTORY_RESET_FUNCTION
+  -------         PROC          HEKR_CONFIG_FUNCTION
+  C:05ADH         LINE#         187
+  C:05ADH         LINE#         188
+  C:05ADH         LINE#         189
+  C:05B3H         LINE#         190
+  C:05B7H         LINE#         191
+  C:05BBH         LINE#         192
+  C:05C7H         LINE#         193
+  C:05CBH         LINE#         194
+  C:05CEH         LINE#         195
+  -------         ENDPROC       HEKR_CONFIG_FUNCTION
+  -------         PROC          MODULE_SET_SLEEP_FUNCTION
+  C:05D5H         LINE#         199
+  C:05D5H         LINE#         200
+  C:05D5H         LINE#         201
+  C:05DBH         LINE#         202
+  C:05DFH         LINE#         203
+  C:05E3H         LINE#         204
+  C:05EFH         LINE#         205
+  C:05F3H         LINE#         206
+  C:05F6H         LINE#         207
+  -------         ENDPROC       MODULE_SET_SLEEP_FUNCTION
+  -------         PROC          MODULE_WEAKUP_FUNCTION
+  C:05FDH         LINE#         211
+  C:05FDH         LINE#         212
+  C:05FDH         LINE#         213
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2016  15:45:35  PAGE 9
+
+
+  C:0603H         LINE#         214
+  C:0607H         LINE#         215
+  C:060BH         LINE#         216
+  C:0617H         LINE#         217
+  C:061BH         LINE#         218
+  C:061EH         LINE#         219
+  -------         ENDPROC       MODULE_WEAKUP_FUNCTION
+  -------         PROC          MODULE_FACTORY_TEST_FUNCTION
+  C:0625H         LINE#         223
+  C:0625H         LINE#         224
+  C:0625H         LINE#         225
+  C:062BH         LINE#         226
+  C:062FH         LINE#         227
+  C:0633H         LINE#         228
+  C:063FH         LINE#         229
+  C:0643H         LINE#         230
+  C:0646H         LINE#         231
+  -------         ENDPROC       MODULE_FACTORY_TEST_FUNCTION
+  -------         PROC          MODULE_FIRMWARE_VERSIONS_FUNCTION
+  C:064DH         LINE#         235
+  C:064DH         LINE#         236
+  C:064DH         LINE#         237
+  C:0653H         LINE#         238
+  C:0657H         LINE#         239
+  C:065BH         LINE#         240
+  C:0667H         LINE#         241
+  C:066BH         LINE#         242
+  C:066EH         LINE#         243
+  -------         ENDPROC       MODULE_FIRMWARE_VERSIONS_FUNCTION
+  -------         PROC          MODULE_PRODKEY_GET_FUNCTION
+  C:0675H         LINE#         247
+  C:0675H         LINE#         248
+  C:0675H         LINE#         249
+  C:067BH         LINE#         250
+  C:067FH         LINE#         251
+  C:0683H         LINE#         252
+  C:068FH         LINE#         253
+  C:0693H         LINE#         254
+  C:0696H         LINE#         255
+  -------         ENDPROC       MODULE_PRODKEY_GET_FUNCTION
+  -------         PROC          _SET_PRODKEY
+  X:00F7H         SYMBOL        ProdKey_16Byte_Set
+  -------         DO            
+  D:0007H         SYMBOL        i
+  -------         ENDDO         
+  C:03CEH         LINE#         259
+  C:03D9H         LINE#         260
+  C:03D9H         LINE#         262
+  C:03DFH         LINE#         263
+  C:03E3H         LINE#         264
+  C:03E7H         LINE#         265
+  C:03F3H         LINE#         266
+  C:03F7H         LINE#         268
+  C:03F9H         LINE#         269
+  C:041EH         LINE#         271
+  -------         ENDPROC       _SET_PRODKEY
+  -------         PROC          _HEKRSENDBYTE
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2016  15:45:35  PAGE 10
+
+
+  D:0007H         SYMBOL        ch
+  C:06E5H         LINE#         275
+  C:06E5H         LINE#         276
+  C:06E5H         LINE#         277
+  -------         ENDPROC       _HEKRSENDBYTE
+  -------         PROC          _HEKRSENDFRAME
+  X:00FAH         SYMBOL        dat
+  -------         DO            
+  X:00FCH         SYMBOL        len
+  X:00FDH         SYMBOL        i
+  -------         ENDDO         
+  C:0366H         LINE#         281
+  C:036EH         LINE#         282
+  C:036EH         LINE#         283
+  C:0380H         LINE#         284
+  C:0383H         LINE#         285
+  C:03A1H         LINE#         286
+  C:03B2H         LINE#         287
+  C:03B2H         LINE#         288
+  C:03C5H         LINE#         289
+  C:03CDH         LINE#         290
+  -------         ENDPROC       _HEKRSENDFRAME
+  -------         PROC          _SUMCHECKISERR
+  X:00F9H         SYMBOL        dat
+  -------         DO            
+  D:0007H         SYMBOL        temp
+  D:0006H         SYMBOL        len
+  -------         ENDDO         
+  C:046BH         LINE#         292
+  C:0473H         LINE#         293
+  C:0473H         LINE#         294
+  C:047EH         LINE#         295
+  C:048EH         LINE#         297
+  C:049AH         LINE#         298
+  C:049DH         LINE#         299
+  C:049FH         LINE#         300
+  -------         ENDPROC       _SUMCHECKISERR
+  -------         PROC          _SUMCALCULATE
+  D:0006H         SYMBOL        dat
+  -------         DO            
+  D:0004H         SYMBOL        temp
+  D:0003H         SYMBOL        i
+  D:0005H         SYMBOL        len
+  -------         ENDDO         
+  C:06C4H         LINE#         302
+  C:06C4H         LINE#         303
+  C:06C4H         LINE#         306
+  C:06CCH         LINE#         308
+  C:06D4H         LINE#         309
+  C:06D4H         LINE#         310
+  C:06DFH         LINE#         311
+  C:06E2H         LINE#         313
+  C:06E4H         LINE#         314
+  -------         ENDPROC       _SUMCALCULATE
+  -------         PROC          _ERRRESPONSE
+  D:0007H         SYMBOL        dat
+  C:069DH         LINE#         316
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/27/2016  15:45:35  PAGE 11
+
+
+  C:069DH         LINE#         317
+  C:069DH         LINE#         318
+  C:06A3H         LINE#         319
+  C:06A7H         LINE#         320
+  C:06ABH         LINE#         321
+  C:06B7H         LINE#         322
+  C:06BAH         LINE#         323
+  C:06BDH         LINE#         324
+  -------         ENDPROC       _ERRRESPONSE
+  -------         PROC          _HEKRVALIDDATACOPY
+  D:0006H         SYMBOL        dat
+  -------         DO            
+  D:0005H         SYMBOL        len
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:04D3H         LINE#         327
+  C:04D3H         LINE#         328
+  C:04D3H         LINE#         330
+  C:04DCH         LINE#         331
+  C:04E3H         LINE#         332
+  C:0503H         LINE#         333
+  -------         ENDPROC       _HEKRVALIDDATACOPY
+  -------         PROC          _HEKRMODULESTATECOPY
+  D:0006H         SYMBOL        dat
+  -------         DO            
+  D:0005H         SYMBOL        len
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:0504H         LINE#         335
+  C:0504H         LINE#         336
+  C:0504H         LINE#         338
+  C:050DH         LINE#         339
+  C:0514H         LINE#         340
+  C:0534H         LINE#         341
+  -------         ENDPROC       _HEKRMODULESTATECOPY
+  -------         ENDMOD        HEKR_PROTOCOL
+
+  -------         MODULE        ?C?CLDOPTR
+  C:04A0H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?ICALL
+  C:04CDH         PUBLIC        ?C?ICALL
+  C:04D1H         PUBLIC        ?C?ICALL2
+  -------         ENDMOD        ?C?ICALL
+
+Program Size: data=25.0 xdata=254 code=1795
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

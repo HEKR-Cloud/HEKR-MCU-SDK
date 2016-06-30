@@ -1,0 +1,5 @@
+"STARTUP.obj",
+"main.obj",
+"hekr_protocol.obj" 
+TO "Prj" 
+RAMSIZE(256) 

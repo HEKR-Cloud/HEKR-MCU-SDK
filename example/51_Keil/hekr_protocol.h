@@ -93,14 +93,21 @@ typedef	enum
 
 
 
-//Hekr模块控制码
-typedef	enum
+//模块操作指令定义
+typedef enum																					
 {
-	ModuleQuery = 0x01,
-	ModuleRestart = 0x02,
-	ModuleRecover = 0x03,
-	HekrConfig = 0x04
-}HekrModuleControlCode;
+	   Module_Statue			            = 0x01,    //状态查询
+	   Module_Soft_Reboot             = 0x02,    //模块软重启
+		 Module_Factory_Reset           = 0x03,    //恢复出厂
+	   Hekr_Config                    = 0x04,    //一键配置
+	   Module_Set_Sleep			          = 0x05,    //进入休眠
+	   Module_Weakup                  = 0x06,    //休眠唤醒
+		 Module_Factory_Test            = 0x20,    //进入厂测
+	   Module_Firmware_Versions       = 0x10,    //版本查询
+	   Module_ProdKey_Get             = 0x11,    //ProdKey查询
+	   Module_Set_ProdKey             = 0x21    //ProdKey设置
+			
+}Module_Operation_TypeDef;
 
 
 //*************************************************************************
@@ -154,8 +161,24 @@ extern ModuleStatusFrame *ModuleStatus;
 // Hekr USER API 
 void HekrInit(void (*fun)(unsigned char));
 unsigned char HekrRecvDataHandle(unsigned char DATA_AREA *dat);
-void HekrModuleControl(unsigned char dat);
 void HekrValidDataUpload(unsigned char len);
 
+//*************************************************************************
+//模块操作函数
+//*************************************************************************
+void Module_State_Function(void);    
+void Module_Soft_Reboot_Function(void);
+void Module_Factory_Reset_Function(void);
+void Hekr_Config_Function(void);
+void Module_Set_Sleep_Function(void);
+void Module_Weakup_Function(void); 
+void Module_Factory_Test_Function(void);
+void Module_Firmware_Versions_Function(void);
+void Module_ProdKey_Get_Function(void);
+
+//*************************************************************************
+//模块ProdKey设置函数
+//*************************************************************************
+void Set_ProdKey(unsigned char *ProdKey_16Byte_Set);
 
 #endif

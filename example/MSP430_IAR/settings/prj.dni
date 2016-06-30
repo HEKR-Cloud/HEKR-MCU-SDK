@@ -8,27 +8,6 @@ UseTrigger=1
 TriggerName=main
 LimitSize=0
 ByteLimit=50
-[Breakpoints]
-Count=0
-[FET]
-Extended Clock mode=-1
-Secure Password=
-Extended Clock Control Enable=1
-Advanced Extended Clock Control=0
-Emulation mode=0
-Free running=0
-Shutting Down=3
-[Memory Dump]
-Start address=
-Lenghth=
-Address info=0
-Format=0
-Dump registers=0
-PC=0
-SP=0
-SR=0
-all registers=0
-File name=
 [State Storage]
 Control Register=-1
 [Sequencer]
@@ -39,11 +18,7 @@ NextState1=-1
 Break=-1
 State Storage=-1
 [DebugChecksum]
-Checksum=1618842823
-[Log file]
-LoggingEnabled=_ 0
-LogFile=_ ""
-Category=_ 0
+Checksum=-1261521611
 [TermIOLog]
 LoggingEnabled=_ 0
 LogFile=_ ""
@@ -86,9 +61,34 @@ UseAuto=0
 TypeViolation=1
 UnspecRange=1
 ActionState=1
-[Aliases]
-Count=0
-SuppressDialog=0
 [Trace1]
 Enabled=0
 ShowSource=1
+[Breakpoints]
+Count=0
+[FET]
+Extended Clock mode=-1
+Secure Password=
+Extended Clock Control Enable=1
+Advanced Extended Clock Control=0
+Emulation mode=0
+Free running=0
+Shutting Down=3
+[Memory Dump]
+Start address=
+Lenghth=
+Address info=0
+Format=0
+Dump registers=0
+PC=0
+SP=0
+SR=0
+all registers=0
+File name=
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[Aliases]
+Count=0
+SuppressDialog=0

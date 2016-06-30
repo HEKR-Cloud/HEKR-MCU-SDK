@@ -462,14 +462,15 @@ ARM Macro Assembler    Page 8
   289 00000034         
   290 00000034                 END
 Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=..\obj\c
-pu_a.d -o..\obj\cpu_a.o -IC:\Users\Bear\work\HEKR-MCU-SDK\example\STM32-uCOSIII
-\Project\RTE -IC:\Users\Bear\work\HEKR-MCU-SDK\example\STM32-uCOSIII\Project\RT
-E\Device\STM32F103C8 -ID:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include -ID:\Keil
-\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include -ID:\Keil\ARM\PACK\Keil\STM32
-F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc --predefine="__MICROLIB SETA 1" --pr
-edefine="__UVISION_VERSION SETA 513" --predefine="_RTE_ SETA 1" --predefine="ST
-M32F10X_MD SETA 1" --list=.\listings\cpu_a.lst ..\UCOSIII\uC-CPU\ARM-Cortex-M3\
-RealView\cpu_a.asm
+pu_a.d -o..\obj\cpu_a.o -IC:\Users\38760\Desktop\code\debug\MCU_SDK_DEBUG\STM32
+-uCOSIII\Project\RTE -IC:\Users\38760\Desktop\code\debug\MCU_SDK_DEBUG\STM32-uC
+OSIII\Project\RTE\Device\STM32F103C8 -IG:\new_windows\MDK\ARM\PACK\ARM\CMSIS\4.
+2.0\CMSIS\Include -IG:\new_windows\MDK\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0 -IG:\n
+ew_windows\MDK\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include -IG:\new_window
+s\MDK\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\StdPeriph_Driver\inc --predefine
+="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 513" --predefine="_RTE
+_ SETA 1" --predefine="STM32F10X_MD SETA 1" --list=.\listings\cpu_a.lst ..\UCOS
+III\uC-CPU\ARM-Cortex-M3\RealView\cpu_a.asm
 
 
 

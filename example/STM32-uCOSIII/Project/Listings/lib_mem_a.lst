@@ -444,14 +444,15 @@ ARM Macro Assembler    Page 7
   310 00000220         
   311 00000220                 END
 Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=..\obj\l
-ib_mem_a.d -o..\obj\lib_mem_a.o -IC:\Users\Bear\work\HEKR-MCU-SDK\example\STM32
--uCOSIII\Project\RTE -IC:\Users\Bear\work\HEKR-MCU-SDK\example\STM32-uCOSIII\Pr
-oject\RTE\Device\STM32F103C8 -ID:\Keil\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include -
-ID:\Keil\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include -ID:\Keil\ARM\PACK\Ke
-il\STM32F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc --predefine="__MICROLIB SETA
- 1" --predefine="__UVISION_VERSION SETA 513" --predefine="_RTE_ SETA 1" --prede
-fine="STM32F10X_MD SETA 1" --list=.\listings\lib_mem_a.lst ..\UCOSIII\uC-LIB\Po
-rts\ARM-Cortex-M3\RealView\lib_mem_a.asm
+ib_mem_a.d -o..\obj\lib_mem_a.o -IC:\Users\38760\Desktop\code\debug\MCU_SDK_DEB
+UG\STM32-uCOSIII\Project\RTE -IC:\Users\38760\Desktop\code\debug\MCU_SDK_DEBUG\
+STM32-uCOSIII\Project\RTE\Device\STM32F103C8 -IG:\new_windows\MDK\ARM\PACK\ARM\
+CMSIS\4.2.0\CMSIS\Include -IG:\new_windows\MDK\ARM\PACK\Keil\STM32F1xx_DFP\2.1.
+0 -IG:\new_windows\MDK\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include -IG:\ne
+w_windows\MDK\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\StdPeriph_Driver\inc --p
+redefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 513" --predefi
+ne="_RTE_ SETA 1" --predefine="STM32F10X_MD SETA 1" --list=.\listings\lib_mem_a
+.lst ..\UCOSIII\uC-LIB\Ports\ARM-Cortex-M3\RealView\lib_mem_a.asm
 
 
 

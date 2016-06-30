@@ -18,9 +18,10 @@ typedef struct
 //Hekr各帧长度
 typedef	enum
 {
-	ModuleQueryFrameLength = 0x07,
+	ModuleOperationFrameLength = 0x07,
 	ModuleResponseFrameLength = 0x0B,
-	ErrorFrameLength = 0x07
+	ErrorFrameLength = 0x07,
+	ProdKeyLenth = 0x16
 }AllFrameLength;
 
 //Hekr各帧类型
@@ -147,17 +148,124 @@ void HekrValidDataUpload(unsigned char len)
 	HekrSendFrame(hekr_send_buffer);
 }
 
-void HekrModuleControl(unsigned char data)
+void HekrSendFrame_outside(unsigned char* data)
 {
-	hekr_send_buffer[0] = HEKR_FRAME_HEADER;
-	hekr_send_buffer[1] = ModuleQueryFrameLength;
-	hekr_send_buffer[2] = ModuleOperationType;
-	hekr_send_buffer[3] = frame_no++;
-	hekr_send_buffer[4] = data;
-	hekr_send_buffer[5] = 0x00;
-	HekrSendFrame(hekr_send_buffer);
+	HekrSendFrame(data);
 }
 
+void Module_State_Function(void)
+{	
+	unsigned char i;
+	hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+	hekr_send_buffer[1] = ModuleOperationFrameLength;;
+	hekr_send_buffer[2] = ModuleOperationType;
+	hekr_send_buffer[3] = frame_no++;
+	hekr_send_buffer[4] = Module_Statue;
+    HekrSendFrame(hekr_send_buffer);
+}
+
+void Module_Soft_Reboot_Function(void)
+{
+    unsigned char i;
+	hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+	hekr_send_buffer[1] = ModuleOperationFrameLength;;
+	hekr_send_buffer[2] = ModuleOperationType;
+	hekr_send_buffer[3] = frame_no++;
+	hekr_send_buffer[4] = Module_Soft_Reboot;
+    HekrSendFrame(hekr_send_buffer);
+}
+
+void Module_Factory_Reset_Function(void)
+{
+    unsigned char i;
+	hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+	hekr_send_buffer[1] = ModuleOperationFrameLength;;
+	hekr_send_buffer[2] = ModuleOperationType;
+	hekr_send_buffer[3] = frame_no++;
+	hekr_send_buffer[4] = Module_Factory_Reset;
+    HekrSendFrame(hekr_send_buffer);
+}
+
+void Hekr_Config_Function(void)
+{
+    unsigned char i;
+	hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+	hekr_send_buffer[1] = ModuleOperationFrameLength;;
+	hekr_send_buffer[2] = ModuleOperationType;
+	hekr_send_buffer[3] = frame_no++;
+	hekr_send_buffer[4] = Hekr_Config;
+    HekrSendFrame(hekr_send_buffer);
+}
+
+void Module_Set_Sleep_Function(void)
+{
+	unsigned char i;
+	hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+	hekr_send_buffer[1] = ModuleOperationFrameLength;;
+	hekr_send_buffer[2] = ModuleOperationType;
+	hekr_send_buffer[3] = frame_no++;
+	hekr_send_buffer[4] = Module_Set_Sleep;
+    HekrSendFrame(hekr_send_buffer);
+}
+
+void Module_Weakup_Function(void)
+{
+	unsigned char i;
+	hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+	hekr_send_buffer[1] = ModuleOperationFrameLength;;
+	hekr_send_buffer[2] = ModuleOperationType;
+	hekr_send_buffer[3] = frame_no++;
+	hekr_send_buffer[4] = Module_Weakup;
+    HekrSendFrame(hekr_send_buffer);
+}
+
+void Module_Factory_Test_Function(void)
+{
+	unsigned char i;
+	hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+	hekr_send_buffer[1] = ModuleOperationFrameLength;;
+	hekr_send_buffer[2] = ModuleOperationType;
+	hekr_send_buffer[3] = frame_no++;
+	hekr_send_buffer[4] = Module_Factory_Test;
+    HekrSendFrame(hekr_send_buffer);
+}
+
+void Module_Firmware_Versions_Function(void)
+{
+	unsigned char i;
+	hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+	hekr_send_buffer[1] = ModuleOperationFrameLength;;
+	hekr_send_buffer[2] = ModuleOperationType;
+	hekr_send_buffer[3] = frame_no++;
+	hekr_send_buffer[4] = Module_Firmware_Versions;
+    HekrSendFrame(hekr_send_buffer);
+}
+
+void Module_ProdKey_Get_Function(void)
+{
+	unsigned char i;
+	hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+	hekr_send_buffer[1] = ModuleOperationFrameLength;;
+	hekr_send_buffer[2] = ModuleOperationType;
+	hekr_send_buffer[3] = frame_no++;
+	hekr_send_buffer[4] = Module_ProdKey_Get;
+    HekrSendFrame(hekr_send_buffer);
+}
+
+void Set_ProdKey(unsigned char *ProdKey_16Byte_Set)
+{
+	unsigned char i;
+	hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+	hekr_send_buffer[1] = ProdKeyLenth;
+	hekr_send_buffer[2] = ModuleOperationType;
+	hekr_send_buffer[3] = frame_no++;
+	hekr_send_buffer[4] = Module_Set_ProdKey;
+    for (int i = 0; i < 16; i++)
+      {
+        hekr_send_buffer[i+5] = *(ProdKey_16Byte_Set+i);
+      }
+    HekrSendFrame(hekr_send_buffer);
+}
 
 // 内部函数
 static void HekrSendByte(unsigned char ch)

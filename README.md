@@ -1,4 +1,4 @@
-﻿#HEKR-MCU-SDK 说明文档
+#HEKR-MCU-SDK 说明文档
 ----
 ##0.主要内容
 *	SDK简介
@@ -75,9 +75,9 @@ Hekr 协议初始化
 	// UserValidLen  为用户数据长度  非整帧长度
 	HekrValidDataUpload(UserValidLen);
 	// 查询 Hekr模块当前状态
-	HekrModuleControl(ModuleQuery);
+	Module_State_Function(); 
 	// 配置Hekr模块进入Hekr_Config模式
-	HekrModuleControl(HekrConfig);
+	Hekr_Config_Function();
 
 协议接收处理示例
 
@@ -86,15 +86,20 @@ Hekr 协议初始化
 		temp = HekrRecvDataHandle(RecvBuffer);
 		if(ValidDataUpdate == temp)
 		{
-			//接收的数据保存在 valid_data 数组里
-			//User Code
-			UART1_SendChar(valid_data[0]);
+           //接收的产品业务数据保存在 valid data 数组里
+           /************产品业务数据操作用户代码********/
+            SendChar(valid_data[0]);
+           /********************************************/
 		}
 		if(HekrModuleStateUpdate == temp)
 		{
-			//接收的数据保存在 ModuleStatus 指针里
-			//User Code
-			UART1_SendChar(ModuleStatus->CMD);
+           //接收的模块状态取值保存在 ModuleStatus 指针里
+           /*************模块状态操作用户代码************/
+            SendChar(ModuleStatus->Mode);           //打印模块工作模式指示字节
+            SendChar(ModuleStatus->WIFI_Status);    //打印模块WIFI状态指示字节
+            SendChar(ModuleStatus->CloudStatus);    //打印模块云链接状态指示字节
+            SendChar(ModuleStatus->SignalStrength); //打印模块状态查询应答帧保留字节
+           /*************模块状态取值参考:http://docs.hekr.me/v4/resourceDownload/protocol/uart/#42  **********/
 		}
 		DateHandleFlag = 0;			
 	}		

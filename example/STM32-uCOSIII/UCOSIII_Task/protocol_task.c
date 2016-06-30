@@ -27,8 +27,8 @@ void protocol_task(void *p_arg)
 			temp = HekrRecvDataHandle(Uart3_Recv_Buffer);
 			if(ValidDataUpdate == temp)
 			{
-				//接收的数据保存在 Valid_Data 数组里
-				//User Code
+				//接收的产品业务数据保存在 valid_data 数组里
+				/************产品业务数据操作用户代码********/
 				if(valid_data[0] == 0x01)
 				{
 					LED0 = 1;
@@ -63,12 +63,17 @@ void protocol_task(void *p_arg)
 													 (OS_OPT      )OS_OPT_TASK_STK_CHK|OS_OPT_TASK_STK_CLR, 
 													 (OS_ERR 	* )&err);		
 				}
+				/********************************************/
 			}
 			if(HekrModuleStateUpdate == temp)
 			{
-				//接收的数据保存在 Module_Status 数组里
-				//User Code
-				printf("ModuleStatus CMD %d \n\r",ModuleStatus->CMD);
+				//接收的模块状态取值保存在 ModuleStatus 指针里
+				/*************模块状态操作用户代码************/
+				printf("ModuleStatus CMD %d \n\r",ModuleStatus->Mode);                //打印模块工作模式指示字节
+				printf("ModuleStatus CMD %d \n\r",ModuleStatus->WIFI_Status);         //打印模块WIFI状态指示字节
+				printf("ModuleStatus CMD %d \n\r",ModuleStatus->CloudStatus);         //打印模块云连接状态指示字节
+				printf("ModuleStatus CMD %d \n\r",ModuleStatus->SignalStrength);      //打印模块状态查询应答帧保留字节
+				/*************模块状态取值参考:http://docs.hekr.me/v4/resourceDownload/protocol/uart/#42**********/
 			}
 			Date_Handle_Flag = 0;		
 		}

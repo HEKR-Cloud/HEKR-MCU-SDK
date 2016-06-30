@@ -1,5 +1,5 @@
 
-Map of Debug\led_control.sm8 from link file Debug\led_control.lkf - Thu Jun 02 17:16:10 2016
+Map of Debug\led_control.sm8 from link file Debug\led_control.lkf - Mon Jun 27 10:20:04 2016
 
 
                                --------
@@ -7,7 +7,7 @@ Map of Debug\led_control.sm8 from link file Debug\led_control.lkf - Thu Jun 02 1
                                --------
 
 start 00008080 end 000080bf length    63 segment .const
-start 000080cf end 0000870b length  1596 segment .text
+start 000080cf end 000086fe length  1583 segment .text
 start 00004000 end 00004000 length     0 segment .eeprom
 start 00000000 end 00000008 length     8 segment .bsct, initialized
 start 000080c7 end 000080cf length     8 segment .bsct, from
@@ -17,7 +17,7 @@ start 000000fb end 000000fb length     0 segment .share
 start 00000100 end 00000100 length     0 segment .data
 start 00000100 end 00000100 length     0 segment .bss
 start 00000000 end 00000404 length  1028 segment .info.
-start 00000000 end 00008a72 length 35442 segment .debug
+start 00000000 end 00008a11 length 35345 segment .debug
 start 00008000 end 00008080 length   128 segment .const
 start 000080bf end 000080c7 length     8 segment .init
 
@@ -33,43 +33,43 @@ start 00000008 end 00000008 length     0 section .ubsct
 start 00000000 end 00000030 length    48 section .info.
 
 Debug\hekr_protocol.o:
-start 0000811a end 00008579 length  1119 section .text
+start 0000811a end 00008558 length  1086 section .text
 start 00000000 end 00000003 length     3 section .bsct
 start 00000008 end 000000e1 length   217 section .ubsct
-start 00000000 end 00000dfb length  3579 section .debug
+start 00000000 end 00000d9a length  3482 section .debug
 start 00000030 end 000000a6 length   118 section .info.
 start 00008080 end 000080bf length    63 section .const
 
 Debug\stm8_uart.o:
-start 00008579 end 000085a9 length    48 section .text
-start 00000dfb end 0000297c length  7041 section .debug
+start 00008558 end 00008588 length    48 section .text
+start 00000d9a end 0000291b length  7041 section .debug
 start 000000a6 end 00000118 length   114 section .info.
 
 Debug\main.o:
-start 000085a9 end 0000863a length   145 section .text
+start 00008588 end 0000862d length   165 section .text
 start ******** end ******** length     0 section .data *** removed ***
 start 00000003 end 00000007 length     4 section .bsct
 start 000000e1 end 000000f5 length    20 section .ubsct
-start 0000297c end 00005934 length 12216 section .debug
+start 0000291b end 000058d3 length 12216 section .debug
 start 00000118 end 00000185 length   109 section .info.
 
 Debug\delay.o:
-start 0000863a end 000086a6 length   108 section .text
+start 0000862d end 00008699 length   108 section .text
 start 00000007 end 00000008 length     1 section .bsct
-start 00005934 end 00005aeb length   439 section .debug
+start 000058d3 end 00005a8a length   439 section .debug
 start 00000185 end 000001f3 length   110 section .info.
 
 Debug\sys.o:
-start 000086a6 end 000086af length     9 section .text
-start 00005aeb end 00008907 length 11804 section .debug
+start 00008699 end 000086a2 length     9 section .text
+start 00005a8a end 000088a6 length 11804 section .debug
 start 000001f3 end 0000025f length   108 section .info.
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\lib\libm0.sm8)imul.o:
-start 000086af end 000086d0 length    33 section .text
+start 000086a2 end 000086c3 length    33 section .text
 start 0000025f end 0000028e length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\lib\libm0.sm8)sdivx.o:
-start 000086d0 end 000086fb length    43 section .text
+start 000086c3 end 000086ee length    43 section .text
 start 0000028e end 000002be length    48 section .info.
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\lib\libm0.sm8)xreg.o:
@@ -77,7 +77,7 @@ start 000000f5 end 000000f8 length     3 section .ubsct
 start 000002be end 000002ed length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\lib\libm0.sm8)xymvx.o:
-start 000086fb end 0000870a length    15 section .text
+start 000086ee end 000086fd length    15 section .text
 start 000002ed end 0000031d length    48 section .info.
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\lib\libm0.sm8)yreg.o:
@@ -85,8 +85,8 @@ start 000000f8 end 000000fb length     3 section .ubsct
 start 0000031d end 0000034c length    47 section .info.
 
 Debug\stm8_interrupt_vector.o:
-start 0000870a end 0000870b length     1 section .text
-start 00008907 end 00008a72 length   363 section .debug
+start 000086fd end 000086fe length     1 section .text
+start 000088a6 end 00008a11 length   363 section .debug
 start 0000034c end 000003ca length   126 section .info.
 start 00008000 end 00008080 length   128 section .const
 
@@ -109,7 +109,6 @@ L52_HekrValidDataCopy                    6   (6)
 L71_SumCheckIsErr                       13   (6)
 L72_HekrModuleStateCopy                  6   (6)
 _HekrInit                                2   (2)
-_HekrModuleControl                      16   (3)
 _HekrRecvDataHandle                     20   (4)
 _HekrValidDataUpload                    17   (4)
 _Hekr_Config_Function               >   24   (11)
@@ -119,13 +118,13 @@ _Module_Firmware_Versions_Function  >   24   (11)
 _Module_ProdKey_Get_Function        >   24   (11)
 _Module_Set_Sleep_Function          >   24   (11)
 _Module_Soft_Reboot_Function        >   24   (11)
-_Module_State_Function              >   24   (11)
+_Module_State_Function                  24   (11)
 _Module_Weakup_Function             >   24   (11)
 _Set_ProdKey                        >   19   (6)
 
 Debug\main.o:
 _System_init                             7   (2)
-_main                               >   23   (3)
+_main                               >   27   (3)
 f_UART1_Recv_IRQHandler             >    7   (7)
 
 Debug\stm8_interrupt_vector.o:
@@ -139,7 +138,7 @@ _putchar                            >    6   (3)
 Debug\sys.o:
 _System_Clock_init                       2   (2)
 
-Stack size: 31
+Stack size: 34
 
 
                               ---------
@@ -171,86 +170,83 @@ Stack size: 31
   16 > _Module_Soft_Reboot_Function: (11)
   17      + L51_HekrSendFrame --> 2
        
-  18 > _Module_State_Function: (11)
+  18 > _Module_Weakup_Function: (11)
   19      + L51_HekrSendFrame --> 2
        
-  20 > _Module_Weakup_Function: (11)
+  20 > _Set_ProdKey: (6)
   21      + L51_HekrSendFrame --> 2
        
-  22 > _Set_ProdKey: (6)
-  23      + L51_HekrSendFrame --> 2
-       
-  24 > __stext: (0)
+  22 > __stext: (0)
 
-  25 > _delay_ms: (5)
-  26      + _delay_us: (2)
+  23 > _delay_ms: (5)
+  24      + _delay_us: (2)
        
-  27 > _main: (3)
-  28      + _HekrModuleControl: (3)
+  25 > _main: (3)
+  26      + _HekrRecvDataHandle: (4)
+  27      |    + L12_ErrResponse: (3)
+  28      |    |    + L51_HekrSendFrame --> 2
+          |    | 
   29      |    + L51_HekrSendFrame --> 2
-          | 
-  30      + _HekrRecvDataHandle: (4)
-  31      |    + L12_ErrResponse: (3)
-  32      |    |    + L51_HekrSendFrame --> 2
+  30      |    + L52_HekrValidDataCopy: (6)
+  31      |    + L71_SumCheckIsErr: (6)
+  32      |    |    + L32_SumCalculate --> 5
           |    | 
-  33      |    + L51_HekrSendFrame --> 2
-  34      |    + L52_HekrValidDataCopy: (6)
-  35      |    + L71_SumCheckIsErr: (6)
-  36      |    |    + L32_SumCalculate --> 5
-          |    | 
-  37      |    + L72_HekrModuleStateCopy: (6)
+  33      |    + L72_HekrModuleStateCopy: (6)
           | 
-  38      + _HekrValidDataUpload: (4)
-  39      |    + L51_HekrSendFrame --> 2
+  34      + _HekrValidDataUpload: (4)
+  35      |    + L51_HekrSendFrame --> 2
           | 
-  40      + _System_init: (2)
-  41      |    + _HekrInit: (2)
-  42      |    + _System_Clock_init: (2)
-  43      |    + _UART1_Init: (2)
-  44      |    + _delay_init: (3)
+  36      + _Module_State_Function: (11)
+  37      |    + L51_HekrSendFrame --> 2
           | 
-  45      + _UART1_SendChar: (3)
+  38      + _System_init: (2)
+  39      |    + _HekrInit: (2)
+  40      |    + _System_Clock_init: (2)
+  41      |    + _UART1_Init: (2)
+  42      |    + _delay_init: (3)
+          | 
+  43      + _UART1_SendChar: (3)
        
-  46 > _putchar: (3)
-  47      + _UART1_SendChar --> 45
+  44 > _putchar: (3)
+  45      + _UART1_SendChar --> 43
        
-  48 > f_NonHandledInterrupt: (6)
+  46 > f_NonHandledInterrupt: (6)
 
-  49 > f_UART1_Recv_IRQHandler: (7)
+  47 > f_UART1_Recv_IRQHandler: (7)
 
-  50   L12_ErrResponse --> 31
+  48   L12_ErrResponse --> 27
 
-  51   L31_HekrSendByte --> 3
+  49   L31_HekrSendByte --> 3
 
-  52   L32_SumCalculate --> 5
+  50   L32_SumCalculate --> 5
 
-  53   L51_HekrSendFrame --> 2
+  51   L51_HekrSendFrame --> 2
 
-  54   L52_HekrValidDataCopy --> 34
+  52   L52_HekrValidDataCopy --> 30
 
-  55   L71_SumCheckIsErr --> 35
+  53   L71_SumCheckIsErr --> 31
 
-  56   L72_HekrModuleStateCopy --> 37
+  54   L72_HekrModuleStateCopy --> 33
 
-  57   _HekrInit --> 41
+  55   _HekrInit --> 39
 
-  58   _HekrModuleControl --> 28
+  56   _HekrRecvDataHandle --> 26
 
-  59   _HekrRecvDataHandle --> 30
+  57   _HekrValidDataUpload --> 34
 
-  60   _HekrValidDataUpload --> 38
+  58   _Module_State_Function --> 36
 
-  61   _System_Clock_init --> 42
+  59   _System_Clock_init --> 40
 
-  62   _System_init --> 40
+  60   _System_init --> 38
 
-  63   _UART1_Init --> 43
+  61   _UART1_Init --> 41
 
-  64   _UART1_SendChar --> 45
+  62   _UART1_SendChar --> 43
 
-  65   _delay_init --> 44
+  63   _delay_init --> 42
 
-  66   _delay_us --> 26
+  64   _delay_us --> 24
 
 
 
@@ -341,13 +337,11 @@ _FLASH_NFPR                          0000505e   defined in Debug\stm8_uart.o
 _FLASH_PUKR                          00005062   defined in Debug\stm8_uart.o
 _HekrInit                            0000811a   defined in Debug\hekr_protocol.o section .text
                                                 used in Debug\main.o
-_HekrModuleControl                   000081a4   defined in Debug\hekr_protocol.o section .text
-                                                used in Debug\main.o
 _HekrRecvDataHandle                  0000811d   defined in Debug\hekr_protocol.o section .text
                                                 used in Debug\main.o
 _HekrValidDataUpload                 00008174   defined in Debug\hekr_protocol.o section .text
                                                 used in Debug\main.o
-_Hekr_Config_Function                00008291   defined in Debug\hekr_protocol.o section .text
+_Hekr_Config_Function                00008270   defined in Debug\hekr_protocol.o section .text
 _I2C_CCRH                            0000521c   defined in Debug\stm8_uart.o
 _I2C_CCRL                            0000521b   defined in Debug\stm8_uart.o
 _I2C_CR1                             00005210   defined in Debug\stm8_uart.o
@@ -374,14 +368,15 @@ _IWDG_PR                             000050e1   defined in Debug\stm8_uart.o
 _IWDG_RLR                            000050e2   defined in Debug\stm8_uart.o
 _ModuleStatus                        00000001   defined in Debug\hekr_protocol.o section .bsct, initialized
                                                 used in Debug\main.o
-_Module_Factory_Reset_Function       0000824d   defined in Debug\hekr_protocol.o section .text
-_Module_Factory_Test_Function        0000835d   defined in Debug\hekr_protocol.o section .text
-_Module_Firmware_Versions_Function   000083a1   defined in Debug\hekr_protocol.o section .text
-_Module_ProdKey_Get_Function         000083e5   defined in Debug\hekr_protocol.o section .text
-_Module_Set_Sleep_Function           000082d5   defined in Debug\hekr_protocol.o section .text
-_Module_Soft_Reboot_Function         00008209   defined in Debug\hekr_protocol.o section .text
-_Module_State_Function               000081c5   defined in Debug\hekr_protocol.o section .text
-_Module_Weakup_Function              00008319   defined in Debug\hekr_protocol.o section .text
+_Module_Factory_Reset_Function       0000822c   defined in Debug\hekr_protocol.o section .text
+_Module_Factory_Test_Function        0000833c   defined in Debug\hekr_protocol.o section .text
+_Module_Firmware_Versions_Function   00008380   defined in Debug\hekr_protocol.o section .text
+_Module_ProdKey_Get_Function         000083c4   defined in Debug\hekr_protocol.o section .text
+_Module_Set_Sleep_Function           000082b4   defined in Debug\hekr_protocol.o section .text
+_Module_Soft_Reboot_Function         000081e8   defined in Debug\hekr_protocol.o section .text
+_Module_State_Function               000081a4   defined in Debug\hekr_protocol.o section .text
+                                                used in Debug\main.o
+_Module_Weakup_Function              000082f8   defined in Debug\hekr_protocol.o section .text
 _PA0_IDR                             005001:0   defined in Debug\main.o
 _PA0_ODR                             005000:0   defined in Debug\main.o
 _PA1_CR1                             005003:1   defined in Debug\main.o
@@ -563,10 +558,10 @@ _SPI_ICR                             00005202   defined in Debug\stm8_uart.o
 _SPI_RXCRCR                          00005206   defined in Debug\stm8_uart.o
 _SPI_SR                              00005203   defined in Debug\stm8_uart.o
 _SPI_TXCRCR                          00005207   defined in Debug\stm8_uart.o
-_Set_ProdKey                         00008428   defined in Debug\hekr_protocol.o section .text
-_System_Clock_init                   000086a6   defined in Debug\sys.o section .text
+_Set_ProdKey                         00008407   defined in Debug\hekr_protocol.o section .text
+_System_Clock_init                   00008699   defined in Debug\sys.o section .text
                                                 used in Debug\main.o
-_System_init                         000085ef   defined in Debug\main.o section .text
+_System_init                         000085e2   defined in Debug\main.o section .text
 _TIM1_ARR                            00005262   defined in Debug\stm8_uart.o
 _TIM1_ARRH                           00005262   defined in Debug\stm8_uart.o
 _TIM1_ARRL                           00005263   defined in Debug\stm8_uart.o
@@ -648,11 +643,11 @@ _UART1_CR4                           00005237   defined in Debug\stm8_uart.o
 _UART1_CR5                           00005238   defined in Debug\stm8_uart.o
 _UART1_DR                            00005231   defined in Debug\stm8_uart.o
 _UART1_GTR                           00005239   defined in Debug\stm8_uart.o
-_UART1_Init                          00008579   defined in Debug\stm8_uart.o section .text
+_UART1_Init                          00008558   defined in Debug\stm8_uart.o section .text
                                                 used in Debug\main.o
 _UART1_PSCR                          0000523a   defined in Debug\stm8_uart.o
 _UART1_SR                            00005230   defined in Debug\stm8_uart.o
-_UART1_SendChar                      00008592   defined in Debug\stm8_uart.o section .text
+_UART1_SendChar                      00008571   defined in Debug\stm8_uart.o section .text
                                                 used in Debug\main.o
 _WWDG_CR                             000050d1   defined in Debug\stm8_uart.o
 _WWDG_WR                             000050d2   defined in Debug\stm8_uart.o
@@ -671,32 +666,32 @@ __startmem                           00000100   defined in command file section 
 __stext                              000080cf   defined in C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\lib\crtsi0.sm8 section .text
                                                 used in Debug\stm8_interrupt_vector.o
 __vectab                             00008000   defined in Debug\stm8_interrupt_vector.o section .const
-_delay_init                          0000863a   defined in Debug\delay.o section .text
+_delay_init                          0000862d   defined in Debug\delay.o section .text
                                                 used in Debug\main.o
-_delay_ms                            00008670   defined in Debug\delay.o section .text
-_delay_us                            00008663   defined in Debug\delay.o section .text
+_delay_ms                            00008663   defined in Debug\delay.o section .text
+_delay_us                            00008656   defined in Debug\delay.o section .text
 _exit                                00008118   defined in C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\lib\crtsi0.sm8 section .text
 _fac_us                              00000007   defined in Debug\delay.o section .bsct, initialized
-_main                                000085a9   defined in Debug\main.o section .text
+_main                                00008588   defined in Debug\main.o section .text
                                                 used in C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\lib\crtsi0.sm8
-_putchar                             000085a1   defined in Debug\stm8_uart.o section .text
+_putchar                             00008580   defined in Debug\stm8_uart.o section .text
 _valid_data                          0000007d   defined in Debug\hekr_protocol.o section .ubsct
                                                 used in Debug\main.o
-c_imul                               000086af   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\lib\libm0.sm8)imul.o section .text
+c_imul                               000086a2   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\lib\libm0.sm8)imul.o section .text
                                                 used in Debug\delay.o
-c_sdivx                              000086d6   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\lib\libm0.sm8)sdivx.o section .text
+c_sdivx                              000086c9   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\lib\libm0.sm8)sdivx.o section .text
                                                 used in Debug\delay.o
-c_smodx                              000086d0   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\lib\libm0.sm8)sdivx.o section .text
+c_smodx                              000086c3   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\lib\libm0.sm8)sdivx.o section .text
                                                 *** not used ***
 c_x                                  000000f5   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\lib\libm0.sm8)xreg.o section .ubsct
                                                 used in C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\lib\crtsi0.sm8
                                                         (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\lib\libm0.sm8)imul.o
                                                         (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\lib\libm0.sm8)sdivx.o
                                                         (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\lib\libm0.sm8)xymvx.o
-c_xymvx                              000086fb   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\lib\libm0.sm8)xymvx.o section .text
+c_xymvx                              000086ee   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\lib\libm0.sm8)xymvx.o section .text
                                                 used in Debug\hekr_protocol.o
 c_y                                  000000f8   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\lib\libm0.sm8)yreg.o section .ubsct
                                                 used in C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\lib\crtsi0.sm8
-f_NonHandledInterrupt                0000870a   defined in Debug\stm8_interrupt_vector.o section .text
-f_UART1_Recv_IRQHandler              00008602   defined in Debug\main.o section .text
+f_NonHandledInterrupt                000086fd   defined in Debug\stm8_interrupt_vector.o section .text
+f_UART1_Recv_IRQHandler              000085f5   defined in Debug\main.o section .text
                                                 used in Debug\stm8_interrupt_vector.o

@@ -1,0 +1,377 @@
+C51 COMPILER V9.01   HEKR_PROTOCOL                                                         06/27/2016 15:45:35 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE HEKR_PROTOCOL
+OBJECT MODULE PLACED IN hekr_protocol.OBJ
+COMPILER INVOKED BY: G:\new_windows\keil\C51\BIN\C51.EXE hekr_protocol.c LARGE BROWSE INCDIR(..\51 MDK) DEBUG OBJECTEXTE
+                    -ND TABS(2)
+
+line level    source
+
+   1          #include "hekr_protocol.h"
+   2          
+   3          //*************************************************************************
+   4          //Hekr 具体码值
+   5          //*************************************************************************
+   6          
+   7          //通用帧头格式 
+   8          typedef struct
+   9          {
+  10            unsigned char header;
+  11            unsigned char length;
+  12            unsigned char type;
+  13            unsigned char number;
+  14          }GeneralHeader;
+  15          
+  16          
+  17          //Hekr各帧长度
+  18          typedef enum
+  19          {
+  20            ModuleQueryFrameLength = 0x07,
+  21            ModuleResponseFrameLength = 0x0B,
+  22            ErrorFrameLength = 0x07,
+  23            ProdKeyLenth = 0x16
+  24          }AllFrameLength;
+  25          
+  26          //Hekr各帧类型
+  27          typedef enum
+  28          {
+  29            DeviceUploadType = 0x01,
+  30            ModuleDownloadType = 0x02,
+  31            ModuleOperationType = 0xFE,
+  32            ErrorFrameType = 0xFF
+  33          }AllFrameType;
+  34          
+  35          
+  36          //Hekr错误码取值
+  37          typedef enum
+  38          {
+  39            ErrorOperation = 0x01,
+  40            ErrorSumCheck = 0x02,
+  41            ErrorDataRange = 0x03,
+  42            ErrorNoCMD = 0xFF
+  43          }AllErrorValue;
+  44          
+  45          
+  46          
+  47          //模块查询帧格式
+  48          typedef struct
+  49          {
+  50            //通用帧头
+  51            GeneralHeader header;
+  52            //有效数据
+  53            unsigned char CMD;
+  54            unsigned char Reserved;
+C51 COMPILER V9.01   HEKR_PROTOCOL                                                         06/27/2016 15:45:35 PAGE 2   
+
+  55            //和校验
+  56            unsigned char SUM;
+  57          }ModuleQueryFrame; 
+  58          
+  59          
+  60          //错误帧格式
+  61          typedef struct
+  62          {
+  63            //通用帧头
+  64            GeneralHeader header;
+  65            //有效数据
+  66            unsigned char ErrorCode;
+  67            unsigned char Reserved;
+  68            //和校验
+  69            unsigned char SUM;
+  70          }ErrorFrame; 
+  71          
+  72          //*************************************************************************
+  73          //Hekr 定义变量
+  74          //*************************************************************************
+  75          
+  76          // 内部数据
+  77          static unsigned char DATA_AREA hekr_send_buffer[USER_MAX_LEN+HEKR_DATA_LEN] = {0};
+  78          static unsigned char module_status[10] = {0};
+  79          static unsigned char frame_no = 0;
+  80          static void (*hekr_send_btye)(unsigned char);
+  81          
+  82          // 提供用户使用
+  83          ModuleStatusFrame  *ModuleStatus = (ModuleStatusFrame*)&module_status;
+  84          unsigned char DATA_AREA valid_data[USER_MAX_LEN] = {0};
+  85          
+  86          //*************************************************************************
+  87          //Hekr 内部函数申明 
+  88          //*************************************************************************
+  89          
+  90          // Static Function
+  91          static void HekrSendByte(unsigned char ch);
+  92          static void HekrSendFrame(unsigned char DATA_AREA *dat);
+  93          static unsigned char SumCheckIsErr(unsigned char DATA_AREA *dat);
+  94          static void ErrResponse(unsigned char dat);
+  95          static unsigned char SumCalculate(unsigned char DATA_AREA *dat);
+  96          static void HekrValidDataCopy(unsigned char DATA_AREA *dat);
+  97          static void HekrModuleStateCopy(unsigned char DATA_AREA *dat);
+  98          
+  99          //*************************************************************************
+ 100          //Hekr 函数定义
+ 101          //*************************************************************************
+ 102          
+ 103          // 用户函数
+ 104          void HekrInit(void (*fun)(unsigned char))
+ 105          { 
+ 106   1        hekr_send_btye = fun;
+ 107   1      }
+ 108          
+ 109          unsigned char HekrRecvDataHandle(unsigned char DATA_AREA *dat)
+ 110          {
+ 111   1        //检查和校验
+ 112   1        if(SumCheckIsErr(dat))
+ 113   1        {
+ 114   2          ErrResponse(ErrorSumCheck);
+ 115   2          return RecvDataSumCheckErr;
+ 116   2        }
+C51 COMPILER V9.01   HEKR_PROTOCOL                                                         06/27/2016 15:45:35 PAGE 3   
+
+ 117   1        //确认帧类型
+ 118   1        switch(dat[2])
+ 119   1        {
+ 120   2        case DeviceUploadType://MCU上传信息反馈 不需要处理 
+ 121   2                                return MCU_UploadACK;
+ 122   2        case ModuleDownloadType://WIFI下传信息
+ 123   2                                HekrSendFrame(dat);
+ 124   2                                HekrValidDataCopy(dat);
+ 125   2                                return ValidDataUpdate;
+ 126   2        case ModuleOperationType://Hekr模块状态
+ 127   2                                if(dat[1] != ModuleResponseFrameLength)
+ 128   2                                  return MCU_ControlModuleACK;
+ 129   2                                HekrModuleStateCopy(dat);
+ 130   2                                return HekrModuleStateUpdate;
+ 131   2        case ErrorFrameType://上一帧发送错误 
+ 132   2                                return LastFrameSendErr;
+ 133   2        default:ErrResponse(ErrorNoCMD);break;
+ 134   2        }
+ 135   1        return RecvDataUseless;
+ 136   1      }
+ 137          
+ 138          void HekrValidDataUpload(unsigned char len)
+ 139          {
+ 140   1        unsigned char i;
+ 141   1        hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+ 142   1        hekr_send_buffer[1] = len + 5;
+ 143   1        hekr_send_buffer[2] = DeviceUploadType;
+ 144   1        hekr_send_buffer[3] = frame_no++;
+ 145   1        for(i = 0; i < len ; i++)
+ 146   1          hekr_send_buffer[i+4] = valid_data[i];
+ 147   1        HekrSendFrame(&hekr_send_buffer[0]);
+ 148   1      }
+ 149          
+ 150          //模块状态查询函数
+ 151          void Module_State_Function(void)
+ 152          {
+ 153   1        hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+ 154   1        hekr_send_buffer[1] = ModuleQueryFrameLength;
+ 155   1        hekr_send_buffer[2] = ModuleOperationType;
+ 156   1        hekr_send_buffer[3] = frame_no++;
+ 157   1        hekr_send_buffer[4] = Module_Statue;
+ 158   1        hekr_send_buffer[5] = 0x00;
+ 159   1        HekrSendFrame(hekr_send_buffer);
+ 160   1      }
+ 161          
+ 162          //模块软复位函数
+ 163          void Module_Soft_Reboot_Function(void)
+ 164          {
+ 165   1        hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+ 166   1        hekr_send_buffer[1] = ModuleQueryFrameLength;
+ 167   1        hekr_send_buffer[2] = ModuleOperationType;
+ 168   1        hekr_send_buffer[3] = frame_no++;
+ 169   1        hekr_send_buffer[4] = Module_Soft_Reboot;
+ 170   1        hekr_send_buffer[5] = 0x00;
+ 171   1        HekrSendFrame(hekr_send_buffer);
+ 172   1      }
+ 173          
+ 174          //模块恢复出厂设置函数
+ 175          void Module_Factory_Reset_Function()
+ 176          {
+ 177   1        hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+ 178   1        hekr_send_buffer[1] = ModuleQueryFrameLength;
+C51 COMPILER V9.01   HEKR_PROTOCOL                                                         06/27/2016 15:45:35 PAGE 4   
+
+ 179   1        hekr_send_buffer[2] = ModuleOperationType;
+ 180   1        hekr_send_buffer[3] = frame_no++;
+ 181   1        hekr_send_buffer[4] = Module_Factory_Reset;
+ 182   1        hekr_send_buffer[5] = 0x00;
+ 183   1        HekrSendFrame(hekr_send_buffer);
+ 184   1      }
+ 185          
+ 186          //模块进入配置模式函数
+ 187          void Hekr_Config_Function()
+ 188          {
+ 189   1        hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+ 190   1        hekr_send_buffer[1] = ModuleQueryFrameLength;
+ 191   1        hekr_send_buffer[2] = ModuleOperationType;
+ 192   1        hekr_send_buffer[3] = frame_no++;
+ 193   1        hekr_send_buffer[4] = Hekr_Config;
+ 194   1        hekr_send_buffer[5] = 0x00;
+ 195   1        HekrSendFrame(hekr_send_buffer);
+ 196   1      }
+ 197          
+ 198          //模块睡眠函数
+ 199          void Module_Set_Sleep_Function()
+ 200          {
+ 201   1        hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+ 202   1        hekr_send_buffer[1] = ModuleQueryFrameLength;
+ 203   1        hekr_send_buffer[2] = ModuleOperationType;
+ 204   1        hekr_send_buffer[3] = frame_no++;
+ 205   1        hekr_send_buffer[4] = Module_Set_Sleep;
+ 206   1        hekr_send_buffer[5] = 0x00;
+ 207   1        HekrSendFrame(hekr_send_buffer);
+ 208   1      }
+ 209          
+ 210          //模块睡眠唤醒函数
+ 211          void Module_Weakup_Function()
+ 212          {
+ 213   1        hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+ 214   1        hekr_send_buffer[1] = ModuleQueryFrameLength;
+ 215   1        hekr_send_buffer[2] = ModuleOperationType;
+ 216   1        hekr_send_buffer[3] = frame_no++;
+ 217   1        hekr_send_buffer[4] = Module_Weakup;
+ 218   1        hekr_send_buffer[5] = 0x00;
+ 219   1        HekrSendFrame(hekr_send_buffer);
+ 220   1      }
+ 221          
+ 222          //模块产测使能函数
+ 223          void Module_Factory_Test_Function()
+ 224          {
+ 225   1        hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+ 226   1        hekr_send_buffer[1] = ModuleQueryFrameLength;
+ 227   1        hekr_send_buffer[2] = ModuleOperationType;
+ 228   1        hekr_send_buffer[3] = frame_no++;
+ 229   1        hekr_send_buffer[4] = Module_Factory_Test;
+ 230   1        hekr_send_buffer[5] = 0x00;
+ 231   1        HekrSendFrame(hekr_send_buffer);
+ 232   1      }
+ 233          
+ 234          //固件版本查询函数
+ 235          void Module_Firmware_Versions_Function()
+ 236          {
+ 237   1        hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+ 238   1        hekr_send_buffer[1] = ModuleQueryFrameLength;
+ 239   1        hekr_send_buffer[2] = ModuleOperationType;
+ 240   1        hekr_send_buffer[3] = frame_no++;
+C51 COMPILER V9.01   HEKR_PROTOCOL                                                         06/27/2016 15:45:35 PAGE 5   
+
+ 241   1        hekr_send_buffer[4] = Module_Firmware_Versions;
+ 242   1        hekr_send_buffer[5] = 0x00;
+ 243   1        HekrSendFrame(hekr_send_buffer);
+ 244   1      }
+ 245          
+ 246          //ProductKey查询函数
+ 247          void Module_ProdKey_Get_Function()
+ 248          {
+ 249   1        hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+ 250   1        hekr_send_buffer[1] = ModuleQueryFrameLength;
+ 251   1        hekr_send_buffer[2] = ModuleOperationType;
+ 252   1        hekr_send_buffer[3] = frame_no++;
+ 253   1        hekr_send_buffer[4] = Module_ProdKey_Get;
+ 254   1        hekr_send_buffer[5] = 0x00;
+ 255   1        HekrSendFrame(hekr_send_buffer);
+ 256   1      }
+ 257          
+ 258          //产品秘钥设置函数
+ 259          void Set_ProdKey(unsigned char *ProdKey_16Byte_Set)
+ 260          {
+ 261   1        unsigned char i;
+ 262   1        hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+ 263   1        hekr_send_buffer[1] = ProdKeyLenth;
+ 264   1        hekr_send_buffer[2] = ModuleOperationType;
+ 265   1        hekr_send_buffer[3] = frame_no++;
+ 266   1        hekr_send_buffer[4] = Module_Set_ProdKey;
+ 267   1      
+ 268   1        for(i=0;i<16;i++)                                       
+ 269   1             hekr_send_buffer[i+5]=*(ProdKey_16Byte_Set+i);
+ 270   1        
+ 271   1        HekrSendFrame(hekr_send_buffer);
+ 272   1      }
+ 273          
+ 274          // 内部函数
+ 275          static void HekrSendByte(unsigned char ch)
+ 276          {
+ 277   1        hekr_send_btye(ch);
+ 278   1      }
+ 279          
+ 280          
+ 281          static void HekrSendFrame(unsigned char DATA_AREA *dat)
+ 282          {
+ 283   1        unsigned char len = dat[1];
+ 284   1        unsigned char i = 0;
+ 285   1        dat[len-1] = SumCalculate(dat);
+ 286   1        for(i = 0 ; i < len ; i++)
+ 287   1        {
+ 288   2          HekrSendByte(dat[i]);
+ 289   2        }
+ 290   1      }
+ 291          
+ 292          static unsigned char SumCheckIsErr(unsigned char DATA_AREA *dat)
+ 293          {
+ 294   1        unsigned char temp = SumCalculate(dat);
+ 295   1        unsigned char len = dat[1] - 1;
+ 296   1      
+ 297   1        if(temp == dat[len])
+ 298   1          return 0;
+ 299   1        return 1;
+ 300   1      }
+ 301          
+ 302          static unsigned char SumCalculate(unsigned char DATA_AREA *dat)
+C51 COMPILER V9.01   HEKR_PROTOCOL                                                         06/27/2016 15:45:35 PAGE 6   
+
+ 303          {
+ 304   1        unsigned char temp;
+ 305   1        unsigned char i;
+ 306   1        unsigned char len = dat[1] - 1;
+ 307   1      
+ 308   1        for(temp = 0,i = 0;i < len; i++)
+ 309   1        {
+ 310   2          temp += dat[i];
+ 311   2        }
+ 312   1      
+ 313   1        return temp;
+ 314   1      }
+ 315          
+ 316          static void ErrResponse(unsigned char dat)
+ 317          {
+ 318   1        hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+ 319   1        hekr_send_buffer[1] = ErrorFrameLength;
+ 320   1        hekr_send_buffer[2] = ErrorFrameType;
+ 321   1        hekr_send_buffer[3] = frame_no++;
+ 322   1        hekr_send_buffer[4] = dat;
+ 323   1        hekr_send_buffer[5] = 0x00;
+ 324   1        HekrSendFrame(hekr_send_buffer);
+ 325   1      }
+ 326          
+ 327          static void HekrValidDataCopy(unsigned char DATA_AREA *dat)
+ 328          {
+ 329   1        unsigned char len,i;
+ 330   1        len = dat[1]- HEKR_DATA_LEN;
+ 331   1        for(i = 0 ;i < len ; i++)
+ 332   1          valid_data[i] = dat[i+4];
+ 333   1      }
+ 334          
+ 335          static void HekrModuleStateCopy(unsigned char DATA_AREA *dat)
+ 336          {
+ 337   1        unsigned char len,i;
+ 338   1        len = dat[1]- HEKR_DATA_LEN;
+ 339   1        for(i = 0 ;i < len ; i++)
+ 340   1          module_status[i] = dat[i+4];
+ 341   1      }
+ 342          
+ 343          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    989    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =    222      11
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

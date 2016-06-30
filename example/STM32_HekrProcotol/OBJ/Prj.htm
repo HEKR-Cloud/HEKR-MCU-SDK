@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\Prj.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\Prj.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Sun Sep 06 13:50:00 2015
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Tue Jun 28 15:20:19 2016
 <BR><P>
 <H3>Maximum Stack Usage =        108 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -435,8 +435,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
 <LI>Call Chain = __user_setup_stackheap
 </UL>
-<BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_initial_stackheap
-<LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_perproc_libspace
+<BR>[Calls]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_perproc_libspace
+<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_initial_stackheap
 </UL>
 <BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_sh
 </UL>
@@ -475,28 +475,28 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[50]"></a>HekrModuleControl</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, hekr_protocol.o(i.HekrModuleControl))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = HekrModuleControl &rArr; HekrSendFrame &rArr; SumCalculate
+<P><STRONG><a name="[50]"></a>HekrRecvDataHandle</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, hekr_protocol.o(i.HekrRecvDataHandle))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = HekrRecvDataHandle &rArr; ErrResponse &rArr; HekrSendFrame &rArr; SumCalculate
+</UL>
+<BR>[Calls]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SumCheckIsErr
+<LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrValidDataCopy
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrSendFrame
+<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrModuleStateCopy
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ErrResponse
+</UL>
+<BR>[Called By]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[56]"></a>HekrValidDataUpload</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, hekr_protocol.o(i.HekrValidDataUpload))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = HekrValidDataUpload &rArr; HekrSendFrame &rArr; SumCalculate
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrSendFrame
 </UL>
 <BR>[Called By]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[51]"></a>HekrRecvDataHandle</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, hekr_protocol.o(i.HekrRecvDataHandle))
-<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = HekrRecvDataHandle &rArr; ErrResponse &rArr; HekrSendFrame &rArr; SumCalculate
-</UL>
-<BR>[Calls]<UL><LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SumCheckIsErr
-<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrValidDataCopy
-<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrSendFrame
-<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrModuleStateCopy
-<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ErrResponse
-</UL>
-<BR>[Called By]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[57]"></a>HekrValidDataUpload</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, hekr_protocol.o(i.HekrValidDataUpload))
-<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = HekrValidDataUpload &rArr; HekrSendFrame &rArr; SumCalculate
+<P><STRONG><a name="[57]"></a>Module_State_Function</STRONG> (Thumb, 68 bytes, Stack size 24 bytes, hekr_protocol.o(i.Module_State_Function))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = Module_State_Function &rArr; HekrSendFrame &rArr; SumCalculate
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrSendFrame
 </UL>
@@ -598,13 +598,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_Init
 </UL>
 
-<P><STRONG><a name="[45]"></a>main</STRONG> (Thumb, 98 bytes, Stack size 0 bytes, main.o(i.main))
+<P><STRONG><a name="[45]"></a>main</STRONG> (Thumb, 126 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 108<LI>Call Chain = main &rArr; System_Init &rArr; Uart3_init &rArr; USART_Init &rArr; RCC_GetClocksFreq
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART3_SendChar
-<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrValidDataUpload
-<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrRecvDataHandle
-<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrModuleControl
+<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Module_State_Function
+<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrValidDataUpload
+<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrRecvDataHandle
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrInit
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_Init
 </UL>
@@ -619,16 +619,16 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrSendFrame
 </UL>
-<BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrRecvDataHandle
+<BR>[Called By]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrRecvDataHandle
 </UL>
 
-<P><STRONG><a name="[54]"></a>HekrModuleStateCopy</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, hekr_protocol.o(i.HekrModuleStateCopy))
+<P><STRONG><a name="[53]"></a>HekrModuleStateCopy</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, hekr_protocol.o(i.HekrModuleStateCopy))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HekrModuleStateCopy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrRecvDataHandle
+<BR>[Called By]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrRecvDataHandle
 </UL>
 
-<P><STRONG><a name="[56]"></a>HekrSendByte</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, hekr_protocol.o(i.HekrSendByte))
+<P><STRONG><a name="[55]"></a>HekrSendByte</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, hekr_protocol.o(i.HekrSendByte))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HekrSendByte
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrSendFrame
@@ -637,34 +637,34 @@ Local Symbols
 <P><STRONG><a name="[4f]"></a>HekrSendFrame</STRONG> (Thumb, 38 bytes, Stack size 16 bytes, hekr_protocol.o(i.HekrSendFrame))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = HekrSendFrame &rArr; SumCalculate
 </UL>
-<BR>[Calls]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SumCalculate
-<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrSendByte
+<BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SumCalculate
+<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrSendByte
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ErrResponse
-<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrValidDataUpload
-<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrRecvDataHandle
-<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrModuleControl
+<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Module_State_Function
+<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrValidDataUpload
+<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrRecvDataHandle
 </UL>
 
-<P><STRONG><a name="[53]"></a>HekrValidDataCopy</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, hekr_protocol.o(i.HekrValidDataCopy))
+<P><STRONG><a name="[52]"></a>HekrValidDataCopy</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, hekr_protocol.o(i.HekrValidDataCopy))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HekrValidDataCopy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrRecvDataHandle
+<BR>[Called By]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrRecvDataHandle
 </UL>
 
-<P><STRONG><a name="[55]"></a>SumCalculate</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, hekr_protocol.o(i.SumCalculate))
+<P><STRONG><a name="[54]"></a>SumCalculate</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, hekr_protocol.o(i.SumCalculate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SumCalculate
 </UL>
-<BR>[Called By]<UL><LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SumCheckIsErr
+<BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SumCheckIsErr
 <LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrSendFrame
 </UL>
 
-<P><STRONG><a name="[52]"></a>SumCheckIsErr</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, hekr_protocol.o(i.SumCheckIsErr))
+<P><STRONG><a name="[51]"></a>SumCheckIsErr</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, hekr_protocol.o(i.SumCheckIsErr))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = SumCheckIsErr &rArr; SumCalculate
 </UL>
-<BR>[Calls]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SumCalculate
+<BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SumCalculate
 </UL>
-<BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrRecvDataHandle
+<BR>[Called By]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HekrRecvDataHandle
 </UL>
 
 <P><STRONG><a name="[58]"></a>SetSysClock</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, system_stm32f10x.o(i.SetSysClock))

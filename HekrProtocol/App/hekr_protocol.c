@@ -164,17 +164,6 @@ void HekrValidDataUpload(unsigned char len)
 	HekrSendFrame(hekr_send_buffer);
 }
 
-void HekrModuleControl(unsigned char data)
-{
-	hekr_send_buffer[0] = HEKR_FRAME_HEADER;
-	hekr_send_buffer[1] = ModuleQueryFrameLength;
-	hekr_send_buffer[2] = ModuleOperationType;
-	hekr_send_buffer[3] = frame_no++;
-	hekr_send_buffer[4] = data;
-	hekr_send_buffer[5] = 0x00;
-	HekrSendFrame(hekr_send_buffer);
-}
-
 //模块状态查询函数
 void Module_State_Function(void)
 {
@@ -358,6 +347,7 @@ void Set_ProdKey(unsigned char *ProdKey_16Byte_Set)
 	
 	HekrSendFrame(hekr_send_buffer);
 }
+
 
 // 内部函数
 static void HekrSendByte(unsigned char ch)

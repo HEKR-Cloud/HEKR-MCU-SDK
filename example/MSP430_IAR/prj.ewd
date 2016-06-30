@@ -41,7 +41,7 @@
         </option>
         <option>
           <name>DynDriver</name>
-          <state>SIM430</state>
+          <state>430FET</state>
         </option>
         <option>
           <name>dDllSlave</name>
@@ -203,7 +203,7 @@
         </option>
         <option>
           <name>CRadioProtocolType</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>CCRadioModuleTypeSlave</name>
@@ -228,7 +228,7 @@
         <option>
           <name>FetConnection</name>
           <version>2</version>
-          <state>1</state>
+          <state>8</state>
         </option>
         <option>
           <name>SoftwareBreakpointEnable</name>
@@ -236,7 +236,7 @@
         </option>
         <option>
           <name>RadioSoftwareBreakpointType</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>TargetSettlingtime</name>
@@ -363,10 +363,6 @@
         <loadFlag>0</loadFlag>
       </plugin>
       <plugin>
-        <file>$EW_DIR$\common\plugins\Stack\Stack.ENU.ewplugin</file>
-        <loadFlag>1</loadFlag>
-      </plugin>
-      <plugin>
         <file>$EW_DIR$\common\plugins\SymList\SymList.ENU.ewplugin</file>
         <loadFlag>1</loadFlag>
       </plugin>
@@ -411,7 +407,7 @@
         </option>
         <option>
           <name>DynDriver</name>
-          <state>SIM430</state>
+          <state>430FET</state>
         </option>
         <option>
           <name>dDllSlave</name>
@@ -427,7 +423,7 @@
         </option>
         <option>
           <name>DdfFileName</name>
-          <state>$TOOLKIT_DIR$\config\CC430F5133.ddf</state>
+          <state>$TOOLKIT_DIR$\config\MSP430F149.ddf</state>
         </option>
         <option>
           <name>ProcTMS</name>
@@ -557,7 +553,7 @@
         </option>
         <option>
           <name>TargetVoltage</name>
-          <state>###Uninitialized###</state>
+          <state>3.3</state>
         </option>
         <option>
           <name>AllowLockedFlashAccessP7</name>
@@ -598,7 +594,7 @@
         <option>
           <name>FetConnection</name>
           <version>2</version>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>SoftwareBreakpointEnable</name>
@@ -626,7 +622,7 @@
         </option>
         <option>
           <name>GPassword</name>
-          <state>###Uninitialized###</state>
+          <state></state>
         </option>
         <option>
           <name>DebugLPM5</name>
@@ -731,10 +727,6 @@
       <plugin>
         <file>$EW_DIR$\common\plugins\Orti\Orti.ENU.ewplugin</file>
         <loadFlag>0</loadFlag>
-      </plugin>
-      <plugin>
-        <file>$EW_DIR$\common\plugins\Stack\Stack.ENU.ewplugin</file>
-        <loadFlag>1</loadFlag>
       </plugin>
       <plugin>
         <file>$EW_DIR$\common\plugins\SymList\SymList.ENU.ewplugin</file>

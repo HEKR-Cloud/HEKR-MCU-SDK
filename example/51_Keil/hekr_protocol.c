@@ -19,7 +19,8 @@ typedef	enum
 {
 	ModuleQueryFrameLength = 0x07,
 	ModuleResponseFrameLength = 0x0B,
-	ErrorFrameLength = 0x07
+	ErrorFrameLength = 0x07,
+	ProdKeyLenth = 0x16
 }AllFrameLength;
 
 //Hekr各帧类型
@@ -146,17 +147,129 @@ void HekrValidDataUpload(unsigned char len)
 	HekrSendFrame(&hekr_send_buffer[0]);
 }
 
-void HekrModuleControl(unsigned char dat)
+//模块状态查询函数
+void Module_State_Function(void)
 {
 	hekr_send_buffer[0] = HEKR_FRAME_HEADER;
 	hekr_send_buffer[1] = ModuleQueryFrameLength;
 	hekr_send_buffer[2] = ModuleOperationType;
 	hekr_send_buffer[3] = frame_no++;
-	hekr_send_buffer[4] = dat;
+	hekr_send_buffer[4] = Module_Statue;
 	hekr_send_buffer[5] = 0x00;
 	HekrSendFrame(hekr_send_buffer);
 }
 
+//模块软复位函数
+void Module_Soft_Reboot_Function(void)
+{
+	hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+	hekr_send_buffer[1] = ModuleQueryFrameLength;
+	hekr_send_buffer[2] = ModuleOperationType;
+	hekr_send_buffer[3] = frame_no++;
+	hekr_send_buffer[4] = Module_Soft_Reboot;
+	hekr_send_buffer[5] = 0x00;
+	HekrSendFrame(hekr_send_buffer);
+}
+
+//模块恢复出厂设置函数
+void Module_Factory_Reset_Function()
+{
+	hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+	hekr_send_buffer[1] = ModuleQueryFrameLength;
+	hekr_send_buffer[2] = ModuleOperationType;
+	hekr_send_buffer[3] = frame_no++;
+	hekr_send_buffer[4] = Module_Factory_Reset;
+	hekr_send_buffer[5] = 0x00;
+	HekrSendFrame(hekr_send_buffer);
+}
+
+//模块进入配置模式函数
+void Hekr_Config_Function()
+{
+	hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+	hekr_send_buffer[1] = ModuleQueryFrameLength;
+	hekr_send_buffer[2] = ModuleOperationType;
+	hekr_send_buffer[3] = frame_no++;
+	hekr_send_buffer[4] = Hekr_Config;
+	hekr_send_buffer[5] = 0x00;
+	HekrSendFrame(hekr_send_buffer);
+}
+
+//模块睡眠函数
+void Module_Set_Sleep_Function()
+{
+	hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+	hekr_send_buffer[1] = ModuleQueryFrameLength;
+	hekr_send_buffer[2] = ModuleOperationType;
+	hekr_send_buffer[3] = frame_no++;
+	hekr_send_buffer[4] = Module_Set_Sleep;
+	hekr_send_buffer[5] = 0x00;
+	HekrSendFrame(hekr_send_buffer);
+}
+
+//模块睡眠唤醒函数
+void Module_Weakup_Function()
+{
+	hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+	hekr_send_buffer[1] = ModuleQueryFrameLength;
+	hekr_send_buffer[2] = ModuleOperationType;
+	hekr_send_buffer[3] = frame_no++;
+	hekr_send_buffer[4] = Module_Weakup;
+	hekr_send_buffer[5] = 0x00;
+	HekrSendFrame(hekr_send_buffer);
+}
+
+//模块产测使能函数
+void Module_Factory_Test_Function()
+{
+	hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+	hekr_send_buffer[1] = ModuleQueryFrameLength;
+	hekr_send_buffer[2] = ModuleOperationType;
+	hekr_send_buffer[3] = frame_no++;
+	hekr_send_buffer[4] = Module_Factory_Test;
+	hekr_send_buffer[5] = 0x00;
+	HekrSendFrame(hekr_send_buffer);
+}
+
+//固件版本查询函数
+void Module_Firmware_Versions_Function()
+{
+	hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+	hekr_send_buffer[1] = ModuleQueryFrameLength;
+	hekr_send_buffer[2] = ModuleOperationType;
+	hekr_send_buffer[3] = frame_no++;
+	hekr_send_buffer[4] = Module_Firmware_Versions;
+	hekr_send_buffer[5] = 0x00;
+	HekrSendFrame(hekr_send_buffer);
+}
+
+//ProductKey查询函数
+void Module_ProdKey_Get_Function()
+{
+	hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+	hekr_send_buffer[1] = ModuleQueryFrameLength;
+	hekr_send_buffer[2] = ModuleOperationType;
+	hekr_send_buffer[3] = frame_no++;
+	hekr_send_buffer[4] = Module_ProdKey_Get;
+	hekr_send_buffer[5] = 0x00;
+	HekrSendFrame(hekr_send_buffer);
+}
+
+//产品秘钥设置函数
+void Set_ProdKey(unsigned char *ProdKey_16Byte_Set)
+{
+	unsigned char i;
+	hekr_send_buffer[0] = HEKR_FRAME_HEADER;
+	hekr_send_buffer[1] = ProdKeyLenth;
+	hekr_send_buffer[2] = ModuleOperationType;
+	hekr_send_buffer[3] = frame_no++;
+	hekr_send_buffer[4] = Module_Set_ProdKey;
+
+	for(i=0;i<16;i++)						                            
+			 hekr_send_buffer[i+5]=*(ProdKey_16Byte_Set+i);
+	
+	HekrSendFrame(hekr_send_buffer);
+}
 
 // 内部函数
 static void HekrSendByte(unsigned char ch)
